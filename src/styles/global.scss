@@ -1,0 +1,38 @@
+$primary: #e5f8ff;
+$blue: #2b4da2;
+
+// Background
+.bg-soft-blue {
+  background-color: $primary;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.bg-blue {
+  background-color: $blue;
+}
+.bg-pink {
+  background-color: #fff0e6;
+}
+
+// Text
+.text-blue {
+  color: $blue;
+}
+
+// Button
+.btn-white {
+  background-color: #fff !important;
+}
+.btn-orange {
+  background-color: #f1883c !important;
+  color: #fff !important;
+}
+
+.mt-n2 {
+  margin-top: -0.5rem !important;
+}
+
+#navbar {
+  background-color: $primary;
+}
