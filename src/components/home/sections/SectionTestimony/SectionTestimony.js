@@ -39,7 +39,7 @@ const SectionTestimony = () => {
                                                         <img src="/assets/image/kemendikbud.webp" width={60} alt="" />
                                                     </div>
                                                     <div className="col-lg-9">
-                                                        <small className="d-block fw-bold">Muhammad Aldian</small>
+                                                        <small className="d-block fw-bold">Aldian</small>
                                                         <small>SMP 1 Padalarang</small>
                                                     </div>
                                                 </div>
@@ -58,7 +58,7 @@ const SectionTestimony = () => {
                                                         <img src="/assets/image/kemendikbud.webp" width={60} alt="" />
                                                     </div>
                                                     <div className="col-lg-9">
-                                                        <small className="d-block fw-bold">Muhammad Aldian</small>
+                                                        <small className="d-block fw-bold">Andrean</small>
                                                         <small>SMP 1 Padalarang</small>
                                                     </div>
                                                 </div>

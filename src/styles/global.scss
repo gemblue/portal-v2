@@ -24,6 +24,10 @@ $blue: #2b4da2;
 .btn-white {
   background-color: #fff !important;
 }
+.btn-outline-white {
+  background-color: #fff !important;
+  border: 1px solid rgb(202, 202, 202) !important;
+}
 .btn-orange {
   background-color: #f1883c !important;
   color: #fff !important;
@@ -33,6 +37,47 @@ $blue: #2b4da2;
   margin-top: -0.5rem !important;
 }
 
+.mt-n3 {
+  margin-top: -0.75rem !important;
+}
+
+.mt-n4 {
+  margin-top: -1rem !important;
+}
+
 #navbar {
-  background-color: $primary;
+  // background-color: $primary;
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+#login {
+  background: url("../../public/assets/image/home/bg-access-book.png");
+  background-color: $primary !important;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.fade-enter {
+  opacity: 1;
+  z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transform: translateX(20px);
+  transition: all 0.5s;
+  // transition: opacity 250ms ease-out, transform 300ms ease;
+}
+.fade-exit {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.5s;
+  // transition: opacity 250ms ease-out, transform 300ms ease;
 }
