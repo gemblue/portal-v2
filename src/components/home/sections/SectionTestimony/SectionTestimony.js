@@ -11,7 +11,7 @@ SwiperCore.use([Grid, Autoplay]);
 
 const SectionTestimony = () => {
     return (
-        <section className="py-5" style={{ background: 'linear-gradient(to bottom, white, #fef2e9)' }}>
+        <section className="py-5" style={{ background: 'linear-gradient(to bottom, white, #e5f8ff)' }}>
             <div className="container p-3">
                 <h3 className="mb-4">Apa kata mereka?</h3>
                 <Swiper

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -15,12 +15,10 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item mx-1">
-                                <Link to="/" className="nav-link active" aria-current="page" href="#">Beranda</Link>
+                                <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page" href="#">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <Link to="/catalog" className="nav-link dropdown-toggle">
-                                    Katalog Buku
-                                </Link>
+                                <NavLink to="/catalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page" href="#">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <a className="dropdown-item p-2" href="#">
@@ -43,9 +41,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Buku Untuk
-                                </a>
+                                <NavLink to="/buku-untuk" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page" href="#">Buku Untuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <a className="dropdown-item p-2" href="#">
@@ -68,7 +64,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item mx-1">
-                                <a className="nav-link" href="#">Pusbuk</a>
+                                <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page" href="#">Pusbuk</NavLink>
                             </li>
                             <li className="nav-item ms-3 pt-1">
                                 <Link to="/login" className="nav-link" className="btn btn-sm btn-outline-primary">Masuk</Link>

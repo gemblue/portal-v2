@@ -17,8 +17,8 @@ const Home = () => {
             <SectionPopularBook />
             <SectionAccessBook />
             <SectionAudioBook />
-            <SectionTestimony />
             <SectionBookForAll />
+            <SectionTestimony />
             <SectionFAQ />
         </Layout>
     )

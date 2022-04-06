@@ -17,7 +17,7 @@ $blue: #2b4da2;
 
 // Text
 .text-blue {
-  color: $blue;
+  color: $blue !important;
 }
 
 // Button
@@ -59,6 +59,10 @@ $blue: #2b4da2;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
+
+  .active {
+    color: red !important;
+  }
 }
 
 .fade-enter {
@@ -80,4 +84,18 @@ $blue: #2b4da2;
   transform: translateX(20px);
   transition: all 0.5s;
   // transition: opacity 250ms ease-out, transform 300ms ease;
+}
+
+#audioPlayer {
+  .nav {
+    border: 0;
+    .active {
+      font-weight: 600;
+      color: $blue !important;
+      border: 0;
+    }
+    .nav-link {
+      border: 0;
+    }
+  }
 }
