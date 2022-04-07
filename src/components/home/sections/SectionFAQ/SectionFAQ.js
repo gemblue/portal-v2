@@ -4,7 +4,7 @@ import styles from './SectionFAQ.module.scss'
 
 const SectionFAQ = () => {
     return (
-        <section className="bg-soft-blue">
+        <section>
             <div className="container-fluid">
                 <div className="row align-items-center">
                     <div className="col-lg-7 p-3">

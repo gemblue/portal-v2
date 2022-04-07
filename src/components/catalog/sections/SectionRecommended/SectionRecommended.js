@@ -12,7 +12,7 @@ const SectionRecommended = () => {
                         [0, 1, 2, 3, 4, 5].map((book, index) => {
                             return (
                                 <div key={index} className="col-lg-3">
-                                    <Link to="/catalog/Bahasa">
+                                    <Link to="/catalog/Bahasa" className="text-decoration-none text-dark">
                                         <CardBook
                                             cover="/assets/image/home/informatika.png"
                                             title="Kelas VI Tema 8 Bumiku"

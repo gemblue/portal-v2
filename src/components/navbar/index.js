@@ -21,22 +21,22 @@ const Navbar = () => {
                                 <NavLink to="/catalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 76.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Teks K-13</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Kurikulum Merdeka</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 80.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Nonteks</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
@@ -44,22 +44,22 @@ const Navbar = () => {
                                 <NavLink to="/buku-untuk" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Buku Untuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 20.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Siswa</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 21.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Guru</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <NavLink className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 22.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Orang Tua</span>
-                                        </NavLink>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>

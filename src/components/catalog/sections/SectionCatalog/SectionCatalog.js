@@ -141,7 +141,7 @@ const SectionCatalog = () => {
                                 [0, 1, 2, 3, 4, 5, 6].map((book, index) => {
                                     return (
                                         <div key={index} className="col-lg-4 my-2">
-                                            <Link to="/catalog/Bahasa">
+                                            <Link to="/catalog/Bahasa" className="text-decoration-none text-dark">
                                                 <CardBook cover="/assets/image/home/informatika.png" title="Kelas VI Tema 8 Bumiku" catalog={true} />
                                             </Link>
                                         </div>
