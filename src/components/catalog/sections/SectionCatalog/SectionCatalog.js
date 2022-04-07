@@ -116,22 +116,22 @@ const SectionCatalog = () => {
                             Menampilkan 2234 buku (12 dari 2234 buku)
                         </div>
                         <div className="row">
-                            <div className="col-7 col-lg-8">
+                            <div className="col-8 col-lg-8">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
                                     <input type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
                                     <button className="btn btn-orange" type="button">Cari</button>
                                 </div>
                             </div>
-                            <div className="col-5 col-lg-4 my-auto text-end">
-                                <div class="dropdown">
-                                    <span>Urutkan : </span>
-                                    <button class="btn btn-outline-white dropdown-toggle px-3 py-2 ms-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className="col-4 col-lg-4 my-auto text-end">
+                                <div className="dropdown">
+                                    <span className="d-none d-md-inline">Urutkan : </span>
+                                    <button className="btn btn-outline-white dropdown-toggle px-3 py-2 ms-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         Terbaru
                                     </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><button class="dropdown-item">Terpopuler</button></li>
-                                        <li><button class="dropdown-item">Another action</button></li>
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><button className="dropdown-item">Terpopuler</button></li>
+                                        <li><button className="dropdown-item">Another action</button></li>
                                     </ul>
                                 </div>
                             </div>
