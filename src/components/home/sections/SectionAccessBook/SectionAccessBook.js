@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const SectionAccessBook = () => {
     return (
@@ -16,7 +17,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Teks K-13</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <a href="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></a>
+                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +33,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Kurikulum Merdeka</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <a href="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></a>
+                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +49,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Orang Tua</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <a href="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></a>
+                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>

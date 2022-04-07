@@ -15,11 +15,11 @@ const Hero = () => {
                             <input type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
                             <button className="btn btn-white border-start border-1 dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Buku Teks K13</button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                <li><button className="dropdown-item" href="#">Action</button></li>
+                                <li><button className="dropdown-item" href="#">Another action</button></li>
+                                <li><button className="dropdown-item" href="#">Something else here</button></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#">Separated link</a></li>
+                                <li><button className="dropdown-item" href="#">Separated link</button></li>
                             </ul>
                             <div className="bg-white my-auto p-2">
                                 <button className="btn btn-orange" type="button">Cari</button>

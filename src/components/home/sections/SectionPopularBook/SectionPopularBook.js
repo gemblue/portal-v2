@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import CardBook from "../../../global/card/CardBook/CardBook"
 
 const SectionPopularBook = () => {
@@ -10,7 +11,7 @@ const SectionPopularBook = () => {
                         <p className="text-muted">Jelajahi buku populer dari pusat perbukuan resmi</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <a href="" className="btn btn-sm btn-outline-primary">Lihat Semua Buku</a>
+                        <Link to="#" className="btn btn-sm btn-outline-primary">Lihat Semua Buku</Link>
                     </div>
                 </div>
                 <div className="row mt-4">

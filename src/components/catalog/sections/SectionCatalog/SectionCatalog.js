@@ -130,8 +130,8 @@ const SectionCatalog = () => {
                                         Terbaru
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Terpopuler</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><button class="dropdown-item">Terpopuler</button></li>
+                                        <li><button class="dropdown-item">Another action</button></li>
                                     </ul>
                                 </div>
                             </div>

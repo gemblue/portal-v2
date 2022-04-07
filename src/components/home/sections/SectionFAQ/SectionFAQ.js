@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './SectionFAQ.module.scss'
 
 const SectionFAQ = () => {
@@ -51,7 +52,7 @@ const SectionFAQ = () => {
                                     </div>
                                 </div>
                             </div>
-                            <a href="" className="btn btn-outline-primary">Lihat Semua Pertanyaan</a>
+                            <Link to="#" className="btn btn-outline-primary">Lihat Semua Pertanyaan</Link>
                         </div>
                     </div>
                     <div className="col-lg-5">

@@ -14,8 +14,8 @@ const HeroDetail = () => {
                     <div className="col-lg-9 pt-5 pt-md-0">
                         <button className="btn btn-sm rounded-pill btn-outline-success">Buku Audio</button>
                         <h3 className="my-3">Bahasa Indonesia Aku Bisa Untuk SD Kelas I</h3>
-                        <a href="" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
-                        <a href="" className="btn btn-sm btn-outline-primary py-2">Unduh Audio</a>
+                        <button className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</button>
+                        <button className="btn btn-sm btn-outline-primary py-2">Unduh Audio</button>
                         <small className="my-3 text-muted d-block">Telah diputar 23.943 kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada audio</small>
                         <div className="row align-items-center mb-3">
                             <div className="col-6 col-lg-2">

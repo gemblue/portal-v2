@@ -15,59 +15,59 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item mx-1">
-                                <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page" href="#">Beranda</NavLink>
+                                <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/catalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page" href="#">Katalog Buku</NavLink>
+                                <NavLink to="/catalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 76.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Teks K-13</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Kurikulum Merdeka</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 80.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Nonteks</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/buku-untuk" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page" href="#">Buku Untuk</NavLink>
+                                <NavLink to="/buku-untuk" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Buku Untuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 20.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Siswa</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 21.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Guru</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item p-2" href="#">
+                                        <NavLink className="dropdown-item p-2" to="#">
                                             <img src="/assets/image/home/Group 22.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Orang Tua</span>
-                                        </a>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </li>
                             <li className="nav-item mx-1">
-                                <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page" href="#">Pusbuk</NavLink>
+                                <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Pusbuk</NavLink>
                             </li>
                             <li className="nav-item ms-3 pt-1">
-                                <Link to="/login" className="nav-link" className="btn btn-sm btn-outline-primary">Masuk</Link>
+                                <Link to="/login" className="btn btn-sm btn-outline-primary">Masuk</Link>
                             </li>
                         </ul>
                     </div>

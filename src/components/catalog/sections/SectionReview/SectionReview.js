@@ -1,4 +1,4 @@
-import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import ReactStars from 'react-rating-stars-component'
