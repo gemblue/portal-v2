@@ -1,6 +1,5 @@
 import React from 'react'
 import HeroDetail from '../../components/catalog/hero/HeroDetail/HeroDetail'
-import SectionAudioPlayer from '../../components/catalog/sections/SectionAudioPlayer/SectionAudioPlayer'
 import SectionBreadcumb from '../../components/catalog/sections/SectionBreadcumb/SectionBreadcumb'
 import SectionRecommended from '../../components/catalog/sections/SectionRecommended/SectionRecommended'
 import SectionReview from '../../components/catalog/sections/SectionReview/SectionReview'
