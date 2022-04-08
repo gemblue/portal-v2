@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SectionBreadcumb = () => {
+const SectionBreadcumb = ({ category, level, title }) => {
+    let fixCategory = '';
+    category == 'buku_teks' && (fixCategory = 'Buku Teks K13');
+
     return (
         <section className="pt-3">
             <div className="container p-3">
@@ -11,15 +14,15 @@ const SectionBreadcumb = () => {
                             <Link to="/" className="text-decoration-none text-blue">Beranda</Link>
                         </li>
                         <li className="breadcrumb-item">
-                            <Link to="/catalog" className="text-decoration-none text-blue">Katalog</Link>
+                            <Link to="/katalog" className="text-decoration-none text-blue">Katalog</Link>
                         </li>
                         <li className="breadcrumb-item">
-                            <Link to="/" className="text-decoration-none text-blue">Buku Kurikulum Merdeka</Link>
+                            <Link to="/katalog" className="text-decoration-none text-blue">{fixCategory}</Link>
                         </li>
                         <li className="breadcrumb-item">
-                            <Link to="/" className="text-decoration-none text-blue">Jenjang SD</Link>
+                            <Link to="/katalog" className="text-decoration-none text-blue">{level}</Link>
                         </li>
-                        <li className="breadcrumb-item active" aria-current="page">Bahasa Indonesia</li>
+                        <li className="breadcrumb-item active" aria-current="page">{title}</li>
                     </ol>
                 </nav>
             </div>

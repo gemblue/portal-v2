@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
+import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 
-const SectionCatalog = () => {
+const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }) => {
     return (
         <section>
             <div className="container px-3 py-5">
@@ -17,20 +18,20 @@ const SectionCatalog = () => {
                             </div>
                             <div className="card-body">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input onChange={() => setTypeBook('type_pdf')} className="form-check-input" name="type_book" type="radio" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Buku PDF
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input onChange={() => setTypeBook('type_audio')} className="form-check-input" name="type_book" type="radio" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Buku Audio
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <input onChange={() => setTypeBook('type_interactive')} className="form-check-input" name="type_book" type="radio" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Buku Interaktif
                                     </label>
                                 </div>
@@ -43,25 +44,25 @@ const SectionCatalog = () => {
                             <div className="card-body">
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         PAUD
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         SD/MI
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         SMP/MTS
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         SMA/MA/SMK/MAK
                                     </label>
                                 </div>
@@ -74,37 +75,37 @@ const SectionCatalog = () => {
                             <div className="card-body overflow-auto" style={{ height: '160px' }}>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         IPA
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         IPS
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Bahasa Indonesia
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Bahasa Inggris
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Matematika
                                     </label>
                                 </div>
                                 <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" for="flexCheckDefault">
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Pendidikan Kewarganegaraan
                                     </label>
                                 </div>
@@ -138,19 +139,28 @@ const SectionCatalog = () => {
                         </div>
                         <div className="row">
                             {
-                                [0, 1, 2, 3, 4, 5, 6].map((book, index) => {
-                                    return (
-                                        <div key={index} className="col-lg-4 my-2">
-                                            <Link to="/catalog/Bahasa" className="text-decoration-none text-dark">
-                                                <CardBook cover="/assets/image/home/informatika.png" title="Kelas VI Tema 8 Bumiku" catalog={true} />
-                                            </Link>
-                                        </div>
-                                    )
-                                })
+                                loading
+                                    ? [...Array(skeletonCount)].map((item, index) => {
+                                        return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
+                                    })
+                                    : books.map((book, index) => {
+                                        return (
+                                            <div key={index} className="col-lg-4 my-2">
+                                                <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
+                                                    <CardBook
+                                                        image={book.image}
+                                                        title={book.title}
+                                                        typeBook={book.type}
+                                                        level={book.level}
+                                                    />
+                                                </Link>
+                                            </div>
+                                        )
+                                    })
                             }
                         </div>
-                        <div className="text-center">
-                            <button className="btn btn-primary rounded-pill">Load more</button>
+                        <div className="text-center mt-4">
+                            <button onClick={() => setLimit()} className="btn btn-primary rounded-pill">Load more</button>
                         </div>
                     </div>
                 </div>

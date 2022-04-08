@@ -45,6 +45,16 @@ $blue: #2b4da2;
   margin-top: -1rem !important;
 }
 
+#typeCatalogue {
+  .card-type {
+    border-radius: 10px;
+  }
+  .active-type-catalogue {
+    border: 2px solid orange !important;
+    // border: 2px solid red !important;
+  }
+}
+
 #navbar {
   // background-color: $primary;
   .dropdown:hover .dropdown-menu {

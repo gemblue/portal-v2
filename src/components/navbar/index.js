@@ -18,22 +18,22 @@ const Navbar = () => {
                                 <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/catalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
+                                <NavLink to="/katalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <Link className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="/katalog?type=getTextBooks">
                                             <img src="/assets/image/home/Group 76.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Teks K-13</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="/katalog?type=getPenggerakTextBooks">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Kurikulum Merdeka</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item p-2" to="#">
+                                        <Link className="dropdown-item p-2" to="/katalog?type=getNonTextBooks">
                                             <img src="/assets/image/home/Group 80.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Nonteks</span>
                                         </Link>
