@@ -37,7 +37,7 @@ const CatalogDetail = () => {
         getBookDetail()
         getRecommendBooks()
     }, [slug])
-    console.log(book);
+
     return (
         <Layout>
             <SectionBreadcumb
