@@ -16,8 +16,8 @@ const CatalogDetail = () => {
     const [recommendBooks, setRecommendBooks] = useState([])
 
     useEffect(() => {
+        setLoading(true)
         const getRecommendBooks = async () => {
-            setLoading(true)
             try {
                 let response = await axios.get(`${BASE_URL}/api/catalogue/getRecommendCatalogue?slug=${slug}&qty=8`);
                 setRecommendBooks(response.data.results);
@@ -36,7 +36,6 @@ const CatalogDetail = () => {
         }
         getBookDetail()
         getRecommendBooks()
-        window.scrollTo({ top: 0, behavior: 'smooth' })
     }, [slug])
     console.log(book);
     return (
@@ -55,8 +54,11 @@ const CatalogDetail = () => {
                 edition={book.edition}
                 writer={book.writer}
                 attachment={book.attachment}
+                totalDownload={book.total_download}
+                totalRead={book.total_read}
+                loading={loading}
             />
-            {book.type == 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
+            {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
             <SectionReview />
             <SectionRecommended
                 recommendBooks={recommendBooks}

@@ -12,7 +12,7 @@ const SectionPopularBook = ({ loading, popularBooks }) => {
                         <p className="text-muted">Jelajahi buku populer dari pusat perbukuan resmi</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <Link to="#" className="btn btn-sm btn-outline-primary">Lihat Semua Buku</Link>
+                        <Link to="/katalog" className="btn btn-sm btn-outline-primary">Lihat Semua Buku</Link>
                     </div>
                 </div>
                 <div className="row mt-4">

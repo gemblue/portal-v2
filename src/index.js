@@ -3,6 +3,7 @@ import reportWebVitals from "./reportWebVitals"
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop"
 
 // Import styles bootstrap
 import './styles/global.scss'
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <ScrollToTop />
     </BrowserRouter>
   </React.StrictMode >
 )

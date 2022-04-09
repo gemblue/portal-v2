@@ -41,7 +41,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/buku-untuk" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Buku Untuk</NavLink>
+                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Buku Untuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/siswa">

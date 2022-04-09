@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
 $primary: #e5f8ff;
 $blue: #2b4da2;
+
+*,
+body {
+  font-family: Manrope;
+}
 
 // Background
 .bg-soft-blue {

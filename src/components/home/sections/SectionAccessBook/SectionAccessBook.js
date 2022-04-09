@@ -17,7 +17,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Teks K-13</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog?type=getTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Kurikulum Merdeka</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog?type=getPenggerakTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -47,9 +47,9 @@ const SectionAccessBook = () => {
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">Orang Tua</h5>
+                                        <h5 className="card-title">Buku Nonteks</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog?type=getNonTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
