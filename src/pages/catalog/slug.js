@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import HeroDetail from '../../components/catalog/hero/HeroDetail/HeroDetail'
+import SectionAudioPlayer from '../../components/catalog/sections/SectionAudioPlayer/SectionAudioPlayer'
 import SectionBreadcumb from '../../components/catalog/sections/SectionBreadcumb/SectionBreadcumb'
 import SectionRecommended from '../../components/catalog/sections/SectionRecommended/SectionRecommended'
 import SectionReview from '../../components/catalog/sections/SectionReview/SectionReview'
@@ -12,14 +13,14 @@ const CatalogDetail = () => {
     const { slug } = useParams();
     const [loading, setLoading] = useState(false)
     const [book, setBook] = useState([])
-    const [popularBooks, setPopularBooks] = useState([])
+    const [recommendBooks, setRecommendBooks] = useState([])
 
     useEffect(() => {
-        const getPopularBooks = async () => {
+        const getRecommendBooks = async () => {
             setLoading(true)
             try {
-                let response = await axios.get(`${BASE_URL}/api/statistic/getPopularCatalogue?qty=8`);
-                setPopularBooks(response.data.results);
+                let response = await axios.get(`${BASE_URL}/api/catalogue/getRecommendCatalogue?slug=${slug}&qty=8`);
+                setRecommendBooks(response.data.results);
                 setLoading(false);
             } catch (err) {
                 return err.message;
@@ -34,10 +35,10 @@ const CatalogDetail = () => {
             }
         }
         getBookDetail()
-        getPopularBooks()
+        getRecommendBooks()
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }, [slug])
-
+    console.log(book);
     return (
         <Layout>
             <SectionBreadcumb
@@ -47,7 +48,7 @@ const CatalogDetail = () => {
             />
             <HeroDetail
                 image={book.image}
-                bookType={book.taxonomy_name}
+                bookType={book.type}
                 title={book.title}
                 publisher={book.publisher}
                 isbn={book.isbn}
@@ -55,10 +56,10 @@ const CatalogDetail = () => {
                 writer={book.writer}
                 attachment={book.attachment}
             />
-            {/* <SectionAudioPlayer /> */}
+            {book.type == 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
             <SectionReview />
             <SectionRecommended
-                popularBooks={popularBooks}
+                recommendBooks={recommendBooks}
                 loading={loading}
             />
         </Layout >

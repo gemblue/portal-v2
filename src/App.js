@@ -8,6 +8,7 @@ import NotFound from "../src/pages/error/notFound"
 import Login from "../src/pages/auth/Login"
 import Catalog from "../src/pages/catalog"
 import CatalogDetail from "../src/pages/catalog/slug"
+import GuideDetail from "../src/pages/panduan/slug"
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/" ac element={<Home />} />
       <Route path="/katalog" element={<Catalog />} />
       <Route path="/katalog/:slug" element={<CatalogDetail />} />
+      <Route path="/panduan/:slug" element={<GuideDetail />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

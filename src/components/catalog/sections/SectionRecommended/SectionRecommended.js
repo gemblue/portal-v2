@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
 import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 
-const SectionRecommended = ({ popularBooks, loading }) => {
+const SectionRecommended = ({ recommendBooks, loading }) => {
     return (
         <section className="py-5">
             <div className="container p-3">
@@ -14,7 +14,7 @@ const SectionRecommended = ({ popularBooks, loading }) => {
                             ? [...Array(8)].map((item, index) => {
                                 return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                             })
-                            : popularBooks.map((book, index) => {
+                            : recommendBooks.map((book, index) => {
                                 return (
                                     <div key={index} className="col-lg-3 my-2">
                                         <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
-import CardBook from "../../../global/card/CardBook/CardBook"
+import CardBook from "../../../global/card/CardBook/CardBook";
+import CardSkeleton from "../../../global/card/CardSkeleton/CardSkeleton"
 
-const SectionPopularBook = () => {
+const SectionPopularBook = ({ loading, popularBooks }) => {
     return (
         <section className="py-5">
             <div className="container p-3">
@@ -15,18 +16,28 @@ const SectionPopularBook = () => {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <div className="col-lg-3">
-                        <CardBook cover="/assets/image/home/bindo.png" title="Kelas VI Tema 8 Bumiku" />
-                    </div>
-                    <div className="col-lg-3">
-                        <CardBook cover="/assets/image/home/bindo.png" title="Kelas VI Tema 8 Bumiku" />
-                    </div>
-                    <div className="col-lg-3">
-                        <CardBook cover="/assets/image/home/informatika.png" title="Kelas VI Tema 8 Bumiku" />
-                    </div>
-                    <div className="col-lg-3">
-                        <CardBook cover="/assets/image/home/matematika.png" title="Kelas VI Tema 8 Bumiku" />
-                    </div>
+                    {
+                        loading
+                            ? [0, 1, 2, 3].map((item, index) => {
+                                return (
+                                    <div className="col-lg-3"><CardSkeleton /></div>
+                                )
+                            })
+                            : popularBooks.map((book, index) => {
+                                return (
+                                    <div key={index} className="col-lg-3 my-2">
+                                        <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
+                                            <CardBook
+                                                image={book.image}
+                                                title={book.title}
+                                                typeBook={book.type}
+                                                level={book.level}
+                                            />
+                                        </Link>
+                                    </div>
+                                )
+                            })
+                    }
                 </div>
             </div>
         </section>
