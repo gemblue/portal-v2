@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '../../components/global/Layout'
 import Hero from '../../components/guide/Hero/Hero'
 import SectionIntro from '../../components/guide/sections/SectionIntro/SectionIntro'

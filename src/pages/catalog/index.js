@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Hero from '../../components/catalog/hero'
 import SectionCatalog from '../../components/catalog/sections/SectionCatalog/SectionCatalog'
 import Layout from '../../components/global/Layout'
@@ -18,9 +18,9 @@ const Catalog = () => {
     let [type, setType] = useState(new URLSearchParams(search).get('type'))
 
     useEffect(() => {
-        type == 'getTextBooks' && setTypeCatalogue(type)
-        type == 'getPenggerakTextBooks' && setTypeCatalogue(type)
-        type == 'getNonTextBooks' && setTypeCatalogue(type)
+        type === 'getTextBooks' && setTypeCatalogue(type)
+        type === 'getPenggerakTextBooks' && setTypeCatalogue(type)
+        type === 'getNonTextBooks' && setTypeCatalogue(type)
 
         const getTextBooks = async () => {
             setLoading(true)

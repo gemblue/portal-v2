@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SectionBreadcumb = ({ category, level, title }) => {
     let fixCategory = '';
-    category == 'buku_teks' && (fixCategory = 'Buku Teks K13');
+    category === 'buku_teks' && (fixCategory = 'Buku Teks K13');
 
     return (
         <section className="pt-3">

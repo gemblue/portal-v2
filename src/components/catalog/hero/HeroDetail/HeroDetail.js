@@ -34,9 +34,9 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
 
                                     {/* Handle type book PDF */}
                                     {
-                                        bookType == 'pdf' && (
+                                        bookType === 'pdf' && (
                                             <>
-                                                <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2" target="_blank" download="file.pdf">
+                                                <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2" rel="noreferrer" target="_blank" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFilePdf} className="me-1" /> Unduh PDF
                                                 </a>
                                                 <button
@@ -53,10 +53,10 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
 
                                     {/* Handle book type audio */}
                                     {
-                                        bookType == 'audio' && (
+                                        bookType === 'audio' && (
                                             <>
                                                 <a href="#audioPlayer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
-                                                <a href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" download="file.pdf">
+                                                <a href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh Audio
                                                 </a>
                                                 <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada audio</small>
@@ -66,7 +66,7 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
 
                                     {/* Handle book type interactive */}
                                     {
-                                        bookType == 'interactive' && (
+                                        bookType === 'interactive' && (
                                             <>
                                                 <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
                                                 <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada naskah</small>
@@ -85,23 +85,23 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                                     <div className="row">
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>Penerbit</div>
-                                            {publisher == "" && <small className="text-muted fst-italic">Belum ada penerbit</small>}
-                                            {publisher != "" && <small className="text-muted">{publisher}</small>}
+                                            {publisher === "" && <small className="text-muted fst-italic">Belum ada penerbit</small>}
+                                            {publisher !== "" && <small className="text-muted">{publisher}</small>}
                                         </div>
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>ISBN</div>
-                                            {isbn == "" && <small className="text-muted fst-italic">Belum ada ISBN</small>}
-                                            {isbn != "" && <small className="text-muted">{isbn}</small>}
+                                            {isbn === "" && <small className="text-muted fst-italic">Belum ada ISBN</small>}
+                                            {isbn !== "" && <small className="text-muted">{isbn}</small>}
                                         </div>
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>Edisi</div>
-                                            {edition == "" || edition == null && <small className="text-muted fst-italic">Belum ada edisi</small>}
-                                            {edition != "" && <small className="text-muted">{edition}</small>}
+                                            {edition === "" || edition === null && <small className="text-muted fst-italic">Belum ada edisi</small>}
+                                            {edition !== "" && <small className="text-muted">{edition}</small>}
                                         </div>
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>Penulis</div>
-                                            {writer == "" && <small className="text-muted fst-italic">Belum ada penulis</small>}
-                                            {writer != "" && <small className="text-muted">{writer}</small>}
+                                            {writer === "" && <small className="text-muted fst-italic">Belum ada penulis</small>}
+                                            {writer !== "" && <small className="text-muted">{writer}</small>}
                                         </div>
                                     </div>
                                 </div>

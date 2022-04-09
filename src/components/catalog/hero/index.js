@@ -6,9 +6,9 @@ const Hero = ({ typeCatalogue, setTypeCatalogue }) => {
     let active2 = '';
     let active3 = '';
 
-    typeCatalogue == 'getTextBooks' && (active1 = 'active-type-catalogue')
-    typeCatalogue == 'getPenggerakTextBooks' && (active2 = 'active-type-catalogue')
-    typeCatalogue == 'getNonTextBooks' && (active3 = 'active-type-catalogue')
+    typeCatalogue === 'getTextBooks' && (active1 = 'active-type-catalogue')
+    typeCatalogue === 'getPenggerakTextBooks' && (active2 = 'active-type-catalogue')
+    typeCatalogue === 'getNonTextBooks' && (active3 = 'active-type-catalogue')
 
     return (
         <section className="bg-soft-blue" id="typeCatalogue">
