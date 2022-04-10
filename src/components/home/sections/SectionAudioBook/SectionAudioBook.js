@@ -12,7 +12,7 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
                         <p className="text-muted">Belajar lebih interaktif dan mudah dengan buku audio</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <Link to="#" className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</Link>
+                        <Link to="/katalog" className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</Link>
                     </div>
                 </div>
                 <div className="row mt-4">
