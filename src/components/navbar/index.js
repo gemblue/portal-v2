@@ -63,9 +63,9 @@ const Navbar = () => {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item mx-1">
+                            {/* <li className="nav-item mx-1">
                                 <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Pusbuk</NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item ms-3 pt-1">
                                 <Link to="/login" className="btn btn-sm btn-outline-primary">Masuk</Link>
                             </li>
