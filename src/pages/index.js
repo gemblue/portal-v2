@@ -14,6 +14,7 @@ import { BASE_URL } from '../utils/config'
 const Home = () => {
     const [popularBooks, setPopularBooks] = useState([])
     const [audioBooks, setAudioBooks] = useState([])
+    const [statisticBook, setStatisticBook] = useState([])
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -37,14 +38,23 @@ const Home = () => {
                 return error.message
             }
         }
+        const getStatisticBook = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/statistic/getSummary`);
+                setStatisticBook(response.data)
+            } catch (error) {
+                return error.message
+            }
+        }
+        getStatisticBook();
         getPopularBooks();
         getAudioBooks();
     }, [])
-
+    console.log(statisticBook);
     return (
         <Layout>
             <Hero />
-            <SectionStats />
+            <SectionStats data={statisticBook} />
             <SectionPopularBook
                 loading={loading}
                 popularBooks={popularBooks}

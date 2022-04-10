@@ -6,7 +6,7 @@ const SectionIntro = () => {
             <div className="container p-3">
                 <div className="row align-items-center">
                     <div className="col-lg-6 text-center">
-                        <img src="/assets/image/guide/icon.png" alt="" />
+                        <img src="/assets/image/guide/icon.png" className="w-50" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3">Akses gratis buku <br /> pelajaran resmi</h2>
@@ -19,7 +19,7 @@ const SectionIntro = () => {
                         <p>Tersedia lebih dari 1000 buku resmi kemendikbud</p>
                     </div>
                     <div className="col-lg-6 text-center">
-                        <img src="/assets/image/guide/icon2.png" alt="" />
+                        <img src="/assets/image/guide/icon2.png" className="w-50" alt="" />
                     </div>
                 </div>
             </div>

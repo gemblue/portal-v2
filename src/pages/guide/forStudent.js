@@ -4,14 +4,22 @@ import Hero from '../../components/guide/Hero/Hero'
 import SectionIntro from '../../components/guide/sections/SectionIntro/SectionIntro'
 import SectionJelajahi from '../../components/guide/sections/SectionJelajahi/SectionJelajahi'
 
-const GuideDetail = () => {
+const forParent = () => {
+    const content = {
+        subtitle: 'BUKU UNTUK SISWA',
+        title: 'Belajar jadi lebih mudah',
+        image: '/assets/image/guide/forStudent.png',
+        vector: '/assets/image/guide/vectorForStudent.png',
+        description: 'Temukan buku pelajaran resmi kemendikbud disini'
+    }
+
     return (
         <Layout>
-            <Hero />
+            <Hero content={content} />
             <SectionIntro />
             <SectionJelajahi />
         </Layout>
     )
 }
 
-export default GuideDetail
+export default forParent

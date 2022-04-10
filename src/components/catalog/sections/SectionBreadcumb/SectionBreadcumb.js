@@ -3,7 +3,22 @@ import { Link } from 'react-router-dom'
 
 const SectionBreadcumb = ({ category, level, title }) => {
     let fixCategory = '';
-    category === 'buku_teks' && (fixCategory = 'Buku Teks K13');
+    let categoryAction = '';
+
+    if (category === 'buku_teks') {
+        fixCategory = 'Buku Teks K13';
+        categoryAction = 'getTextBooks'
+    }
+
+    if (category === 'buku_sekolah_penggerak') {
+        fixCategory = 'Buku Kurikulum Merdeka';
+        categoryAction = 'getPenggerakTextBooks'
+    }
+
+    if (category === 'buku_non_teks') {
+        fixCategory = 'Buku Nonteks';
+        categoryAction = 'getNonTextBooks'
+    }
 
     return (
         <section className="pt-3">
@@ -16,12 +31,18 @@ const SectionBreadcumb = ({ category, level, title }) => {
                         <li className="breadcrumb-item">
                             <Link to="/katalog" className="text-decoration-none text-blue">Katalog</Link>
                         </li>
-                        <li className="breadcrumb-item">
-                            <Link to="/katalog" className="text-decoration-none text-blue">{fixCategory}</Link>
-                        </li>
-                        <li className="breadcrumb-item">
-                            <Link to="/katalog" className="text-decoration-none text-blue">{level}</Link>
-                        </li>
+                        {category != "" && (
+                            <li className="breadcrumb-item">
+                                <Link to={`/katalog?type=${categoryAction}`} className="text-decoration-none text-blue">{fixCategory}</Link>
+                            </li>)
+                        }
+                        {/* {
+                            level != "" && (
+                                <li className="breadcrumb-item">
+                                    <Link to="/katalog" className="text-decoration-none text-blue">{level}</Link>
+                                </li>
+                            )
+                        } */}
                         <li className="breadcrumb-item active" aria-current="page">{title}</li>
                     </ol>
                 </nav>

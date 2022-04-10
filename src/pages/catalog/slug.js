@@ -44,6 +44,7 @@ const CatalogDetail = () => {
                 category={book.category}
                 level={book.level}
                 title={book.title}
+                slug={book.slug}
             />
             <HeroDetail
                 image={book.image}
