@@ -50,7 +50,7 @@ const Home = () => {
         getPopularBooks();
         getAudioBooks();
     }, [])
-    console.log(statisticBook);
+
     return (
         <Layout>
             <Hero />

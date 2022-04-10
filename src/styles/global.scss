@@ -64,6 +64,10 @@ body {
 
 #navbar {
   // background-color: $primary;
+  .nav-logo {
+    width: 230px;
+    height: auto;
+  }
   .dropdown:hover .dropdown-menu {
     display: block;
   }

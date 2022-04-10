@@ -17,7 +17,7 @@ const SectionBookForAll = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Siswa</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/panduan/siswa" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const SectionBookForAll = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Guru</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/panduan/guru" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ const SectionBookForAll = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Orang Tua</h5>
                                         <p className="card-text text-muted">This is a wider card with supporting</p>
-                                        <Link to="#" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/panduan/orang-tua" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>

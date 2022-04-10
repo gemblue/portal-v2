@@ -16,6 +16,7 @@ const CatalogDetail = () => {
     const [recommendBooks, setRecommendBooks] = useState([])
 
     useEffect(() => {
+
         setLoading(true)
         const getRecommendBooks = async () => {
             try {
@@ -60,7 +61,7 @@ const CatalogDetail = () => {
                 loading={loading}
             />
             {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
-            <SectionReview />
+            <SectionReview slug={book.slug} />
             <SectionRecommended
                 recommendBooks={recommendBooks}
                 loading={loading}

@@ -1,11 +1,12 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
 import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 
-const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }) => {
+const SectionCatalog = ({ books, loading, setLimit, skeletonCount, typeBook, setTypeBook, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
+    const [searchValue, setSearchValue] = useState('')
     return (
         <section>
             <div className="container px-3 py-5">
@@ -17,21 +18,21 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }
                                 TIPE BUKU
                             </div>
                             <div className="card-body">
-                                <div className="form-check">
-                                    <input onChange={() => setTypeBook('type_pdf')} className="form-check-input" name="type_book" type="radio" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                <div onChange={() => setTypeBook('type_pdf')} className="form-check">
+                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="radio" id="typePDF" />
+                                    <label className="form-check-label" htmlFor="typePDF">
                                         Buku PDF
                                     </label>
                                 </div>
-                                <div className="form-check">
-                                    <input onChange={() => setTypeBook('type_audio')} className="form-check-input" name="type_book" type="radio" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                <div onChange={() => setTypeBook('type_audio')} className="form-check">
+                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="radio" id="typeAudio" />
+                                    <label className="form-check-label" htmlFor="typeAudio">
                                         Buku Audio
                                     </label>
                                 </div>
-                                <div className="form-check">
-                                    <input onChange={() => setTypeBook('type_interactive')} className="form-check-input" name="type_book" type="radio" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                <div onChange={() => setTypeBook('type_interactive')} className="form-check">
+                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="radio" id="typeInteractive" />
+                                    <label className="form-check-label" htmlFor="typeInteractive">
                                         Buku Interaktif
                                     </label>
                                 </div>
@@ -43,26 +44,26 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }
                             </div>
                             <div className="card-body">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                    <input className="form-check-input" type="checkbox" value="" id="checkPAUD" />
+                                    <label className="form-check-label" htmlFor="checkPAUD">
                                         PAUD
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                    <input onClick={setLevelSD} className="form-check-input" type="checkbox" value="" id="checkSD" />
+                                    <label className="form-check-label" htmlFor="checkSD">
                                         SD/MI
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                    <input onClick={setLevelSMP} className="form-check-input" type="checkbox" value="" id="checkSMP" />
+                                    <label className="form-check-label" htmlFor="checkSMP">
                                         SMP/MTS
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                    <input onClick={setLevelSMA} className="form-check-input" type="checkbox" value="" id="checkSMK" />
+                                    <label className="form-check-label" htmlFor="checkSMK">
                                         SMA/MA/SMK/MAK
                                     </label>
                                 </div>
@@ -74,37 +75,37 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }
                             </div>
                             <div className="card-body overflow-auto" style={{ height: '160px' }}>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonIPA} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         IPA
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonIPS} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         IPS
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonBIndonesia} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Bahasa Indonesia
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonBInggris} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Bahasa Inggris
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonMatematika} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Matematika
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Pendidikan Kewarganegaraan
                                     </label>
@@ -114,13 +115,13 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }
                     </div>
                     <div className="col-lg-9">
                         <div className="text-muted text-end my-4">
-                            Menampilkan 2234 buku (12 dari 2234 buku)
+                            Menampilkan {books.length} buku ({books.length} dari 2234 buku)
                         </div>
                         <div className="row">
                             <div className="col-8 col-lg-8">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
-                                    <input type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
+                                    <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
                                     <button className="btn btn-orange" type="button">Cari</button>
                                 </div>
                             </div>
@@ -143,7 +144,11 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, setTypeBook }
                                     ? [...Array(skeletonCount)].map((item, index) => {
                                         return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                                     })
-                                    : books.map((book, index) => {
+                                    : books.filter(value => {
+                                        if (value.title.toLowerCase().includes(searchValue.toLowerCase())) {
+                                            return value;
+                                        }
+                                    }).map((book, index) => {
                                         return (
                                             <div key={index} className="col-lg-4 my-2">
                                                 <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">

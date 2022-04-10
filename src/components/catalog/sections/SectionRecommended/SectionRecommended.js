@@ -31,9 +31,9 @@ const SectionRecommended = ({ recommendBooks, loading }) => {
                     }
                 </div>
 
-                <div className="text-center">
+                {/* <div className="text-center">
                     <button className="btn btn-outline-primary">Lihat lebih banyak</button>
-                </div>
+                </div> */}
             </div>
         </section>
     )
