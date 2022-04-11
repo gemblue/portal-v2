@@ -5,3 +5,13 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
   transform: translate(0, -5px);
 }
+
+.img-size {
+  width: 75%;
+}
+
+@media screen and (max-width: 991px) {
+  .img-size {
+    width: 50%;
+  }
+}

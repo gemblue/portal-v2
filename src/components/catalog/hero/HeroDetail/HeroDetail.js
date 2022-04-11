@@ -4,6 +4,7 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { Link } from 'react-router-dom'
 import Modal from '../../modal/Modal'
+import styles from './HeroDetail.module.scss'
 
 const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
     return (
@@ -25,8 +26,8 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                     {
                         !loading && (
                             <>
-                                <div className="col-lg-3">
-                                    <img src={image} className="w-100" alt="" />
+                                <div className="col-lg-3 text-center d-flex align-items-center justify-content-center">
+                                    <img src={image || '/assets/image/catalog/book-placeholder.jpg'} className={styles['img-size']} alt="" />
                                 </div>
                                 <div className="col-lg-9 pt-5 pt-md-0">
                                     <button className="btn btn-sm rounded-pill btn-outline-success">{bookType}</button>

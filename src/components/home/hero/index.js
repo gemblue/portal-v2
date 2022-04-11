@@ -40,7 +40,6 @@ const Hero = () => {
     const handleSearch = ({ currentTarget = {} }) => {
         const { value } = currentTarget
         setSearch(value)
-
     }
 
     return (

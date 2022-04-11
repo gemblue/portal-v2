@@ -1,14 +1,69 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight, faFilePdf, faHandPointer, faSearch, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Paginator from 'react-hooks-paginator'
 import { Link } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
 import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
+import Fuse from "fuse.js";
+import { BASE_URL } from '../../../../utils/config'
+import axios from 'axios'
 
-const SectionCatalog = ({ books, loading, setLimit, skeletonCount, typeBook, setTypeBook, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
+const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
     const [searchValue, setSearchValue] = useState('')
+
+    const pageLimit = 10;
+    const [offset, setOffset] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [currentData, setCurrentData] = useState([]);
+
+    const [lists, setLists] = useState([])
+    const [search, setSearch] = useState('')
+
+    useEffect(() => {
+        const getLists = async () => {
+            try {
+                let response = await axios.get(`${BASE_URL}/api/catalogue/search`)
+                if (response.data.error === "No Content") {
+                    setLists(null);
+                } else {
+                    setLists(response.data.results);
+                }
+            } catch (err) {
+                return err.message;
+            }
+        };
+        getLists();
+    }, []);
+
+    const fuse = new Fuse(lists, {
+        keys: [
+            'title',
+        ]
+    });
+
+    const results = fuse.search(search)
+    const listResults = results.map((result) => result.item)
+
+    const handleSearch = ({ currentTarget = {} }) => {
+        const { value } = currentTarget
+        setSearch(value)
+
+    }
+
+    // Set for pagination
+    useEffect(() => {
+        setCurrentData(books.slice(offset, offset + pageLimit));
+    }, [offset, books]);
+
+    const scrollTop = () => {
+        setTimeout(() => {
+            document.getElementById('catalog').scrollIntoView()
+        }, 0);
+    }
+
     return (
-        <section>
+        <section id="catalog">
             <div className="container px-3 py-5">
                 <div className="row">
                     <div className="col-lg-3">
@@ -115,15 +170,44 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, typeBook, set
                     </div>
                     <div className="col-lg-9">
                         <div className="text-muted text-end my-4">
-                            Menampilkan {books.length} buku ({books.length} dari 2234 buku)
+                            Menampilkan {currentData.length} buku ({currentData.length} dari {books.length} buku)
                         </div>
                         <div className="row">
                             <div className="col-8 col-lg-8">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
-                                    <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
+                                    <input value={search} onChange={handleSearch} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
                                     <button className="btn btn-orange" type="button">Cari</button>
                                 </div>
+                                {
+                                    search != '' && (
+                                        <div className="card-body bg-white p-0 py-2 px-3">
+                                            <h6>Hasil pencarian :</h6>
+                                            <div className="list-group">
+                                                {
+                                                    search != '' && listResults.length < 1 && (
+                                                        <>
+                                                            <p className="bg-light rounded-pill">Hasil tidak ditemukan. Silahkan cari dengan kata kunci lain</p>
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    listResults &&
+                                                    listResults.map((item, index) => {
+                                                        return (
+                                                            <Link to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
+                                                                {item.type == 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
+                                                                {item.type == 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
+                                                                {item.type == 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}
+                                                                {item.title}
+                                                            </Link>
+                                                        )
+                                                    }).slice(0, 5)
+                                                }
+                                            </div>
+                                        </div>
+                                    )
+                                }
                             </div>
                             <div className="col-4 col-lg-4 my-auto text-end">
                                 <div className="dropdown">
@@ -144,11 +228,7 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, typeBook, set
                                     ? [...Array(skeletonCount)].map((item, index) => {
                                         return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                                     })
-                                    : books.filter(value => {
-                                        if (value.title.toLowerCase().includes(searchValue.toLowerCase())) {
-                                            return value;
-                                        }
-                                    }).map((book, index) => {
+                                    : currentData.map((book, index) => {
                                         return (
                                             <div key={index} className="col-lg-4 my-2">
                                                 <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
@@ -164,8 +244,21 @@ const SectionCatalog = ({ books, loading, setLimit, skeletonCount, typeBook, set
                                     })
                             }
                         </div>
-                        <div className="text-center mt-4">
-                            <button onClick={() => setLimit()} className="btn btn-primary rounded-pill">Load more</button>
+                        <div className="mt-4">
+                            <div onClick={() => scrollTop()}>
+                                <Paginator
+                                    pagePrevText={<FontAwesomeIcon icon={faArrowLeft} />}
+                                    pageNextText={<FontAwesomeIcon icon={faArrowRight} />}
+                                    totalRecords={books.length}
+                                    pageLimit={pageLimit}
+                                    pageNeighbours={2}
+                                    setOffset={setOffset}
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                />
+
+                            </div>
+                            {/* <button onClick={() => setLimit()} className="btn btn-primary rounded-pill">Load more</button> */}
                         </div>
                     </div>
                 </div>

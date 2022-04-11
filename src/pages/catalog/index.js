@@ -10,7 +10,7 @@ const Catalog = () => {
 
     const [loading, setLoading] = useState(false)
     const [books, setBooks] = useState([])
-    const [limit, setLimit] = useState(10)
+    const [limit, setLimit] = useState(12)
     const [typeBook, setTypeBook] = useState('type_pdf')
     const [typeCatalogue, setTypeCatalogue] = useState('getTextBooks')
 
@@ -39,7 +39,7 @@ const Catalog = () => {
         const getBooks = async () => {
             setLoading(true)
             try {
-                const response = await axios.get(`${BASE_URL}/api/catalogue/${typeCatalogue}?limit=${limit}&${typeBook}&${levelSD}&${levelSMP}&${levelSMA}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`)
+                const response = await axios.get(`${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${levelSD}&${levelSMP}&${levelSMA}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`)
                 setBooks(response.data.results)
                 setLoading(false)
             } catch (err) {
@@ -47,7 +47,7 @@ const Catalog = () => {
             }
         };
         getBooks()
-    }, [typeCatalogue, limit, typeBook, levelSD, levelSMP, levelSMA, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
+    }, [typeCatalogue, typeBook, levelSD, levelSMP, levelSMA, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
 
     const filterLevel = (SD, SMP, SMA) => {
         levelSD === '' ? setLevelSD(SD) : SD !== '' && setLevelSD('')
@@ -77,7 +77,6 @@ const Catalog = () => {
                 books={books}
                 loading={loading}
                 skeletonCount={limit}
-                setLimit={() => setLimit(limit + 10)}
                 typeBook={typeBook}
                 setTypeBook={(type) => setTypeBook(type)}
                 setLevelSD={() => filterLevel('level_sd', '', '')}

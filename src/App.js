@@ -9,11 +9,13 @@ import CatalogDetail from "../src/pages/catalog/slug"
 import ForParent from "./pages/guide/forParent"
 import ForStudent from "./pages/guide/forStudent"
 import ForTeacher from "./pages/guide/forTeacher"
+import Test from './test';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" ac element={<Home />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/test" element={<Test />} />
       <Route path="/katalog" element={<Catalog />} />
       <Route path="/katalog/:slug" element={<CatalogDetail />} />
       <Route path="/panduan/orang-tua" element={<ForParent />} />

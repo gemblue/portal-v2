@@ -7123,6 +7123,11 @@ react-hook-form@^7.29.0:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.29.0.tgz#5e7e41a483b70731720966ed8be52163ea1fecf1"
   integrity sha512-NcJqWRF6el5HMW30fqZRt27s+lorvlCCDbTpAyHoodQeYWXgQCvZJJQLC1kRMKdrJknVH0NIg3At6TUzlZJFOQ==
 
+react-hooks-paginator@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-hooks-paginator/-/react-hooks-paginator-0.5.0.tgz#0ecf4d46ab32d0f88f5a5196132308044abbbc27"
+  integrity sha512-iyQHX00UnlcbecMLdNqF8IuIXaGvkbg2gNtIym233VB5scB1nHYewRcwILoePJ6YSyf3/4n7Z+zMcMOtoVKEgQ==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"

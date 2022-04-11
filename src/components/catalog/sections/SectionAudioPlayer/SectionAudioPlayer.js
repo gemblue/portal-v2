@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 
 const SectionAudioPlayer = ({ audio }) => {
 
+    const [limit, setLimit] = useState(10)
     let number = 1
+
+    const reset = () => {
+        setLimit(10);
+        setTimeout(() => {
+            document.getElementById('audioPlayer').scrollIntoView()
+        }, 0);
+    }
 
     return (
         <section id="audioPlayer">
@@ -33,10 +41,18 @@ const SectionAudioPlayer = ({ audio }) => {
                                     </tr>
 
                                 )
-                            })
+                            }).slice(0, limit)
                         }
                     </tbody>
                 </table>
+                <div className="text-center my-5">
+                    {
+                        audio.length >= limit && <button onClick={() => setLimit(limit + 5)} className="btn btn-primary">Load more</button>
+                    }
+                    {
+                        audio.length <= limit && <button onClick={() => reset()} className="btn btn-warning">Reset</button>
+                    }
+                </div>
 
             </div>
         </section >
