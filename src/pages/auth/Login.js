@@ -7,7 +7,7 @@ const Login = () => {
         <Layout>
             <section className="row justify-content-center pt-2 pt-md-5 p-3 p-md-0" id="login">
                 <div className="col-lg-5">
-                    <h2 className="text-blue mt-5 mt-md-0">Masuk</h2>
+                    <h2 className="text-blue mt-4 mt-md-0">Masuk</h2>
                     <div className="card mt-2 shadow">
                         <div className="card-body p-4">
                             <div className="form-group">
