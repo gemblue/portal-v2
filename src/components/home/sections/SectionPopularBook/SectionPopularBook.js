@@ -8,7 +8,7 @@ const SectionPopularBook = ({ loading, popularBooks }) => {
             <div className="container p-3">
                 <div className="row align-items-center">
                     <div className="col-lg-6 ">
-                        <h3>Buku <div className="d-inline-flex flex-column"><span>terpopuler</span><span className="mt-n4"><img src="/assets/image/home/line-populer.png" alt="line title" /></span></div></h3>
+                        <h3>Buku <div className="d-inline-flex flex-column"><span>terpopuler</span><span className="mt-n3"><img src="/assets/image/home/line-populer.png" alt="line title" /></span></div></h3>
                         <p className="text-muted">Jelajahi buku populer dari pusat perbukuan resmi</p>
                     </div>
                     <div className="col-lg-6 text-end">

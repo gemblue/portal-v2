@@ -2,6 +2,18 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
+    // Handle page on scroll navbar change background 
+    const navbar = document.querySelector('.navbar');
+    window.onscroll = () => {
+        if (window.pageYOffset > 200) {
+            navbar.classList.remove('bg-light')
+            navbar.classList.add('bg-white')
+        }
+        if (window.pageYOffset < 200) {
+            navbar.classList.remove('bg-white')
+            navbar.classList.add('bg-light')
+        }
+    }
     return (
         <section className="sticky-top fixed-top" id="navbar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">

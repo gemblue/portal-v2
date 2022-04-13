@@ -15,6 +15,8 @@ const Catalog = () => {
     const [typeCatalogue, setTypeCatalogue] = useState('getTextBooks')
 
     // State for filter level
+    const [level, setLevel] = useState('')
+    const [levelPAUD, setLevelPAUD] = useState('')
     const [levelSD, setLevelSD] = useState('')
     const [levelSMP, setLevelSMP] = useState('')
     const [levelSMA, setLevelSMA] = useState('')
@@ -39,7 +41,7 @@ const Catalog = () => {
         const getBooks = async () => {
             setLoading(true)
             try {
-                const response = await axios.get(`${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${levelSD}&${levelSMP}&${levelSMA}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`)
+                const response = await axios.get(`${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${levelPAUD}&${levelSD}&${levelSMP}&${levelSMA}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`)
                 setBooks(response.data.results)
                 setLoading(false)
             } catch (err) {
@@ -47,9 +49,10 @@ const Catalog = () => {
             }
         };
         getBooks()
-    }, [typeCatalogue, typeBook, levelSD, levelSMP, levelSMA, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
+    }, [typeCatalogue, typeBook, level, levelPAUD, levelSD, levelSMP, levelSMA, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
 
-    const filterLevel = (SD, SMP, SMA) => {
+    const filterLevel = (PAUD, SD, SMP, SMA) => {
+        levelPAUD === '' ? setLevelPAUD(PAUD) : PAUD !== '' && setLevelPAUD('')
         levelSD === '' ? setLevelSD(SD) : SD !== '' && setLevelSD('')
         levelSMP === '' ? setLevelSMP(SMP) : SMP !== '' && setLevelSMP('')
         levelSMA === '' ? setLevelSMA(SMA) : SMA !== '' && setLevelSMA('')
@@ -79,9 +82,11 @@ const Catalog = () => {
                 skeletonCount={limit}
                 typeBook={typeBook}
                 setTypeBook={(type) => setTypeBook(type)}
-                setLevelSD={() => filterLevel('level_sd', '', '')}
-                setLevelSMP={() => filterLevel('', 'level_smp', '')}
-                setLevelSMA={() => filterLevel('', '', 'level_sma')}
+                setLevel={(level) => setLevel(level)}
+                // setLevelPAUD={() => filterLevel('level_paud', '', '', '')}
+                // setLevelSD={() => filterLevel('', 'level_sd', '', '')}
+                // setLevelSMP={() => filterLevel('', '', 'level_smp', '')}
+                // setLevelSMA={() => filterLevel('', '', '', 'level_sma')}
                 setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}
                 setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '')}
                 setLessonBIndonesia={() => filterLesson('', '', 'subject_indonesia', '', '', '')}

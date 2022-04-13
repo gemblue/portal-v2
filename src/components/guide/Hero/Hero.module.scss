@@ -1,4 +1,18 @@
-.hero {
-  padding-top: 50px;
+.hero-teacher {
+  padding-top: 100px;
+  // padding-top: 70px;
   padding-bottom: 70px;
+}
+
+.hero-student {
+  padding-top: 170px;
+  // padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+@media screen and (max-width: "991px") {
+  .hero {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }

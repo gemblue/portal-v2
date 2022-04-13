@@ -9,7 +9,7 @@ import Fuse from "fuse.js";
 import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 
-const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
+const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
     const [searchValue, setSearchValue] = useState('')
 
     const pageLimit = 10;
@@ -62,6 +62,14 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
         }, 0);
     }
 
+    const selectOnlyThis = (e) => {
+        let id = e.target.id;
+        for (var i = 1; i <= 4; i++) {
+            document.getElementById("check" + i).checked = false;
+        }
+        document.getElementById(id).checked = true;
+    }
+
     return (
         <section id="catalog">
             <div className="container px-3 py-5">
@@ -74,19 +82,19 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                             </div>
                             <div className="card-body">
                                 <div onChange={() => setTypeBook('type_pdf')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="radio" id="typePDF" />
+                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="checkbox" id="typePDF" />
                                     <label className="form-check-label" htmlFor="typePDF">
                                         Buku PDF
                                     </label>
                                 </div>
                                 <div onChange={() => setTypeBook('type_audio')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="radio" id="typeAudio" />
+                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="checkbox" id="typeAudio" />
                                     <label className="form-check-label" htmlFor="typeAudio">
                                         Buku Audio
                                     </label>
                                 </div>
                                 <div onChange={() => setTypeBook('type_interactive')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="radio" id="typeInteractive" />
+                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="checkbox" id="typeInteractive" />
                                     <label className="form-check-label" htmlFor="typeInteractive">
                                         Buku Interaktif
                                     </label>
@@ -99,25 +107,25 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                             </div>
                             <div className="card-body">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="checkPAUD" />
+                                    <input onClick={() => setLevel('level_paud')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
                                     <label className="form-check-label" htmlFor="checkPAUD">
                                         PAUD
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input onClick={setLevelSD} className="form-check-input" type="checkbox" value="" id="checkSD" />
+                                    <input onClick={() => setLevel('level_sd')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
                                     <label className="form-check-label" htmlFor="checkSD">
                                         SD/MI
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input onClick={setLevelSMP} className="form-check-input" type="checkbox" value="" id="checkSMP" />
+                                    <input onClick={() => setLevel('level_smp')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
                                     <label className="form-check-label" htmlFor="checkSMP">
                                         SMP/MTS
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input onClick={setLevelSMA} className="form-check-input" type="checkbox" value="" id="checkSMK" />
+                                    <input onClick={() => setLevel('level_sma')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
                                     <label className="form-check-label" htmlFor="checkSMK">
                                         SMA/MA/SMK/MAK
                                     </label>
@@ -228,20 +236,31 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                                     ? [...Array(skeletonCount)].map((item, index) => {
                                         return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                                     })
-                                    : currentData.map((book, index) => {
-                                        return (
-                                            <div key={index} className="col-lg-4 my-2">
-                                                <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
-                                                    <CardBook
-                                                        image={book.image}
-                                                        title={book.title}
-                                                        typeBook={book.type}
-                                                        level={book.level}
-                                                    />
-                                                </Link>
-                                            </div>
-                                        )
-                                    })
+                                    : currentData.length == 0 ? (
+                                        <div class="text-center mt-5">
+                                            <img
+                                                width="60"
+                                                src="/assets/image/catalog/not-found.png"
+                                                class="img-fluid"
+                                                alt="Not found"
+                                            />
+                                            <h4 class="text-center mt-2">Data tidak ditemukan.</h4>
+                                        </div>
+                                    )
+                                        : currentData.map((book, index) => {
+                                            return (
+                                                <div key={index} className="col-lg-4 my-2">
+                                                    <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
+                                                        <CardBook
+                                                            image={book.image}
+                                                            title={book.title}
+                                                            typeBook={book.type}
+                                                            level={book.level}
+                                                        />
+                                                    </Link>
+                                                </div>
+                                            )
+                                        })
                             }
                         </div>
                         <div className="mt-4">

@@ -8,14 +8,14 @@ const forTeacher = () => {
     const content = {
         subtitle: 'BUKU UNTUK GURU',
         title: 'Temukan referensi buku-buku resmi dari kemdikbud',
-        image: '/assets/image/guide/forTeacher.png',
+        image: '/assets/image/guide/guru.png',
         vector: '/assets/image/guide/vectorForTeacher.png',
         description: 'Akses berbagai referensi buku untuk membantu proses belajar mengajar ibu bapak guru di seluruh Indonesia'
     }
 
     return (
         <Layout>
-            <Hero content={content} />
+            <Hero content={content} role="teacher" />
             <SectionIntro />
             <SectionJelajahi />
         </Layout>

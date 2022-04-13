@@ -15,7 +15,7 @@ const forParent = () => {
 
     return (
         <Layout>
-            <Hero content={content} />
+            <Hero content={content} role="student" />
             <SectionIntro />
             <SectionJelajahi />
         </Layout>

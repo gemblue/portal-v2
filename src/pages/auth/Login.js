@@ -11,12 +11,12 @@ const Login = () => {
                     <div className="card mt-2 shadow">
                         <div className="card-body p-4">
                             <div className="form-group">
-                                <label className="form-label">ALAMAT EMAIL</label>
+                                <label className="form-label fw-bold">ALAMAT EMAIL</label>
                                 <input type="email" className="form-control" placeholder="Masukan alamat email" />
                             </div>
                             <div className="form-group my-4">
                                 <div>
-                                    <label className="form-label float-start">KATA SANDI</label>
+                                    <label className="form-label fw-bold float-start">KATA SANDI</label>
                                     <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                 </div>
                                 <input type="password" className="form-control" placeholder="Masukan kata sandi" />

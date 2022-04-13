@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
+// Import font style
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap");
+
+// Primary color
 $primary: #e5f8ff;
 $blue: #2b4da2;
 
@@ -74,12 +78,12 @@ body {
 }
 
 #login {
-  background: url("../../public/assets/image/home/bg-access-book.png");
+  background: url("../../public/assets/image/login/background.png");
   background-color: $primary !important;
-  height: 100vh;
+  height: 85vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: bottom;
 
   .active {
     color: red !important;
