@@ -13,39 +13,39 @@ SwiperCore.use([Grid, Autoplay]);
 const SectionTestimony = () => {
     const data = [
         {
-            comment: 'Sangat keren menarik bukunya',
+            comment: 'Bukunya bagus bagus',
             avatar: '/assets/image/testimony/pic1.webp',
             name: 'Aldian',
             school: 'SMK TI GARNUS'
         },
         {
-            comment: 'Sangat menarik',
+            comment: 'Buku Elektronik Interaktif keren sekali',
             avatar: '/assets/image/testimony/pic2.webp',
             name: 'Luella Syifa',
             school: 'SMK TI GARNUS'
         },
         {
-            comment: 'Sangat bagus',
-            avatar: '/assets/image/testimony/pic1.webp',
+            comment: 'Animasi Buku Interaktifnya sangat menarik',
+            avatar: '/assets/image/testimony/pic4.webp',
             name: 'Hadyan Palupi',
             school: 'SMK TI GARNUS'
         },
         {
-            comment: 'Sangat amazing',
+            comment: 'Sangat membantu saya buat belajar',
             avatar: '/assets/image/testimony/pic3.webp',
             name: 'Mochamad Firman',
             school: 'SMK TI GARNUS'
         },
         {
-            comment: 'Sangat amazing',
+            comment: 'Animasi Buku Interaktifnya sangat menarik',
             avatar: '/assets/image/testimony/pic4.webp',
-            name: 'Hadyan',
+            name: 'Hadyan Palupi',
             school: 'SMK TI GARNUS'
         },
         {
-            comment: 'Sangat amazing',
+            comment: 'Buku Elektronik Interaktif keren sekali',
             avatar: '/assets/image/testimony/pic1.webp',
-            name: 'Luella',
+            name: 'Luella Syifa',
             school: 'SMK TI GARNUS'
         },
     ]
@@ -75,7 +75,7 @@ const SectionTestimony = () => {
                 <Swiper
                     autoplay={{ delay: '0ms' }}
                     loop
-                    speed={10000}
+                    speed={20000}
                     spaceBetween={0}
                     slidesPerView={3}
                     onSlideChange={() => console.log('slide change')}
@@ -92,7 +92,7 @@ const SectionTestimony = () => {
                                                 <div className="text-end text-muted">
                                                     <FontAwesomeIcon icon={faQuoteLeft} />
                                                 </div>
-                                                <div className="mb-3">{item[0].comment}</div>
+                                                <div className="mb-3 text-muted">{item[0].comment}</div>
                                                 <div className="row align-items-center">
                                                     <div className="col-lg-3 text-center text-md-start">
                                                         <img src={item[0].avatar} className="rounded-circle" width={50} height={50} alt="" />
@@ -111,7 +111,7 @@ const SectionTestimony = () => {
                                                 <div className="text-end text-muted">
                                                     <FontAwesomeIcon icon={faQuoteLeft} />
                                                 </div>
-                                                <div className="mb-3">{item[1].comment}</div>
+                                                <div className="mb-3 text-muted">{item[1].comment}</div>
                                                 <div className="row align-items-center">
                                                     <div className="col-lg-3 text-center text-md-start">
                                                         <img src={item[1].avatar} className="rounded-circle" width={50} height={50} alt="" />
@@ -129,26 +129,6 @@ const SectionTestimony = () => {
                             )
                         })
                     }
-                    {/* {testimony.map((label, index) => {
-                        return (
-                            <SwiperSlide key={index}>
-                                <div className="pe-4 my-3">
-                                    <Link to={`/library?type=${label[0].name}`}>
-                                        <a className="link">
-                                            {label[0].name}
-                                        </a>
-                                    </Link>
-                                </div>
-                                <div className="ps-4 my-3">
-                                    <Link to={`/library?type=${label[1].name}`}>
-                                        <a className="link">
-                                            {label[1].name}
-                                        </a>
-                                    </Link>
-                                </div>
-                            </SwiperSlide>
-                        );
-                    })} */}
                 </Swiper>
             </div>
         </section >

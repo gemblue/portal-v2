@@ -5,7 +5,7 @@ const SectionBookForAll = () => {
         <section className="py-4 bg-soft-blue" style={{ backgroundImage: 'url(/assets/image/home/bg-book-for-all.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
             <div className="container p-3">
                 <h3>Buku untuk semua</h3>
-                <p className="text-muted">This is placeholder for description</p>
+                <p className="text-muted">Manfaat buku berdasarkan peran</p>
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="card mb-3 p-2 shadow">
@@ -16,7 +16,7 @@ const SectionBookForAll = () => {
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">Siswa</h5>
-                                        <p className="card-text text-muted">This is a wider card with supporting</p>
+                                        <p className="card-text text-muted">Belajar lebih asik bersama Buku Kemendikbud</p>
                                         <Link to="/panduan/siswa" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@ const SectionBookForAll = () => {
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">Guru</h5>
-                                        <p className="card-text text-muted">This is a wider card with supporting</p>
+                                        <p className="card-text text-muted">Dapatkan akses buku untuk bahan ajar di kelas</p>
                                         <Link to="/panduan/guru" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@ const SectionBookForAll = () => {
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">Orang Tua</h5>
-                                        <p className="card-text text-muted">This is a wider card with supporting</p>
+                                        <p className="card-text text-muted">Bantu tingkatkan proses belajar anak</p>
                                         <Link to="/panduan/orang-tua" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>

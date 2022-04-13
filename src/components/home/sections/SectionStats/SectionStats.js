@@ -4,13 +4,14 @@ import styles from "../SectionStats/SectionStats.module.scss"
 
 const SectionStats = ({ data }) => {
     const stats = data
+    console.log(stats);
     return (
         <section className="bg-blue" id="counter">
             <div className="container p-4">
                 <div className="row text-center">
                     <div className="col-6 col-lg-3">
                         <span className={styles.count}>
-                            <CountUp end={stats.total_assesment} duration={5} formattingFn={val => formatNumber(val)} />
+                            <CountUp end={stats.total_read} duration={5} formattingFn={val => formatNumber(val)} />
                         </span>
                         <p className="text-white">Buku telah dibaca</p>
                     </div>
@@ -28,7 +29,7 @@ const SectionStats = ({ data }) => {
                     </div>
                     <div className="col-6 col-lg-3">
                         <span className={styles.count}>
-                            <CountUp end={stats.total_assesment} duration={5} formattingFn={val => formatNumber(val)} />
+                            <CountUp end={stats.total_assessment} duration={5} formattingFn={val => formatNumber(val)} />
                         </span>
                         <p className="text-white">Buku lulus penilaian</p>
                     </div>

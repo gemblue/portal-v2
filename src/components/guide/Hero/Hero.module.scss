@@ -10,8 +10,22 @@
   padding-bottom: 70px;
 }
 
+.hero-parent {
+  padding-top: 170px;
+  // padding-top: 70px;
+  padding-bottom: 70px;
+}
+
 @media screen and (max-width: "991px") {
-  .hero {
+  .hero-student {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .hero-teacher {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .hero-parent {
     padding-top: 50px;
     padding-bottom: 50px;
   }
