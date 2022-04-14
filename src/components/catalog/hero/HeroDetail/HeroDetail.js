@@ -30,7 +30,10 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                                     <img src={image || '/assets/image/catalog/book-placeholder.jpg'} className={styles['img-size']} alt="" />
                                 </div>
                                 <div className="col-lg-9 pt-5 pt-md-0">
-                                    <button className="btn btn-sm rounded-pill btn-outline-success">{bookType}</button>
+                                    {bookType == 'pdf' && <button className="btn btn-sm rounded-pill btn-outline-danger">Buku PDF</button>}
+                                    {bookType == 'audio' && <button className="btn btn-sm rounded-pill btn-outline-success">Buku Audio</button>}
+                                    {bookType == 'interactive' && <button className="btn btn-sm rounded-pill btn-outline-primary">Buku Interaktif</button>}
+
                                     <h3 className="my-3">{title}</h3>
 
                                     {/* Handle type book PDF */}

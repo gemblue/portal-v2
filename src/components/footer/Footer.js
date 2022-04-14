@@ -17,9 +17,9 @@ const Footer = () => {
                         <h5 className="footer-section-title">Peta Situs</h5>
                         <ul className="nav flex-column">
                             <NavLink className="nav-link" to="/">Beranda</NavLink>
-                            <NavLink className="nav-link" to="/buku-teks">Buku Teks K13</NavLink>
-                            <NavLink className="nav-link" to="/buku-nonteks">Buku Nonteks</NavLink>
-                            <NavLink className="nav-link" to="/buku-kurikulum-merdeka">Buku Kurikulum Merdeka</NavLink>
+                            <NavLink className="nav-link" to="/katalog?type=getTextBooks">Buku Teks K13</NavLink>
+                            <NavLink className="nav-link" to="/katalog?type=getNonTextBooks">Buku Nonteks</NavLink>
+                            <NavLink className="nav-link" to="/katalog?type=getPenggerakTextBooks">Buku Kurikulum Merdeka</NavLink>
                             <NavLink className="nav-link" to="https://app.buku.kemdikbud.go.id/penilaian">Penilaian</NavLink>
                             <NavLink className="nav-link" to="https://app.buku.kemdikbud.go.id/kebijakan">Kebijakan</NavLink>
                             <NavLink className="nav-link" to="/panduan">Panduan</NavLink>

@@ -1,10 +1,27 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../components/global/Layout'
 import Hero from '../../components/guide/Hero/Hero'
-import SectionIntro from '../../components/guide/sections/SectionIntro/SectionIntro'
+import SectionIntroTeacher from '../../components/guide/sections/SectionIntro/SectionIntroTeacher'
 import SectionJelajahi from '../../components/guide/sections/SectionJelajahi/SectionJelajahi'
+import SectionStats from '../../components/home/sections/SectionStats/SectionStats'
+import { BASE_URL } from '../../utils/config'
 
-const forTeacher = () => {
+const ForTeacher = () => {
+    const [statisticBook, setStatisticBook] = useState([])
+
+    useEffect(() => {
+        const getStatisticBook = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/statistic/getSummary`);
+                setStatisticBook(response.data)
+            } catch (error) {
+                return error.message
+            }
+        }
+        getStatisticBook();
+    }, [])
+
     const content = {
         subtitle: 'BUKU UNTUK GURU',
         title: 'Temukan referensi buku-buku resmi dari kemdikbud',
@@ -16,10 +33,11 @@ const forTeacher = () => {
     return (
         <Layout>
             <Hero content={content} role="teacher" />
-            <SectionIntro />
+            <SectionIntroTeacher />
             <SectionJelajahi />
+            <SectionStats data={statisticBook} />
         </Layout>
     )
 }
 
-export default forTeacher
+export default ForTeacher

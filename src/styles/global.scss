@@ -6,6 +6,7 @@
 // Primary color
 $primary: #e5f8ff;
 $blue: #2b4da2;
+$dark-blue: #405272;
 
 *,
 body {
@@ -21,6 +22,9 @@ body {
 }
 .bg-blue {
   background-color: $blue;
+}
+.bg-dark-blue {
+  background-color: $dark-blue;
 }
 .bg-pink {
   background-color: #fff0e6;

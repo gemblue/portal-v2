@@ -12,7 +12,7 @@ import axios from 'axios'
 const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
     const [searchValue, setSearchValue] = useState('')
 
-    const pageLimit = 10;
+    const pageLimit = 12;
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
@@ -75,7 +75,7 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
             <div className="container px-3 py-5">
                 <div className="row">
                     <div className="col-lg-3">
-                        <h4>Buku Kurikulum Merdeka</h4>
+                        <h4>Buku Kurikulum <br /> Merdeka</h4>
                         <div className="card mt-3">
                             <div className="card-header">
                                 TIPE BUKU
@@ -225,7 +225,7 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li><button className="dropdown-item">Terpopuler</button></li>
-                                        <li><button className="dropdown-item">Another action</button></li>
+                                        <li><button className="dropdown-item">Terbaru</button></li>
                                     </ul>
                                 </div>
                             </div>

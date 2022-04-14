@@ -4,9 +4,9 @@ import styles from "../SectionStats/SectionStats.module.scss"
 
 const SectionStats = ({ data }) => {
     const stats = data
-    console.log(stats);
+
     return (
-        <section className="bg-blue" id="counter">
+        <section className="" style={{ backgroundImage: 'url(/assets/image/background/bg-stats.png)', backgroundPosition: 'center' }} id="counter">
             <div className="container p-4">
                 <div className="row text-center">
                     <div className="col-6 col-lg-3">
