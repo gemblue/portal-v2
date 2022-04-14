@@ -1,7 +1,16 @@
+import { faBars, faDoorOpen, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+    const navigate = useNavigate()
+    const logout = () => {
+        localStorage.removeItem('user_token')
+        localStorage.removeItem('user_profile')
+        navigate('/')
+    }
+
     // Handle page on scroll navbar change background 
     const navbar = document.querySelector('.navbar');
     window.onscroll = () => {
@@ -14,6 +23,11 @@ const Navbar = () => {
             navbar.classList.add('bg-light')
         }
     }
+
+    // Handle user is logged in
+    const token = localStorage.getItem('user_token');
+    const user = JSON.parse(localStorage.getItem('user_profile'))
+
     return (
         <section className="sticky-top fixed-top" id="navbar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -78,9 +92,27 @@ const Navbar = () => {
                             {/* <li className="nav-item mx-1">
                                 <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Pusbuk</NavLink>
                             </li> */}
-                            <li className="nav-item ms-3 pt-1">
-                                <Link to="/login" className="btn btn-sm btn-outline-primary">Masuk</Link>
-                            </li>
+                            {
+                                token == null
+                                    ? (
+                                        <li className="nav-item ms-3 pt-1">
+                                            <Link to="/login" className="btn btn-sm btn-outline-primary">Masuk</Link>
+                                        </li>
+                                    )
+                                    : (
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <FontAwesomeIcon icon={faUserCircle} />
+                                            </a>
+                                            <ul class="dropdown-menu profile" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item"><FontAwesomeIcon className="me-1" icon={faBars} /> Dashboard</a></li>
+                                                <li><hr class="dropdown-divider" /></li>
+                                                <li><a onClick={() => logout()} class="dropdown-item" href="#"> <FontAwesomeIcon className="me-1" icon={faDoorOpen} /> Logout</a></li>
+                                            </ul>
+                                        </li>
+
+                                    )
+                            }
                         </ul>
                     </div>
                 </div>

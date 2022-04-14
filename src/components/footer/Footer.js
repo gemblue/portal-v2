@@ -20,8 +20,8 @@ const Footer = () => {
                             <NavLink className="nav-link" to="/katalog?type=getTextBooks">Buku Teks K13</NavLink>
                             <NavLink className="nav-link" to="/katalog?type=getNonTextBooks">Buku Nonteks</NavLink>
                             <NavLink className="nav-link" to="/katalog?type=getPenggerakTextBooks">Buku Kurikulum Merdeka</NavLink>
-                            <NavLink className="nav-link" to="https://app.buku.kemdikbud.go.id/penilaian">Penilaian</NavLink>
-                            <NavLink className="nav-link" to="https://app.buku.kemdikbud.go.id/kebijakan">Kebijakan</NavLink>
+                            <a className="nav-link" href="https://app.buku.kemdikbud.go.id/penilaian">Penilaian</a>
+                            <a className="nav-link" href="https://app.buku.kemdikbud.go.id/kebijakan">Kebijakan</a>
                             <NavLink className="nav-link" to="/panduan">Panduan</NavLink>
                             <NavLink className="nav-link" to="/tentang-kami">Tentang Kami</NavLink>
                         </ul>

@@ -76,8 +76,8 @@ body {
     width: 230px;
     height: auto;
   }
-  .dropdown:hover .dropdown-menu {
-    display: block;
+  .dropdown:hover .dropdown-menu:not(.profile) {
+    display: block !important;
   }
 }
 

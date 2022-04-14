@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const SectionAccessBook = () => {
     return (
-        <section className="py-4 bg-pink" style={{ backgroundImage: 'url(/assets/image/home/bg-access-book.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
+        <section className=" py-2 bg-pink" style={{ backgroundImage: 'url(/assets/image/home/bg-access-book.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
             <div className="container p-3">
                 <h3>Akses buku <div className="d-inline-flex flex-column"><span>lebih mudah</span><span className="mt-n4"><img src="/assets/image/home/line-access-book.png" alt="line title" /></span></div></h3>
                 <p className="text-muted">Temukan buku sesuai kebutuhanmu</p>
