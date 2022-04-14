@@ -3,7 +3,7 @@ import styles from "./CardBook.module.scss"
 const CardBook = ({ image, title, typeBook, level }) => {
     return (
         <div className={`card border-0 h-100 mt-3 ${styles.card}`}>
-            <div className="card-header text-center bg-white p-0" style={{ backgroundImage: 'url(/assets/image/home/ellipse-1.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
+            <div className="card-header text-start bg-white p-0" style={{ backgroundImage: 'url(/assets/image/home/ellipse-1.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
                 <img src={image || '/assets/image/catalog/book-placeholder.jpg'} alt={title} className={styles['img-size']} />
             </div>
             <div className="card-body">
