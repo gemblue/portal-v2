@@ -1,15 +1,27 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config/'
 
 const Login = () => {
+    // Check if success from register
+    let search = useLocation().search;
+    const [params] = useState(new URLSearchParams(search).get('register'))
+    const [email] = useState(new URLSearchParams(search).get('email'))
+    const [successRegister, setSuccessRegister] = useState(false)
+
+    // Define login state
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
     const { resetField, register, handleSubmit, formState: { errors } } = useForm();
+
+    useEffect(() => {
+        params === 'success' && (setSuccessRegister(true))
+    }, [])
 
     const onSubmit = async (data) => {
         setLoading(true)
@@ -42,6 +54,13 @@ const Login = () => {
                     <div className="card mt-2 shadow">
                         <div className="card-body p-4">
                             {
+                                successRegister && (
+                                    <div className="alert alert-success alert-dismissible fade show">
+                                        <div>Berhasil mendaftarkan akun, selanjutnya silahkan cek email <span className="fw-bold">{email}</span>untuk aktivasi. Cek folder spam jika email tidak ada di inbox.</div>
+                                    </div>
+                                )
+                            }
+                            {
                                 message != '' && (
                                     <div className="alert alert-danger alert-dismissible fade show">
                                         {message}
@@ -72,7 +91,8 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
-                                <p>Belum punya akun? <Link to="/register" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
+                                <p className="mb-0">Belum punya akun? <Link to="/registrasi" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
+                                <p>Lupa kata sandi? <Link to="/lupa-sandi" className="text-decoration-none text-blue"> Klik disini</Link> </p>
                             </div>
                         </div>
                     </div>

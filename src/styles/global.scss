@@ -84,10 +84,22 @@ body {
 #login {
   background: url("../../public/assets/image/login/background.png");
   background-color: $primary !important;
-  height: 85vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+  padding-bottom: 80px !important;
+  .active {
+    color: red !important;
+  }
+}
+
+#register {
+  background: url("../../public/assets/image/login/background.png");
+  background-color: $primary !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding-bottom: 80px !important;
 
   .active {
     color: red !important;

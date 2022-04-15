@@ -39,7 +39,7 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto">
+                        <ul className="navbar-nav ms-auto pt-3">
                             <li className="nav-item mx-1">
                                 <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
@@ -101,16 +101,16 @@ const Navbar = () => {
                                     )
                                     : (
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <FontAwesomeIcon icon={faUserCircle} />
                                             </a>
                                             <ul class="dropdown-menu profile" aria-labelledby="navbarDropdown">
-                                                <li><a class="dropdown-item"><FontAwesomeIcon className="me-1" icon={faBars} /> Dashboard</a></li>
+                                                <li><small className="dropdown-item fw-bold">Hai, {user.fullname}</small></li>
                                                 <li><hr class="dropdown-divider" /></li>
+                                                <li><a class="dropdown-item"><FontAwesomeIcon className="me-1" icon={faBars} /> Dashboard</a></li>
                                                 <li><a onClick={() => logout()} class="dropdown-item" href="#"> <FontAwesomeIcon className="me-1" icon={faDoorOpen} /> Logout</a></li>
                                             </ul>
                                         </li>
-
                                     )
                             }
                         </ul>

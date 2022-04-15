@@ -81,6 +81,8 @@ const Catalog = () => {
                 loading={loading}
                 skeletonCount={limit}
                 typeBook={typeBook}
+                typeCatalogue={typeCatalogue}
+                setTypeCatalogue={(type) => setTypeCatalogue(type)}
                 setTypeBook={(type) => setTypeBook(type)}
                 setLevel={(level) => setLevel(level)}
                 // setLevelPAUD={() => filterLevel('level_paud', '', '', '')}

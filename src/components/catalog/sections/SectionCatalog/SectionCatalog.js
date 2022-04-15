@@ -9,8 +9,7 @@ import Fuse from "fuse.js";
 import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 
-const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
-    const [searchValue, setSearchValue] = useState('')
+const SectionCatalog = ({ books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
 
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -76,105 +75,135 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                 <div className="row">
                     <div className="col-lg-3">
                         <h4>Buku Kurikulum <br /> Merdeka</h4>
-                        <div className="card mt-3">
-                            <div className="card-header">
-                                TIPE BUKU
-                            </div>
-                            <div className="card-body">
-                                <div onChange={() => setTypeBook('type_pdf')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="checkbox" id="typePDF" />
-                                    <label className="form-check-label" htmlFor="typePDF">
-                                        Buku PDF
-                                    </label>
-                                </div>
-                                <div onChange={() => setTypeBook('type_audio')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="checkbox" id="typeAudio" />
-                                    <label className="form-check-label" htmlFor="typeAudio">
-                                        Buku Audio
-                                    </label>
-                                </div>
-                                <div onChange={() => setTypeBook('type_interactive')} className="form-check">
-                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="checkbox" id="typeInteractive" />
-                                    <label className="form-check-label" htmlFor="typeInteractive">
-                                        Buku Interaktif
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card mt-3">
-                            <div className="card-header">
-                                JENJANG
-                            </div>
-                            <div className="card-body">
-                                <div className="form-check">
-                                    <input onClick={() => setLevel('level_paud')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
-                                    <label className="form-check-label" htmlFor="checkPAUD">
-                                        PAUD
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onClick={() => setLevel('level_sd')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
-                                    <label className="form-check-label" htmlFor="checkSD">
-                                        SD/MI
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onClick={() => setLevel('level_smp')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
-                                    <label className="form-check-label" htmlFor="checkSMP">
-                                        SMP/MTS
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onClick={() => setLevel('level_sma')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
-                                    <label className="form-check-label" htmlFor="checkSMK">
-                                        SMA/MA/SMK/MAK
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card mt-3">
-                            <div className="card-header">
-                                MATA PELAJARAN
-                            </div>
-                            <div className="card-body overflow-auto" style={{ height: '160px' }}>
-                                <div className="form-check">
-                                    <input onChange={setLessonIPA} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        IPA
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onChange={setLessonIPS} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        IPS
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onChange={setLessonBIndonesia} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        Bahasa Indonesia
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onChange={setLessonBInggris} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        Bahasa Inggris
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onChange={setLessonMatematika} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        Matematika
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                        Pendidikan Kewarganegaraan
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            typeCatalogue == 'getNonTextBooks'
+                                ? (
+                                    <>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                TIPE BUKU
+                                            </div>
+                                            <div className="card-body">
+                                                <div onChange={() => setTypeBook('type_pdf')} className="form-check">
+                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typePDF" />
+                                                    <label className="form-check-label" htmlFor="typePDF">
+                                                        Fiksi
+                                                    </label>
+                                                </div>
+                                                <div onChange={() => setTypeBook('type_audio')} className="form-check">
+                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeAudio" />
+                                                    <label className="form-check-label" htmlFor="typeAudio">
+                                                        Non Fiksi
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                TIPE BUKU
+                                            </div>
+                                            <div className="card-body">
+                                                <div onChange={() => setTypeBook('type_pdf')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="checkbox" id="typePDF" />
+                                                    <label className="form-check-label" htmlFor="typePDF">
+                                                        Buku PDF
+                                                    </label>
+                                                </div>
+                                                <div onChange={() => setTypeBook('type_audio')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="checkbox" id="typeAudio" />
+                                                    <label className="form-check-label" htmlFor="typeAudio">
+                                                        Buku Audio
+                                                    </label>
+                                                </div>
+                                                <div onChange={() => setTypeBook('type_interactive')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="checkbox" id="typeInteractive" />
+                                                    <label className="form-check-label" htmlFor="typeInteractive">
+                                                        Buku Interaktif
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                JENJANG
+                                            </div>
+                                            <div className="card-body">
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_paud')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
+                                                    <label className="form-check-label" htmlFor="checkPAUD">
+                                                        PAUD
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_sd')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
+                                                    <label className="form-check-label" htmlFor="checkSD">
+                                                        SD/MI
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_smp')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
+                                                    <label className="form-check-label" htmlFor="checkSMP">
+                                                        SMP/MTS
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_sma')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
+                                                    <label className="form-check-label" htmlFor="checkSMK">
+                                                        SMA/MA/SMK/MAK
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                MATA PELAJARAN
+                                            </div>
+                                            <div className="card-body overflow-auto" style={{ height: '160px' }}>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIPA} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        IPA
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIPS} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        IPS
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBIndonesia} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Bahasa Indonesia
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBInggris} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Bahasa Inggris
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonMatematika} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Matematika
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Pendidikan Kewarganegaraan
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                        }
                     </div>
                     <div className="col-lg-9">
                         <div className="text-muted text-end my-4">
@@ -244,7 +273,7 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, setTypeBook, 
                                                 class="img-fluid"
                                                 alt="Not found"
                                             />
-                                            <h4 class="text-center mt-2">Data tidak ditemukan.</h4>
+                                            <div class="text-center mt-2">Buku belum tersedia</div>
                                         </div>
                                     )
                                         : currentData.map((book, index) => {

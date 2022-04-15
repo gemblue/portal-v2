@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from "../src/pages/index"
 import NotFound from "../src/pages/error/notFound"
 import Login from "../src/pages/auth/Login"
+import Register from "../src/pages/auth/Register"
+import ForgotPassword from "./pages/auth/ForgotPassword"
 import Catalog from "../src/pages/catalog"
 import CatalogDetail from "../src/pages/catalog/slug"
 import ForParent from "./pages/guide/forParent"
@@ -23,6 +25,8 @@ const App = () => {
       <Route path="/panduan/siswa" element={<ForStudent />} />
       <Route path="/panduan/guru" element={<ForTeacher />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/registrasi" element={<Register />} />
+      <Route path="/lupa-sandi" element={<ForgotPassword />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
