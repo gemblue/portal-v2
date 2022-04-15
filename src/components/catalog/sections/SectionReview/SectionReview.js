@@ -2,10 +2,12 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import { useState } from 'react'
+import { set } from 'react-hook-form'
 import ReactStars from 'react-rating-stars-component'
 import { BASE_URL } from '../../../../utils/config'
 
 const SectionReview = ({ slug }) => {
+    const token = localStorage.getItem('user_token')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const [message, setMessage] = useState('')
@@ -13,13 +15,18 @@ const SectionReview = ({ slug }) => {
     const [showComment, setShowComment] = useState(false)
 
     const postReview = async (payload) => {
+
         setLoading(true)
         try {
-            const response = await axios.post(`${BASE_URL}/}/api/review/addReview`, payload)
+            const response = await axios.post(`${BASE_URL}/api/review/addReview`, payload, {
+                headers: {
+                    Authorization: token,
+                },
+            })
             console.log(response);
-        } catch (error) {
-            setLoading(false)
             setSuccess(true)
+            setLoading(false)
+        } catch (error) {
             return error.message
         }
     }

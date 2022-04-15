@@ -1,4 +1,4 @@
-import { faBars, faDoorOpen, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faDoorOpen, faTachometerAlt, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
@@ -27,7 +27,7 @@ const Navbar = () => {
     // Handle user is logged in
     const token = localStorage.getItem('user_token');
     const user = JSON.parse(localStorage.getItem('user_profile'))
-
+    console.log(user);
     return (
         <section className="sticky-top fixed-top" id="navbar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -39,7 +39,7 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto pt-3">
+                        <ul className="navbar-nav ms-auto">
                             <li className="nav-item mx-1">
                                 <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
@@ -92,6 +92,9 @@ const Navbar = () => {
                             {/* <li className="nav-item mx-1">
                                 <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Pusbuk</NavLink>
                             </li> */}
+                        </ul>
+                        <ul className="navbar-nav mb-2 mb-lg-0 text-center text-xl-start">
+
                             {
                                 token == null
                                     ? (
@@ -100,15 +103,43 @@ const Navbar = () => {
                                         </li>
                                     )
                                     : (
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle h5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <FontAwesomeIcon icon={faUserCircle} />
+                                        <li className="nav-item dropdown d-none d-xl-block">
+                                            <a
+                                                className="nav-link"
+                                                data-toggle="dropdown"
+                                                href="!#"
+                                                id="navbarDropdown"
+                                                role="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                            >
+                                                <strong>{user && user.name}</strong>
+                                                <img
+                                                    className="rounded-circle"
+                                                    src={user && user.avatar}
+                                                    alt=""
+                                                    style={{ width: "40px", height: "40px" }}
+                                                />
                                             </a>
-                                            <ul class="dropdown-menu profile" aria-labelledby="navbarDropdown">
-                                                <li><small className="dropdown-item fw-bold">Hai, {user.fullname}</small></li>
-                                                <li><hr class="dropdown-divider" /></li>
-                                                <li><a class="dropdown-item"><FontAwesomeIcon className="me-1" icon={faBars} /> Dashboard</a></li>
-                                                <li><a onClick={() => logout()} class="dropdown-item" href="#"> <FontAwesomeIcon className="me-1" icon={faDoorOpen} /> Logout</a></li>
+                                            <ul className="dropdown-menu dropdown-menu-end profile" aria-labelledby="navbarDropdown">
+                                                <li className="py-0">
+                                                    <small className="dropdown-item">Hai, <span className="fw-bold">{user.fullname}</span></small>
+                                                </li>
+                                                <li>
+                                                    <hr className="dropdown-divider" />
+                                                </li>
+                                                <li>
+                                                    <Link className="dropdown-item" to="/dashboard">
+                                                        <FontAwesomeIcon icon={faTachometerAlt} className="me-1" /> Dashboard
+                                                    </Link>
+                                                </li>
+                                                <li
+                                                    className="dropdown-item"
+                                                    onClick={logout}
+                                                    style={{ cursor: "pointer" }}
+                                                >
+                                                    <FontAwesomeIcon icon={faDoorOpen} className="me-1" /> Logout
+                                                </li>
                                             </ul>
                                         </li>
                                     )

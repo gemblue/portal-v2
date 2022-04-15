@@ -17,14 +17,17 @@ body {
 .bg-soft-blue {
   background-color: $primary;
 }
+.bg-soft-grey {
+  background-color: #f5f5f5;
+}
 .bg-white {
   background-color: #fff !important;
 }
 .bg-blue {
-  background-color: $blue;
+  background-color: $blue !important;
 }
 .bg-dark-blue {
-  background-color: $dark-blue;
+  background-color: $dark-blue !important;
 }
 .bg-pink {
   background-color: #fff0e6;

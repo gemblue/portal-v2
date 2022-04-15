@@ -1,12 +1,44 @@
-import { faCircleExclamation, faFile, faFileAudio, faFilePdf, faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faCircleExclamation, faFile, faFileAudio, faFilePdf, faPlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios'
 import React from 'react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Skeleton from 'react-loading-skeleton'
-import { Link } from 'react-router-dom'
+import { BASE_URL } from '../../../../utils/config'
 import Modal from '../../modal/Modal'
 import styles from './HeroDetail.module.scss'
 
-const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
+const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
+    const token = localStorage.getItem('user_token');
+    const [loadingReport, setLoadingReport] = useState(false)
+    const [successReview, setSuccessReview] = useState(false)
+    const { resetField, register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = async (data) => {
+        setLoadingReport(true)
+        const payload = {
+            message: data.message,
+            slug: slug,
+            category: data.category
+        }
+
+        try {
+            const response = await axios.post(`${BASE_URL}/api/report/addReport`, JSON.stringify(payload), {
+                headers: {
+                    Authorization: token,
+                },
+            })
+            if (response.data.status == 'success') {
+                setSuccessReview(true)
+                resetField('message')
+            }
+        } catch (error) {
+            return error.message
+        } finally {
+            setLoadingReport(false)
+        }
+    }
+
     return (
         <section>
             <div className="container p-4">
@@ -50,7 +82,7 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                                                 >
                                                     <FontAwesomeIcon icon={faFilePdf} className="me-1" /> Baca Online
                                                 </button>
-                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada buku</small>
+                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada buku</small>
                                             </>
                                         )
                                     }
@@ -63,7 +95,7 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                                                 <a href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh Audio
                                                 </a>
-                                                <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada audio</small>
+                                                <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
                                             </>
                                         )
                                     }
@@ -73,7 +105,7 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                                         bookType === 'interactive' && (
                                             <>
                                                 <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
-                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <Link to="/" className="text-decoration-none text-blue ms-2 fw-bold"><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</Link> jika menemukan kesalahan pada naskah</small>
+                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
                                             </>
                                         )
                                     }
@@ -126,6 +158,40 @@ const HeroDetail = ({ loading, image, bookType, title, publisher, isbn, edition,
                     <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
                 </object>
             </Modal>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title" id="exampleModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
+                            <button onClick={() => setSuccessReview(false)} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div class="modal-body bg-soft-grey">
+                                {successReview && <div className="alert alert-success">Laporan berhasil dikirim <FontAwesomeIcon className="ms-1" icon={faCheck} /></div>}
+                                <div className="form-group mb-3">
+                                    <label className="form-label" htmlFor="kategori">Kategori</label>
+                                    <select {...register('category', { required: true })} id="kategori" className="form-select">
+                                        <option value="Sara">Sara</option>
+                                        <option value="Salah Cetak">Salah Cetak</option>
+                                        <option value="Plagiasi">Plagiasi</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <textarea {...register('message', { required: true })} className="form-control" rows="3" placeholder="Pesan"></textarea>
+                                    {errors.message && errors.message.type === 'required' && <small className="text-danger">Pesan laporan harus diisi</small>}
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-soft-grey">
+                                {
+                                    loadingReport
+                                        ? (<button type="button" class="btn btn-primary disabled btn-sm"><div class="spinner-border" role="status"></div></button>)
+                                        : (<button type="submit" class="btn rounded-pill bg-blue text-white">Kirim</button>)
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }
