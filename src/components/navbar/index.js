@@ -27,7 +27,7 @@ const Navbar = () => {
     // Handle user is logged in
     const token = localStorage.getItem('user_token');
     const user = JSON.parse(localStorage.getItem('user_profile'))
-    console.log(user);
+
     return (
         <section className="sticky-top fixed-top" id="navbar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">

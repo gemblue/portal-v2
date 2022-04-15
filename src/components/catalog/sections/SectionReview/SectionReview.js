@@ -23,7 +23,6 @@ const SectionReview = ({ slug }) => {
                     Authorization: token,
                 },
             })
-            console.log(response);
             setSuccess(true)
             setLoading(false)
         } catch (error) {

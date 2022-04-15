@@ -1,7 +1,6 @@
 import styles from './Hero.module.scss'
 
 const Hero = ({ content, role }) => {
-    console.log(role);
     return (
         <section id="hero" className={`bg-soft-blue position-relative ${role === 'teacher' ? styles['hero-teacher'] : role === 'student' ? styles['hero-student'] : styles['hero-parent']}`}>
             <div className="container p-3 pb-0">

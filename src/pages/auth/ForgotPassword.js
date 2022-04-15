@@ -26,7 +26,6 @@ const ForgotPassword = () => {
                 "Content-type": "multipart/form-data",
             },
         }).then(res => {
-            console.log(res);
             resetField('email')
             setMessageFailed('')
             setMessageSuccess(res.data.message)
