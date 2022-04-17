@@ -5,15 +5,17 @@ import React from 'react'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Skeleton from 'react-loading-skeleton'
+import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../../../utils/config'
 import Modal from '../../modal/Modal'
 import styles from './HeroDetail.module.scss'
 
-const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
-    const token = localStorage.getItem('user_token');
+const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
     const [loadingReport, setLoadingReport] = useState(false)
+    const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
     const { resetField, register, handleSubmit, formState: { errors } } = useForm();
+
     const onSubmit = async (data) => {
         setLoadingReport(true)
         const payload = {
@@ -29,20 +31,47 @@ const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, ed
                 },
             })
             if (response.data.status == 'success') {
+                setFailedReview(false)
                 setSuccessReview(true)
                 resetField('message')
             }
         } catch (error) {
+            setSuccessReview(false)
+            setFailedReview(true)
             return error.message
         } finally {
             setLoadingReport(false)
         }
     }
 
+    const pushLog = async (type) => {
+        if (token) {
+            const payload = {
+                slug: slug,
+                activity: type
+            }
+
+            const convertRAW = JSON.stringify(payload)
+
+            try {
+                const response = await axios.post(`${BASE_URL}/api/statistic/push`, convertRAW, {
+                    headers: {
+                        Authorization: token,
+                    },
+                })
+                if (response.data.status == 'success') {
+                    console.log('log pushed');
+                }
+            } catch (error) {
+                console.log('failed log pushed');
+            }
+        }
+    }
+
     return (
         <section>
             <div className="container p-4">
-                <div className="row p-3 mb-5" style={{ background: 'url(/assets/image/catalog/Background.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionX: 'right' }}>
+                <div className="row p-3 mb-5" style={{ background: 'url(/assets/image/catalog/Background.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionX: 'right', borderRadius: '15px' }}>
                     {
                         loading && (
                             <>
@@ -72,10 +101,11 @@ const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, ed
                                     {
                                         bookType === 'pdf' && (
                                             <>
-                                                <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2" rel="noreferrer" target="_blank" download="file.pdf">
+                                                <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2" rel="noreferrer" target="_blank" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFilePdf} className="me-1" /> Unduh PDF
                                                 </a>
                                                 <button
+                                                    onClick={() => pushLog('read')}
                                                     className="btn btn-sm btn-outline-primary py-2"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#readModal"
@@ -91,9 +121,9 @@ const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, ed
                                     {
                                         bookType === 'audio' && (
                                             <>
-                                                <a href="#audioPlayer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
-                                                <a href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
-                                                    <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh Audio
+                                                <a onClick={() => pushLog('play')} href="#audioPlayer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
+                                                <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
+                                                    <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh PDF
                                                 </a>
                                                 <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
                                             </>
@@ -104,7 +134,7 @@ const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, ed
                                     {
                                         bookType === 'interactive' && (
                                             <>
-                                                <a href={attachment} className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
+                                                <a onClick={() => pushLog('read')} href={attachment} target="_blank" rel="noreferrer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
                                                 <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
                                             </>
                                         )
@@ -147,26 +177,21 @@ const HeroDetail = ({ loading, image, slug, bookType, title, publisher, isbn, ed
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                <object
-                    type="application/pdf"
-                    data={attachment}
-                    width="100%"
-                    height="800"
-                    aria-label={title}
-                >
+                <iframe src={`https://docs.google.com/viewer?url=${attachment}&embedded=true`} width="100%" height="800" frameborder="0" scrolling="no">
                     <p>Silahkan klik tombol unduh untuk membaca</p>
                     <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
-                </object>
+                </iframe>
             </Modal>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content bg-">
                         <div class="modal-header bg-warning">
                             <h5 class="modal-title" id="exampleModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
-                            <button onClick={() => setSuccessReview(false)} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button onClick={() => { setSuccessReview(false); setFailedReview(false) }} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div class="modal-body bg-soft-grey">
+                                {failedReview && <div className="alert alert-warning">Silahkan <Link to="/login" className="text-decoration-none">login</Link> terlebih dahulu.</div>}
                                 {successReview && <div className="alert alert-success">Laporan berhasil dikirim <FontAwesomeIcon className="ms-1" icon={faCheck} /></div>}
                                 <div className="form-group mb-3">
                                     <label className="form-label" htmlFor="kategori">Kategori</label>

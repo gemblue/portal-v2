@@ -10,6 +10,7 @@ import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
 
 const CatalogDetail = () => {
+    const token = localStorage.getItem('user_token');
     const { slug } = useParams();
     const [loading, setLoading] = useState(false)
     const [book, setBook] = useState([])
@@ -48,6 +49,7 @@ const CatalogDetail = () => {
                 slug={book.slug}
             />
             <HeroDetail
+                token={token}
                 slug={book.slug}
                 image={book.image}
                 bookType={book.type}
@@ -62,7 +64,10 @@ const CatalogDetail = () => {
                 loading={loading}
             />
             {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
-            <SectionReview slug={book.slug} />
+            <SectionReview
+                token={token}
+                slug={book.slug}
+            />
             <SectionRecommended
                 recommendBooks={recommendBooks}
                 loading={loading}
