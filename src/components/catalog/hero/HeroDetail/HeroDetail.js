@@ -177,7 +177,16 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                <iframe src={`http://docs.google.com/viewer?url=${attachment}&embedded=true`} width="100%" height="800" frameBorder="0" scrolling="no"></iframe>
+                <object
+                    type="application/pdf"
+                    data={attachment}
+                    width="100%"
+                    height="800"
+                    aria-label={title}
+                >
+                    <p>Silahkan klik tombol unduh untuk membaca</p>
+                    <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
+                </object>
             </Modal>
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
