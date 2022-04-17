@@ -177,20 +177,17 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                <iframe src={`https://docs.google.com/viewer?url=${attachment}&embedded=true`} width="100%" height="800" frameborder="0" scrolling="no">
-                    <p>Silahkan klik tombol unduh untuk membaca</p>
-                    <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
-                </iframe>
+                <iframe src={`http://docs.google.com/viewer?url=${attachment}&embedded=true`} width="100%" height="800" frameBorder="0" scrolling="no"></iframe>
             </Modal>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-">
-                        <div class="modal-header bg-warning">
-                            <h5 class="modal-title" id="exampleModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
-                            <button onClick={() => { setSuccessReview(false); setFailedReview(false) }} type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content bg-">
+                        <div className="modal-header bg-warning">
+                            <h5 className="modal-title" id="exampleModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
+                            <button onClick={() => { setSuccessReview(false); setFailedReview(false) }} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div class="modal-body bg-soft-grey">
+                            <div className="modal-body bg-soft-grey">
                                 {failedReview && <div className="alert alert-warning">Silahkan <Link to="/login" className="text-decoration-none">login</Link> terlebih dahulu.</div>}
                                 {successReview && <div className="alert alert-success">Laporan berhasil dikirim <FontAwesomeIcon className="ms-1" icon={faCheck} /></div>}
                                 <div className="form-group mb-3">
@@ -206,11 +203,11 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                                     {errors.message && errors.message.type === 'required' && <small className="text-danger">Pesan laporan harus diisi</small>}
                                 </div>
                             </div>
-                            <div class="modal-footer bg-soft-grey">
+                            <div className="modal-footer bg-soft-grey">
                                 {
                                     loadingReport
-                                        ? (<button type="button" class="btn btn-primary disabled btn-sm"><div class="spinner-border" role="status"></div></button>)
-                                        : (<button type="submit" class="btn rounded-pill bg-blue text-white">Kirim</button>)
+                                        ? (<button type="button" className="btn btn-primary disabled btn-sm"><div className="spinner-border" role="status"></div></button>)
+                                        : (<button type="submit" className="btn rounded-pill bg-blue text-white">Kirim</button>)
                                 }
                             </div>
                         </form>
