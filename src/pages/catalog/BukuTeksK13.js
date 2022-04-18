@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams, useSearchParams } from 'react-router-dom'
 import Hero from '../../components/catalog/hero'
 import SectionCatalog from '../../components/catalog/sections/SectionCatalog/SectionCatalog'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
 
-const Catalog = () => {
+const BukuTeksK13 = () => {
 
     const [loading, setLoading] = useState(false)
     const [books, setBooks] = useState([])
@@ -125,4 +124,4 @@ const Catalog = () => {
     )
 }
 
-export default Catalog
+export default BukuTeksK13

@@ -9,7 +9,7 @@ import Fuse from "fuse.js";
 import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 
-const SectionCatalog = ({ books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
+const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
 
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -133,25 +133,25 @@ const SectionCatalog = ({ books, loading, skeletonCount, typeBook, typeCatalogue
                                             </div>
                                             <div className="card-body">
                                                 <div className="form-check">
-                                                    <input onClick={() => setLevel('level_paud')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
+                                                    <input onClick={() => setLevel('level_paud')} checked={checkActive == 'level_paud' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
                                                     <label className="form-check-label" htmlFor="checkPAUD">
                                                         PAUD
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input onClick={() => setLevel('level_sd')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
+                                                    <input onClick={() => setLevel('level_sd')} checked={checkActive == 'level_sd' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
                                                     <label className="form-check-label" htmlFor="checkSD">
                                                         SD/MI
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input onClick={() => setLevel('level_smp')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
+                                                    <input onClick={() => setLevel('level_smp')} checked={checkActive == 'level_smp' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
                                                     <label className="form-check-label" htmlFor="checkSMP">
                                                         SMP/MTS
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input onClick={() => setLevel('level_sma')} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
+                                                    <input onClick={() => setLevel('level_sma')} checked={checkActive == 'level_sma' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
                                                     <label className="form-check-label" htmlFor="checkSMK">
                                                         SMA/MA/SMK/MAK
                                                     </label>

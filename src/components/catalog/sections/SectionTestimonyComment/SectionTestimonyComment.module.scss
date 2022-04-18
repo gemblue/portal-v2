@@ -1,0 +1,12 @@
+.img-responsive {
+  width: 70px;
+}
+
+@media screen and (max-width: 576px) {
+  .img-responsive {
+    width: 50px;
+  }
+  .username {
+    font-size: medium;
+  }
+}

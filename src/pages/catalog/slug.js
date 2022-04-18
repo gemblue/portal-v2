@@ -6,6 +6,7 @@ import SectionAudioPlayer from '../../components/catalog/sections/SectionAudioPl
 import SectionBreadcumb from '../../components/catalog/sections/SectionBreadcumb/SectionBreadcumb'
 import SectionRecommended from '../../components/catalog/sections/SectionRecommended/SectionRecommended'
 import SectionReview from '../../components/catalog/sections/SectionReview/SectionReview'
+import SectionTestimonyComment from '../../components/catalog/sections/SectionTestimonyComment/SectionTestimonyComment'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
 
@@ -14,6 +15,7 @@ const CatalogDetail = () => {
     const { slug } = useParams();
     const [loading, setLoading] = useState(false)
     const [book, setBook] = useState([])
+    const [reviews, setReviews] = useState([])
     const [recommendBooks, setRecommendBooks] = useState([])
 
     useEffect(() => {
@@ -36,10 +38,19 @@ const CatalogDetail = () => {
                 return error.message;
             }
         }
+        const getReviews = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/api/review/getReviews?slug=${slug}&limit=5&offset=0`);
+                setReviews(response.data.results);
+            } catch (error) {
+                return error.message;
+            }
+        }
+        getReviews()
         getBookDetail()
         getRecommendBooks()
     }, [slug])
-
+    console.log(reviews);
     return (
         <Layout>
             <SectionBreadcumb
@@ -68,6 +79,7 @@ const CatalogDetail = () => {
                 token={token}
                 slug={book.slug}
             />
+            <SectionTestimonyComment reviews={reviews} />
             <SectionRecommended
                 recommendBooks={recommendBooks}
                 loading={loading}

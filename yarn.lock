@@ -8051,6 +8051,11 @@ react-loading-skeleton@^3.0.3:
   resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.0.3.tgz#4f45467cf3193fb25456bc02aeb81922b82b8f1f"
   integrity sha512-HPkEqQGwmbg1ImcYA9n4hDiLC3u92xUdU+sSfrv/9l3lNBChAubcl1azjV2WakapdkbA3gko+hPzZkZGIb/9xA==
 
+react-rating-star@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-rating-star/-/react-rating-star-1.2.0.tgz#9f4bbe1dd6d6bfb0204e291edd2623ff324d8d23"
+  integrity sha512-F/tqPoKwr/eCx2SIkPclf0zGpOBBJy3cT84RxF7ek8YMsLBw/EUZ4oWLjwuxskDNpHDxkLRQ9ko804Ln4MCfQQ==
+
 react-rating-stars-component@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/react-rating-stars-component/-/react-rating-stars-component-2.2.0.tgz#e947c6a1f59278e6fea1098453f43cb15d077c14"
@@ -8145,6 +8150,11 @@ react-scripts@5.0.0:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-simple-star-rating@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/react-simple-star-rating/-/react-simple-star-rating-4.0.5.tgz#030e576015c9fca881677c9eeb55218f42278cd8"
+  integrity sha512-995YpXtLNNLim/K59lhRqFnvpRXJHsiJAnYAu2iHEjfCn4u8hP9Eam53hi+ubc6stU25FzvBPyXKzjhu7wl+hA==
 
 react-transition-group@^4.4.2:
   version "4.4.2"

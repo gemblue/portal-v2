@@ -8,14 +8,15 @@ const SectionIntroStudent = () => {
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Akses gratis buku <br /> pelajaran resmi</h2>
-                        <p>Dapatkan akses buku teks pelajaran untuk bahan belajar di sekolah dan dirumah langsung dari Pusat Perbukuan, Kemdikbud.</p>
+                        <p>Dapatkan akses buku teks pelajaran dan buku referensi untuk bahan belajar di sekolah dan di rumah langsung dari Pusat Perbukuan, Kemdikbud.</p>
                     </div>
                 </div>
                 <div className="row align-items-center mt-5 text-center text-md-start">
                     <div className="col-lg-6 ps-lg-5 order-last order-md-first mt-4 mt-md-0">
                         <h2 className="text-blue mb-3 fw-bold">Keuntungan jika <br /> daftar akun</h2>
-                        <p>Dengan mendaftar dan login di platform buku ini, adik-adik dapat turut serta melaporkan kesalahan yang terjadi pada buku, melihat riwayat baca, dan unduhan buku.</p>
-                        <p>Disini adik-adik dapat ikut serta mengulas dan memberikan komentar pada buku, juga melihat ulasan siswa lainnya.</p>
+                        <p>Dengan mendaftar dan login di laman SIBI, adik-adik dapat turut serta melaporkan  hal-hal yang terkait dengan buku seperti keunggulan atau kelemahan buku yang adik-adik baca.</p>
+                        <p>Dengan login pada platform laman SIBI, adik-adik dapat juga melihat riwayat baca dan unduhan buku.</p>
+                        <p>Di laman SIBI ini, adik-adik dapat ikut serta mengulas dan memberikan komentar pada buku, juga melihat ulasan dari teman-teman yang lainnya.</p>
                     </div>
                     <div className="col-lg-6 text-center">
                         <img src="/assets/image/guide/icon.png" className="w-50" alt="" />
@@ -27,9 +28,9 @@ const SectionIntroStudent = () => {
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Beragam buku untuk dicoba</h2>
-                        <p>Tersedia buku dalam berbagai kurikulum seperti K-13, Kurikulum Merdeka, serta buku umum sebagai referensi adik-adik belajar.</p>
-                        <p>Belajar jadi semangat dengan video animasi, games, dan simulasi pada buku elektronik interaktif.</p>
-                        <p>Rasakan asiknya belajar melalui buku audio, adik-adik dapat belajar dengan santai dirumah maupun diperjalanan.</p>
+                        <p>Di laman SIBI ini, tersedia buku-buku dari kurikulum 2013 (K-13), Kurikulum Merdeka, serta buku umum sebagai referensi adik-adik belajar.</p>
+                        <p>Belajar pun jadi lebih semangat dengan video animasi, games/permainan, dan simulasi pada buku elektronik interaktif.</p>
+                        <p>Rasakan asiknya belajar melalui buku audio, belajar dengan santai di rumah maupun di perjalanan.</p>
                     </div>
                 </div>
             </div>
