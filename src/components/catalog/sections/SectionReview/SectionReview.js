@@ -67,7 +67,7 @@ const SectionReview = ({ slug, token }) => {
                                 </div>
                             </div>
                             <div className="col-6 text-end">
-                                <button onClick={() => setShowComment(!showComment)} className="btn btn-outline-blue">{showComment ? 'Batal memberi ulasan' : 'Tulis ulasanmu di sini'}</button>
+                                <button onClick={() => {setShowComment(!showComment);setSuccess(false)}} className="btn btn-outline-blue">{showComment ? 'Batal memberi ulasan' : 'Tulis ulasanmu di sini'}</button>
                             </div>
                         </div>
                     </div>
