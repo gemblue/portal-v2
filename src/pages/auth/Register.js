@@ -101,7 +101,7 @@ const Register = () => {
                                             <div className="spinner-border" role="status"></div>
                                         </button>
                                     )}
-                                    {!loading && <button type="submit" className="btn btn-orange py-2">Masuk</button>}
+                                    {!loading && <button type="submit" className="btn btn-orange py-2">Daftar</button>}
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
