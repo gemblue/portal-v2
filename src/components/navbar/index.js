@@ -47,15 +47,15 @@ const Navbar = () => {
                                 <NavLink to="/katalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <Link className="dropdown-item p-2" to="/katalog/buku-teks-k13">
-                                            <img src="/assets/image/home/Group 76.png" width={30} alt="" />
-                                            <span className="ms-2 my-auto">Buku Teks K-13</span>
-                                        </Link>
-                                    </li>
-                                    <li>
                                         <Link className="dropdown-item p-2" to="/katalog/buku-kurikulum-merdeka">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
                                             <span className="ms-2 my-auto">Buku Kurikulum Merdeka</span>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item p-2" to="/katalog/buku-teks-k13">
+                                            <img src="/assets/image/home/Group 76.png" width={30} alt="" />
+                                            <span className="ms-2 my-auto">Buku Teks K-13</span>
                                         </Link>
                                     </li>
                                     <li>

@@ -52,11 +52,11 @@ const Hero = () => {
                         <div className="input-group shadow-sm mt-5">
                             <span className="input-group-text bg-white border-0"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
                             <input value={search} onChange={handleSearch} type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
-                            <button className="d-none d-sm-block btn btn-white border-start border-1 dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Buku Teks K13</button>
+                            <button className="d-none d-sm-block btn btn-white border-start border-1 dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Kurikulum Merdeka</button>
                             <ul className="dropdown-menu">
-                                <li><Link to="/katalog?type=getTextBooks" className="dropdown-item">Buku Teks K13</Link></li>
-                                <li><Link to="/katalog?type=getPenggerakTextBooks" className="dropdown-item">Buku Kurikulum Merdeka</Link></li>
-                                <li><Link to="/katalog?type=getNonTextBooks" className="dropdown-item">Buku Nonteks</Link></li>
+                                <li><Link to="/katalog?type=getPenggerakTextBooks" className="dropdown-item">Kurikulum Merdeka</Link></li>
+                                <li><Link to="/katalog?type=getTextBooks" className="dropdown-item">Teks K13</Link></li>
+                                <li><Link to="/katalog?type=getNonTextBooks" className="dropdown-item">Nonteks</Link></li>
                             </ul>
                             <div className="bg-white my-auto p-2">
                                 <button className="btn btn-orange" type="button">Cari</button>

@@ -11,13 +11,13 @@ const SectionAccessBook = () => {
                         <div className="card mb-3 p-2 shadow" style={{ height: '90%' }}>
                             <div className="row g-0">
                                 <div className="col-md-4 text-center">
-                                    <img src="/assets/image/home/Group 76.png" className="img-fluid rounded-start mt-3 mt-3" alt="..." />
+                                    <img src="/assets/image/home/Group 79.png" className="img-fluid rounded-start mt-3" alt="..." />
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">Buku Teks K-13</h5>
-                                        <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2013</p>
-                                        <Link to="/katalog?type=getTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <h5 className="card-title">Buku Kurikulum Merdeka</h5>
+                                        <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2021</p>
+                                        <Link to="/katalog?type=getPenggerakTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -27,13 +27,13 @@ const SectionAccessBook = () => {
                         <div className="card mb-3 p-2 shadow" style={{ height: '90%' }}>
                             <div className="row g-0">
                                 <div className="col-md-4 text-center">
-                                    <img src="/assets/image/home/Group 79.png" className="img-fluid rounded-start mt-3" alt="..." />
+                                    <img src="/assets/image/home/Group 76.png" className="img-fluid rounded-start mt-3 mt-3" alt="..." />
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">Buku Kurikulum Merdeka</h5>
-                                        <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2021</p>
-                                        <Link to="/katalog?type=getPenggerakTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <h5 className="card-title">Buku Teks K-13</h5>
+                                        <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2013</p>
+                                        <Link to="/katalog?type=getTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
