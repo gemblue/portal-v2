@@ -50,7 +50,7 @@ const CatalogDetail = () => {
         getBookDetail()
         getRecommendBooks()
     }, [slug])
-    console.log(reviews);
+
     return (
         <Layout>
             <SectionBreadcumb

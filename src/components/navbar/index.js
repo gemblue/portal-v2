@@ -90,8 +90,11 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             {/* <li className="nav-item mx-1">
-                                <NavLink to="/pusbuk" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Pusbuk</NavLink>
+                                <a target="_blank" rel="noreferrer" href="https://pusbuk.kemdikbud.go.id" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Profil</a>
                             </li> */}
+                            <li className="nav-item mx-1">
+                                <div onClick={() => window.location.replace("https://pusbuk.kemdikbud.go.id")} className="nav-link" style={{ cursor: 'pointer' }}>Profil</div>
+                            </li>
                         </ul>
                         <ul className="navbar-nav mb-2 mb-lg-0 text-center text-xl-start">
 

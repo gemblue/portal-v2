@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../../../utils/config'
 import Modal from '../../modal/Modal'
 import styles from './HeroDetail.module.scss'
+import { Modal as modal } from 'bootstrap'
 
 const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
     const [loadingReport, setLoadingReport] = useState(false)
@@ -68,6 +69,10 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
         }
     }
 
+    const handleLogin = () => {
+        modal.hide()
+    }
+
     return (
         <section>
             <div className="container p-4">
@@ -112,7 +117,7 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                                                 >
                                                     <FontAwesomeIcon icon={faFilePdf} className="me-1" /> Baca Online
                                                 </button>
-                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada buku</small>
+                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada buku</small>
                                             </>
                                         )
                                     }
@@ -125,7 +130,7 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                                                 <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh PDF
                                                 </a>
-                                                <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
+                                                <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
                                             </>
                                         )
                                     }
@@ -135,7 +140,7 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                                         bookType === 'interactive' && (
                                             <>
                                                 <a onClick={() => pushLog('read')} href={attachment} target="_blank" rel="noreferrer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
-                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#exampleModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
+                                                <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
                                             </>
                                         )
                                     }
@@ -188,16 +193,16 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                     <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
                 </object>
             </Modal>
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content bg-">
                         <div className="modal-header bg-warning">
-                            <h5 className="modal-title" id="exampleModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
+                            <h5 className="modal-title" id="reportModalLabel"><FontAwesomeIcon icon={faCircleExclamation} /> Laporkan Buku</h5>
                             <button onClick={() => { setSuccessReview(false); setFailedReview(false) }} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="modal-body bg-soft-grey">
-                                {failedReview && <div className="alert alert-warning">Silahkan <Link to="/login" className="text-decoration-none">login</Link> terlebih dahulu.</div>}
+                                {failedReview && <div className="alert alert-warning">Silahkan <Link to="/login" onClick={() => handleLogin()} className="text-decoration-none">login</Link> terlebih dahulu.</div>}
                                 {successReview && <div className="alert alert-success">Laporan berhasil dikirim <FontAwesomeIcon className="ms-1" icon={faCheck} /></div>}
                                 <div className="form-group mb-3">
                                     <label className="form-label" htmlFor="kategori">Kategori</label>

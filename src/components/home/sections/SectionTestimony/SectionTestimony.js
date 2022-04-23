@@ -78,8 +78,8 @@ const SectionTestimony = () => {
                     speed={20000}
                     spaceBetween={0}
                     slidesPerView={3}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
                 >
                     {
                         testimony.map((item, index) => {
