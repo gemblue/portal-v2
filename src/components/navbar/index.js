@@ -67,24 +67,24 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Buku Untuk</NavLink>
+                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/siswa">
                                             <img src="/assets/image/home/Group 20.png" width={30} alt="" />
-                                            <span className="ms-2 my-auto">Siswa</span>
+                                            <span className="ms-2 my-auto">untuk Siswa</span>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/guru">
                                             <img src="/assets/image/home/Group 21.png" width={30} alt="" />
-                                            <span className="ms-2 my-auto">Guru</span>
+                                            <span className="ms-2 my-auto">untuk Guru</span>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/orang-tua">
                                             <img src="/assets/image/home/Group 22.png" width={30} alt="" />
-                                            <span className="ms-2 my-auto">Orang Tua</span>
+                                            <span className="ms-2 my-auto">untuk Orang Tua</span>
                                         </Link>
                                     </li>
                                 </ul>

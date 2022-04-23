@@ -73,6 +73,17 @@ body {
   margin-top: -1rem !important;
 }
 
+#catalog {
+  .filter-type {
+    width: 100% !important;
+  }
+  @media screen and (min-width: 768px) {
+    .filter-type {
+      width: 40% !important;
+    }
+  }
+}
+
 #typeCatalogue {
   .card-type {
     border-radius: 10px;

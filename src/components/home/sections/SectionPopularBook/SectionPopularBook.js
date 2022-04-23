@@ -20,10 +20,10 @@ const SectionPopularBook = ({ loading, popularBooks }) => {
                         loading
                             ? [0, 1, 2, 3].map((item, index) => {
                                 return (
-                                    <div className="col-lg-3"><CardSkeleton /></div>
+                                    <div key={index} className="col-lg-3"><CardSkeleton /></div>
                                 )
                             })
-                            : popularBooks.map((book, index) => {
+                            : popularBooks?.map((book, index) => {
                                 return (
                                     <div key={index} className="col-lg-3 my-2">
                                         <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">

@@ -47,11 +47,11 @@ const Hero = () => {
             <div className="container p-3">
                 <div className="row">
                     <div className="col-lg-5 order-last order-md-first my-5 my-md-auto">
-                        <h1 className="text-blue fw-bold">Buku Untuk Semua</h1>
+                        <h1 className="text-blue fw-bold">Buku untuk Semua</h1>
                         <p className="lead">Akses <div className="d-inline-flex flex-column"><span>di mana pun, kapan pun,</span><span className="mt-n3 d-none d-md-block"><img src="/assets/image/home/line-title.png" alt="line title" /></span></div> Baca buku yuk!</p>
                         <div className="input-group shadow-sm mt-5">
                             <span className="input-group-text bg-white border-0"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
-                            <input value={search} onChange={handleSearch} type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
+                            <input value={search} onChange={handleSearch} type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
                             <button className="d-none d-sm-block btn btn-white border-start border-1 dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Buku Teks K13</button>
                             <ul className="dropdown-menu">
                                 <li><Link to="/katalog?type=getTextBooks" className="dropdown-item">Buku Teks K13</Link></li>

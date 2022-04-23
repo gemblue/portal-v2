@@ -9,7 +9,7 @@ import Fuse from "fuse.js";
 import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 
-const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn }) => {
+const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
 
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -213,7 +213,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                             <div className="col-8 col-lg-8">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
-                                    <input value={search} onChange={handleSearch} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini (cth: buku kelas XII)" aria-label="Cari buku disini" />
+                                    <input value={search} onChange={handleSearch} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
                                     <button className="btn btn-orange" type="button">Cari</button>
                                 </div>
                                 {
@@ -247,16 +247,12 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                 }
                             </div>
                             <div className="col-4 col-lg-4 my-auto text-end">
-                                <div className="dropdown">
-                                    <span className="d-none d-md-inline">Urutkan : </span>
-                                    <button className="btn btn-outline-white dropdown-toggle px-3 py-2 ms-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Terbaru
-                                    </button>
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><button className="dropdown-item">Terpopuler</button></li>
-                                        <li><button className="dropdown-item">Terbaru</button></li>
-                                    </ul>
-                                </div>
+                                <span className="d-none d-md-inline">Urutkan : </span>
+                                <select className="form-select d-inline filter-type">
+                                    <option selected onClick={() => setPopularBook('')}>Semua</option>
+                                    <option onClick={() => setPopularBook('getPopularCatalogue')}>Terpopuler</option>
+                                    <option value="2">Terbaru</option>
+                                </select>
                             </div>
                         </div>
                         <div className="row">
@@ -266,14 +262,14 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                         return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                                     })
                                     : currentData.length == 0 ? (
-                                        <div class="text-center mt-5">
+                                        <div className="text-center mt-5">
                                             <img
                                                 width="60"
                                                 src="/assets/image/catalog/not-found.png"
-                                                class="img-fluid"
+                                                className="img-fluid"
                                                 alt="Not found"
                                             />
-                                            <div class="text-center mt-2">Buku belum tersedia</div>
+                                            <div className="text-center mt-2">Buku belum tersedia</div>
                                         </div>
                                     )
                                         : currentData.map((book, index) => {

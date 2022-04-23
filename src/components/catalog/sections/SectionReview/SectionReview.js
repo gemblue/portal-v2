@@ -67,7 +67,7 @@ const SectionReview = ({ slug, token }) => {
                                 </div>
                             </div>
                             <div className="col-6 text-end">
-                                <button onClick={() => {setShowComment(!showComment);setSuccess(false)}} className="btn btn-outline-blue">{showComment ? 'Batal memberi ulasan' : 'Tulis ulasanmu di sini'}</button>
+                                <button onClick={() => { setShowComment(!showComment); setSuccess(false) }} className="btn btn-outline-blue">{showComment ? 'Batal memberi ulasan' : 'Tulis ulasanmu di sini'}</button>
                             </div>
                         </div>
                     </div>
@@ -79,15 +79,15 @@ const SectionReview = ({ slug, token }) => {
                                         <div className="card-header p-4">
                                             {alertLogin && <div className="alert alert-warning alert-dismissible fade show">
                                                 Silahkan <Link to="/login" className="text-decoration-none">login</Link> terlebih dahulu
-                                                <button onClick={() => setAlertLogin(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                <button onClick={() => setAlertLogin(false)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>
                                             }
                                             {
                                                 loading
                                                     ? (
                                                         <div className="text-center">
-                                                            <div class="spinner-border text-center" role="status">
-                                                                <span class="visually-hidden">Loading...</span>
+                                                            <div className="spinner-border text-center" role="status">
+                                                                <span className="visually-hidden">Loading...</span>
                                                             </div>
                                                         </div>
                                                     )

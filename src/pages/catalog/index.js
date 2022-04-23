@@ -14,6 +14,13 @@ const Catalog = () => {
     const [typeBook, setTypeBook] = useState('type_pdf')
     const [typeCatalogue, setTypeCatalogue] = useState('getTextBooks')
 
+    // Handle filter audio book from homepage link
+    const [params] = useSearchParams()
+    const [typeParams, setTypeParams] = useState(params.get('type'))
+
+    // State for filter endpoints
+    const [popularBook, setPopularBook] = useState('')
+
     // State for filter level
     const [level, setLevel] = useState('')
     const [checkActive, setCheckActive] = useState('')
@@ -28,10 +35,16 @@ const Catalog = () => {
 
     useEffect(() => {
 
+        // Default routing endpoints
+        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`;
+
+        // Filter route endpoints
+        popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
+
         const getBooks = async () => {
             setLoading(true)
             try {
-                const response = await axios.get(`${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`)
+                const response = await axios.get(ENDPOINTS_URL)
                 setBooks(response.data.results)
                 setLoading(false)
             } catch (err) {
@@ -39,7 +52,7 @@ const Catalog = () => {
             }
         };
         getBooks()
-    }, [typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
+    }, [popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
 
     // const filterLevel = (PAUD, SD, SMP, SMA) => {
     //     levelPAUD === '' ? setLevelPAUD(PAUD) : PAUD !== '' && setLevelPAUD('')
@@ -112,7 +125,7 @@ const Catalog = () => {
                 typeCatalogue={typeCatalogue}
                 checkActive={checkActive}
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
-                setTypeBook={(type) => setTypeBook(type)}
+                setTypeBook={(type) => { setTypeBook(type); setTypeParams('') }}
                 setLevel={(level) => handleSetLevel(level)}
                 setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}
                 setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '')}
@@ -120,6 +133,7 @@ const Catalog = () => {
                 setLessonBInggris={() => filterLesson('', '', '', 'subject_inggris', '', '')}
                 setLessonMatematika={() => filterLesson('', '', '', '', 'subject_matematika', '')}
                 setLessonPkn={() => filterLesson('', '', '', '', '', 'subject_ppkn')}
+                setPopularBook={(popular) => setPopularBook(popular)}
             />
         </Layout>
     )

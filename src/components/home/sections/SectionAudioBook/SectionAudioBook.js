@@ -12,7 +12,7 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
                         <p className="text-muted">Belajar lebih interaktif dan mudah dengan buku audio</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <Link to="/katalog" className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</Link>
+                        <Link to="/katalog?type=buku-audio" className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</Link>
                     </div>
                 </div>
                 <div className="row mt-4">
@@ -23,7 +23,7 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
                                     <div key={index} className="col-lg-3"><CardSkeleton /></div>
                                 )
                             })
-                            : audioBooks.map((book, index) => {
+                            : audioBooks?.map((book, index) => {
                                 return (
                                     <div key={index} className="col-lg-3 my-2">
                                         <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
