@@ -205,6 +205,7 @@ const HeroDetail = ({ loading, token, image, slug, bookType, title, publisher, i
                                         <option value="Sara">Sara</option>
                                         <option value="Salah Cetak">Salah Cetak</option>
                                         <option value="Plagiasi">Plagiasi</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                                 <div className="form-group">
