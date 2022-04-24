@@ -100,8 +100,19 @@ body {
     width: 230px;
     height: auto;
   }
-  .dropdown:hover .dropdown-menu:not(.profile) {
-    display: block !important;
+  .dropdown-desktop {
+    display: none;
+  }
+  @media screen and (min-width: 992px) {
+    .dropdown-mobile {
+      display: none;
+    }
+    .dropdown-desktop {
+      display: block;
+    }
+    .dropdown:hover .dropdown-menu:not(.profile) {
+      display: block !important;
+    }
   }
 }
 

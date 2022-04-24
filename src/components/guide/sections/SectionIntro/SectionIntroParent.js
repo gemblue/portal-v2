@@ -4,7 +4,7 @@ const SectionIntroParent = () => {
             <div className="container p-3">
                 <div className="row align-items-center text-center text-md-start">
                     <div className="col-lg-6 text-center mb-4">
-                        <img src="/assets/image/guide/icon.png" className="w-50" alt="" />
+                        <img src="/assets/image/guide/parent/aset panduan ortu poin 1.png" className="w-75" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Akses gratis buku <br /> pelajaran resmi <br /> untuk si buah hati</h2>
@@ -20,7 +20,7 @@ const SectionIntroParent = () => {
                             untuk membacakan cerita untuk buah hati ayah dan ibu.</p>
                     </div>
                     <div className="col-lg-6 text-center">
-                        <img src="/assets/image/guide/icon2.png" className="w-50" alt="" />
+                        <img src="/assets/image/guide/parent/aset panduan ortu poin 2.png" className="w-75" alt="" />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import Hero from '../../components/catalog/hero'
 import SectionCatalog from '../../components/catalog/sections/SectionCatalog/SectionCatalog'
 import Layout from '../../components/global/Layout'
@@ -12,7 +12,7 @@ const Catalog = () => {
     const [books, setBooks] = useState([])
     const [limit, setLimit] = useState(12)
     const [typeBook, setTypeBook] = useState('type_pdf')
-    const [typeCatalogue, setTypeCatalogue] = useState('getTextBooks')
+    const [typeCatalogue, setTypeCatalogue] = useState('getPenggerakTextBooks')
 
     // Handle filter audio book from homepage link
     const [params] = useSearchParams()

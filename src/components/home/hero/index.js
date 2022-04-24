@@ -31,8 +31,9 @@ const Hero = () => {
 
     const fuse = new Fuse(lists, {
         keys: [
-            'title',
-        ]
+            'title', 'type'
+        ],
+        id: 'id'
     });
 
     const results = fuse.search(search)
@@ -63,35 +64,37 @@ const Hero = () => {
                                 <button className="btn btn-orange" type="button">Cari</button>
                             </div>
                         </div>
-                        {
-                            search != '' && (
-                                <div className="card-body bg-white p-0 py-2 px-3">
-                                    <h6>Hasil pencarian :</h6>
-                                    <div className="list-group">
-                                        {
-                                            search != '' && listResults.length < 1 && (
-                                                <>
-                                                    <p className="bg-light rounded-pill">Hasil tidak ditemukan. Silahkan cari dengan kata kunci lain</p>
-                                                </>
-                                            )
-                                        }
-                                        {
-                                            listResults &&
-                                            listResults.map((item, index) => {
-                                                return (
-                                                    <Link key={index} to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
-                                                        {item.type == 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
-                                                        {item.type == 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
-                                                        {item.type == 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}
-                                                        {item.title}
-                                                    </Link>
+                        <div className="position-relative bg-danger">
+                            {
+                                search != '' && (
+                                    <div className="card-body bg-white p-0 py-2 px-3 position-absolute">
+                                        <h6>Hasil pencarian :</h6>
+                                        <div className="list-group">
+                                            {
+                                                search != '' && listResults.length < 1 && (
+                                                    <>
+                                                        <p className="bg-light rounded-pill">Hasil tidak ditemukan. Silahkan cari dengan kata kunci lain</p>
+                                                    </>
                                                 )
-                                            }).slice(0, 10)
-                                        }
+                                            }
+                                            {
+                                                listResults &&
+                                                listResults.map((item, index) => {
+                                                    return (
+                                                        <Link key={index} to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
+                                                            {item.type == 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
+                                                            {item.type == 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
+                                                            {item.type == 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}
+                                                            {item.title}
+                                                        </Link>
+                                                    )
+                                                }).slice(0, 10)
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        }
+                                )
+                            }
+                        </div>
                     </div>
                     <div className="col-lg-7">
                         <img src="/assets/image/home/aset home day.png" className="w-100 d-block d-lg-none" alt="" />

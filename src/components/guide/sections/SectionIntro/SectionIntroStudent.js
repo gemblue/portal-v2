@@ -4,7 +4,7 @@ const SectionIntroStudent = () => {
             <div className="container p-3">
                 <div className="row align-items-center text-center text-md-start">
                     <div className="col-lg-6 text-center mb-4">
-                        <img src="/assets/image/guide/icon.png" className="w-50" alt="" />
+                        <img src="/assets/image/guide/student/aset panduan siswa poin 1.png" className="w-75" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Akses gratis buku <br /> pelajaran resmi</h2>
@@ -19,12 +19,12 @@ const SectionIntroStudent = () => {
                         <p>Di laman SIBI ini, adik-adik dapat ikut serta mengulas dan memberikan komentar pada buku, juga melihat ulasan dari teman-teman yang lainnya.</p>
                     </div>
                     <div className="col-lg-6 text-center">
-                        <img src="/assets/image/guide/icon.png" className="w-50" alt="" />
+                        <img src="/assets/image/guide/student/aset panduan siswa poin 2.png" className="w-100" alt="" />
                     </div>
                 </div>
                 <div className="row align-items-center mt-5 text-center text-md-start">
                     <div className="col-lg-6 text-center mb-4">
-                        <img src="/assets/image/guide/icon2.png" className="w-50" alt="" />
+                        <img src="/assets/image/guide/student/aset panduan siswa poin 3.png" className="w-100" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Beragam buku untuk dicoba</h2>

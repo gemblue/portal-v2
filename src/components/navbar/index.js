@@ -44,8 +44,11 @@ const Navbar = () => {
                                 <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/katalog" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
-                                <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownCatalogue" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Katalog Buku
+                                </a>
+                                <NavLink to="/katalog" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
+                                <ul className="dropdown-menu px-2" aria-labelledby="dropdownCatalogue">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/katalog/buku-kurikulum-merdeka">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
@@ -67,8 +70,11 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'nav-link text-blue dropdown-toggle' : 'nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>
-                                <ul className="dropdown-menu px-2" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownGuide" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Petunjuk
+                                </a>
+                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>
+                                <ul className="dropdown-menu px-2" aria-labelledby="dropdownGuide">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/siswa">
                                             <img src="/assets/image/home/Group 20.png" width={30} alt="" />
