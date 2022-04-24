@@ -56,7 +56,7 @@ const Login = () => {
                             {
                                 successRegister && (
                                     <div className="alert alert-success alert-dismissible fade show">
-                                        <div>Berhasil mendaftarkan akun, selanjutnya silahkan cek email <span className="fw-bold">{email}</span>untuk aktivasi. Cek folder spam jika email tidak ada di inbox.</div>
+                                        <div>Berhasil mendaftarkan akun, selanjutnya silahkan cek email <span className="fw-bold">{email}</span> untuk aktivasi. Cek folder spam jika email tidak ada di inbox.</div>
                                     </div>
                                 )
                             }

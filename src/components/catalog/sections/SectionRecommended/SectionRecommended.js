@@ -14,7 +14,7 @@ const SectionRecommended = ({ recommendBooks, loading }) => {
                             ? [...Array(8)].map((item, index) => {
                                 return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                             })
-                            : recommendBooks.map((book, index) => {
+                            : recommendBooks?.map((book, index) => {
                                 return (
                                     <div key={index} className="col-lg-3 my-2">
                                         <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">

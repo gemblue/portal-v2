@@ -60,6 +60,7 @@ const CatalogDetail = () => {
                 slug={book.slug}
             />
             <HeroDetail
+                id={book.id}
                 token={token}
                 slug={book.slug}
                 image={book.image}

@@ -11,6 +11,7 @@ const Hero = () => {
 
     const [lists, setLists] = useState([])
     const [search, setSearch] = useState('')
+    const [typeBook, setTypeBook] = useState('Kurikulum Merdeka')
 
     useEffect(() => {
         const getLists = async () => {
@@ -54,7 +55,7 @@ const Hero = () => {
                             <input value={search} onChange={handleSearch} type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
                             <button className="d-none d-sm-block btn btn-white border-start border-1 dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">Kurikulum Merdeka</button>
                             <ul className="dropdown-menu">
-                                <li><Link to="/katalog?type=getPenggerakTextBooks" className="dropdown-item">Kurikulum Merdeka</Link></li>
+                                <li><Link to="/katalog?type=getPenggerakTextBooks" className="dropdown-item">{typeBook}</Link></li>
                                 <li><Link to="/katalog?type=getTextBooks" className="dropdown-item">Teks K13</Link></li>
                                 <li><Link to="/katalog?type=getNonTextBooks" className="dropdown-item">Nonteks</Link></li>
                             </ul>
@@ -78,7 +79,7 @@ const Hero = () => {
                                             listResults &&
                                             listResults.map((item, index) => {
                                                 return (
-                                                    <Link to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
+                                                    <Link key={index} to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
                                                         {item.type == 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
                                                         {item.type == 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
                                                         {item.type == 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}

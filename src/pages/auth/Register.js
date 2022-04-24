@@ -76,6 +76,7 @@ const Register = () => {
                                     <select {...register('role_id', { required: true })} className="form-select">
                                         <option value="4">Siswa</option>
                                         <option value="6">Guru</option>
+                                        <option value="28">Orang Tua</option>
                                         <option value="3">Umum</option>
                                     </select>
                                     {errors.role_id && errors.role_id.type === 'required' && <small className="text-danger">Role harus diisi</small>}
