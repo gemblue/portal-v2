@@ -19,7 +19,6 @@ const HeroDetail = ({ id, token, image, slug, bookType, title, publisher, isbn, 
     const { resetField: resetFieldDownload, register: registerDownload, handleSubmit: handleSubmitDownload, formState: { errors: errorsDownload } } = useForm();
 
     const onSubmitReport = async (data) => {
-        console.log(data);
         setLoading(true)
         const payload = {
             message: data.message,
@@ -47,12 +46,10 @@ const HeroDetail = ({ id, token, image, slug, bookType, title, publisher, isbn, 
         }
     }
     const onSubmitDownload = async (data) => {
-        console.log(data);
         setLoading(true)
 
         try {
             const response = await axios.post(`${BASE_URL}/api/download/submit`, JSON.stringify(data))
-            console.log(response);
             if (response.data.status == 'success') {
                 resetFieldDownload('message')
                 window.location.replace(attachment)

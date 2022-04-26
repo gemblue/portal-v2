@@ -10,7 +10,7 @@ const Catalog = () => {
     // State handle query params from homepage
     const location = useLocation()
     const [title, setTitle] = useState(location.state !== null ? location.state.title : null)
-    const [typeSearchBook] = useState(location.state !== null ? location.state.typeBook : null)
+    const [typeSearchBook, setTypeSearchBook] = useState(location.state !== null ? location.state.typeBook : null)
 
     const [loading, setLoading] = useState(false)
     const [books, setBooks] = useState([])
@@ -43,6 +43,7 @@ const Catalog = () => {
         // Filter route endpoints
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
 
+        console.log(title);
         // Filter search from homepage
         if (title !== null && !popularBook) {
             setTypeBook('')
@@ -74,7 +75,7 @@ const Catalog = () => {
             }
         };
         getBooks()
-    }, [popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
+    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN])
 
     // const filterLevel = (PAUD, SD, SMP, SMA) => {
     //     levelPAUD === '' ? setLevelPAUD(PAUD) : PAUD !== '' && setLevelPAUD('')
@@ -131,6 +132,15 @@ const Catalog = () => {
         }
     }
 
+    const filterSearchCatalogue = (data) => {
+        setTitle(data.title)
+        setTypeCatalogue(data.typeCatalogue)
+
+        data.typeCatalogue === 'getPenggerakTextBooks' && setTypeSearchBook('Kurikulum Merdeka')
+        data.typeCatalogue === 'getTextBooks' && setTypeSearchBook('Teks K13')
+        data.typeCatalogue === 'getNonTextBooks' && setTypeSearchBook('Nonteks')
+    }
+
     return (
         <Layout>
             <Hero
@@ -149,6 +159,7 @@ const Catalog = () => {
                 typeCatalogue={typeCatalogue}
                 checkActive={checkActive}
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
+                setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
                 setTypeBook={(type) => setTypeBook(type)}
                 setLevel={(level) => handleSetLevel(level)}
                 setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}

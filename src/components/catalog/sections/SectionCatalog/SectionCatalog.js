@@ -2,7 +2,7 @@ import { faArrowLeft, faArrowRight, faFilePdf, faHandPointer, faSearch, faVolume
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import Paginator from 'react-hooks-paginator'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
 import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 import Fuse from "fuse.js";
@@ -10,7 +10,8 @@ import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 import fuzzy from "fuzzy"
 
-const SectionCatalog = ({ searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
+const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
+    const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -64,6 +65,14 @@ const SectionCatalog = ({ searchTitle, checkActive, books, loading, skeletonCoun
             document.getElementById("check" + i).checked = false;
         }
         document.getElementById(id).checked = true;
+    }
+
+    const searchBook = () => {
+        setSearchTypeCatalogue({
+            title: search,
+            typeCatalogue: typeCatalogue
+        })
+        setSearch('')
     }
 
     return (
@@ -210,12 +219,12 @@ const SectionCatalog = ({ searchTitle, checkActive, books, loading, skeletonCoun
                             <div className="col-8 col-lg-8">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
-                                    <input value={search} onChange={handleSearch} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
-                                    <button className="btn btn-orange" type="button">Cari</button>
+                                    <input value={search} onChange={handleSearch} onKeyDown={e => e.code === 'Enter' && searchBook()} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
+                                    <button onClick={() => searchBook()} className="btn btn-orange" type="button">Cari</button>
                                 </div>
                                 {
                                     searchTitle !== null && (
-                                        <h5 className="mt-3">Hasil pencarian dari : <strong>{searchTitle}</strong> </h5>
+                                        <div className="mt-3">Hasil pencarian dari : <strong>{searchTitle}</strong> </div>
                                     )
                                 }
                                 {
