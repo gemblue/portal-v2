@@ -216,7 +216,7 @@ const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, book
                             Menampilkan {currentData?.length} buku ({currentData?.length} dari {books?.length} buku)
                         </div>
                         <div className="row">
-                            <div className="col-8 col-lg-8">
+                            <div className="col-8 col-lg-8 position-relative">
                                 <div className="input-group shadow-sm">
                                     <span className="input-group-text bg-white"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
                                     <input value={search} onChange={handleSearch} onKeyDown={e => e.code === 'Enter' && searchBook()} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
@@ -229,7 +229,7 @@ const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, book
                                 }
                                 {
                                     search != '' && (
-                                        <div className="card-body bg-white p-0 py-2 px-3">
+                                        <div className="card-body bg-white p-0 py-2 px-3 position-absolute" style={{ zIndex: '10' }}>
                                             <h6>Hasil pencarian :</h6>
                                             <div className="list-group">
                                                 {
