@@ -74,6 +74,12 @@ const CatalogDetail = () => {
                 totalDownload={book.total_download}
                 totalRead={book.total_read}
                 loading={loading}
+                price_zone_1={book.price_zone_1}
+                price_zone_2={book.price_zone_2}
+                price_zone_3={book.price_zone_3}
+                price_zone_4={book.price_zone_4}
+                price_zone_5A={book.price_zone_5A}
+                price_zone_5B={book.price_zone_5B}
             />
             {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
             <SectionReview

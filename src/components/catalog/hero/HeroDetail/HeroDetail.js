@@ -10,8 +10,9 @@ import { BASE_URL } from '../../../../utils/config'
 import Modal from '../../modal/Modal'
 import styles from './HeroDetail.module.scss'
 import { Modal as modal } from 'bootstrap'
+import { formatPrice } from '../../../../utils/helper'
 
-const HeroDetail = ({ id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
+const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
     const [loading, setLoading] = useState(false)
     const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
@@ -183,25 +184,35 @@ const HeroDetail = ({ id, token, image, slug, bookType, title, publisher, isbn, 
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-lg-3 mb-2 mb-md-0">
+                                        <div className="col-lg-2 mb-2 mb-md-0">
                                             <div>Penerbit</div>
-                                            {publisher === "" && <small className="text-muted fst-italic">Belum ada penerbit</small>}
+                                            {publisher === "" && <small className="text-muted">Belum ada</small>}
                                             {publisher !== "" && <small className="text-muted">{publisher}</small>}
                                         </div>
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>ISBN</div>
-                                            {isbn === "" && <small className="text-muted fst-italic">Belum ada ISBN</small>}
+                                            {isbn === "" && <small className="text-muted">Belum ada</small>}
                                             {isbn !== "" && <small className="text-muted">{isbn}</small>}
                                         </div>
-                                        <div className="col-lg-3 mb-2 mb-md-0">
+                                        <div className="col-lg-2 mb-2 mb-md-0">
                                             <div>Edisi</div>
-                                            {edition === "" || edition === null && <small className="text-muted fst-italic">Belum ada edisi</small>}
+                                            {edition === "" || edition === null && <small className="text-muted">Belum ada</small>}
                                             {edition !== "" && <small className="text-muted">{edition}</small>}
                                         </div>
                                         <div className="col-lg-3 mb-2 mb-md-0">
                                             <div>Penulis</div>
                                             {writer === "" && <small className="text-muted fst-italic">Belum ada penulis</small>}
                                             {writer !== "" && <small className="text-muted">{writer}</small>}
+                                        </div>
+                                        <div className="col-lg-2 mb-2 mb-md-0">
+                                            <div>HET</div>
+                                            {price_zone_1 === null && <small className="text-muted">Belum ada</small>}
+                                            {price_zone_1 !== null && (
+                                                <>
+                                                    <small className="text-muted">Rp {formatPrice(price_zone_1)}</small>
+                                                    <small type="button" className="text-primary d-block" data-bs-toggle="modal" data-bs-target="#hetModal">Lihat zona..</small>
+                                                </>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +311,48 @@ const HeroDetail = ({ id, token, image, slug, bookType, title, publisher, isbn, 
                     </div>
                 </div>
             </div>
-        </section >
+            <div class="modal fade" id="hetModal" tabindex="-1" aria-labelledby="hetModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-light">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="hetModalLabel">Daftar HET</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <table className="table table-striped">
+                                <tbody>
+
+                                    <tr>
+                                        <td>Zona 1</td>
+                                        <td>Rp {formatPrice(price_zone_1)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 2</td>
+                                        <td>Rp {formatPrice(price_zone_2)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 3</td>
+                                        <td>Rp {formatPrice(price_zone_3)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 4</td>
+                                        <td>Rp {formatPrice(price_zone_4)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 5A</td>
+                                        <td>Rp {formatPrice(price_zone_5A)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 5B</td>
+                                        <td>Rp {formatPrice(price_zone_5B)}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 
