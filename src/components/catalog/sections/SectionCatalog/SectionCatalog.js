@@ -8,9 +8,9 @@ import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 import Fuse from "fuse.js";
 import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
+import fuzzy from "fuzzy"
 
-const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
-
+const SectionCatalog = ({ searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,14 +35,11 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
         getLists();
     }, []);
 
-    const fuse = new Fuse(lists, {
-        keys: [
-            'title',
-        ]
-    });
-
-    const results = fuse.search(search)
-    const listResults = results.map((result) => result.item)
+    var options = {
+        extract: function (el) { return el.title; }
+    };
+    var results = fuzzy.filter(search, lists, options);
+    var listResults = results.map(function (el) { return el; });
 
     const handleSearch = ({ currentTarget = {} }) => {
         const { value } = currentTarget
@@ -52,7 +49,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
 
     // Set for pagination
     useEffect(() => {
-        setCurrentData(books.slice(offset, offset + pageLimit));
+        setCurrentData(books?.slice(offset, offset + pageLimit));
     }, [offset, books]);
 
     const scrollTop = () => {
@@ -207,7 +204,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                     </div>
                     <div className="col-lg-9">
                         <div className="text-muted text-end my-4">
-                            Menampilkan {currentData.length} buku ({currentData.length} dari {books.length} buku)
+                            Menampilkan {currentData?.length} buku ({currentData?.length} dari {books?.length} buku)
                         </div>
                         <div className="row">
                             <div className="col-8 col-lg-8">
@@ -217,12 +214,17 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                     <button className="btn btn-orange" type="button">Cari</button>
                                 </div>
                                 {
+                                    searchTitle !== null && (
+                                        <h5 className="mt-3">Hasil pencarian dari : <strong>{searchTitle}</strong> </h5>
+                                    )
+                                }
+                                {
                                     search != '' && (
                                         <div className="card-body bg-white p-0 py-2 px-3">
                                             <h6>Hasil pencarian :</h6>
                                             <div className="list-group">
                                                 {
-                                                    search != '' && listResults.length < 1 && (
+                                                    search !== '' && listResults.length < 1 && (
                                                         <>
                                                             <p className="bg-light rounded-pill">Hasil tidak ditemukan. Silahkan cari dengan kata kunci lain</p>
                                                         </>
@@ -232,11 +234,11 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                                     listResults &&
                                                     listResults.map((item, index) => {
                                                         return (
-                                                            <Link to={`/katalog/${item.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
-                                                                {item.type == 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
-                                                                {item.type == 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
-                                                                {item.type == 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}
-                                                                {item.title}
+                                                            <Link to={`/katalog/${item.original.slug}`} className="list-group-item list-group-item-action border-0 rounded-pill text-muted">
+                                                                {item.original.type === 'pdf' && <FontAwesomeIcon icon={faFilePdf} className="me-2" />}
+                                                                {item.original.type === 'audio' && <FontAwesomeIcon icon={faVolumeHigh} className="me-2" />}
+                                                                {item.original.type === 'interactive' && <FontAwesomeIcon icon={faHandPointer} className="me-2" />}
+                                                                {item.original.title}
                                                             </Link>
                                                         )
                                                     }).slice(0, 5)
@@ -261,7 +263,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                     ? [...Array(skeletonCount)].map((item, index) => {
                                         return ((<div key={index} className="col-lg-4 my-2"><CardSkeleton /></div>))
                                     })
-                                    : currentData.length == 0 ? (
+                                    : currentData?.length == 0 ? (
                                         <div className="text-center mt-5">
                                             <img
                                                 width="60"
@@ -272,7 +274,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                             <div className="text-center mt-2">Buku belum tersedia</div>
                                         </div>
                                     )
-                                        : currentData.map((book, index) => {
+                                        : currentData?.map((book, index) => {
                                             return (
                                                 <div key={index} className="col-lg-4 my-2">
                                                     <Link key={index} to={`/katalog/${book.slug}`} className="text-decoration-none text-dark">
@@ -293,7 +295,7 @@ const SectionCatalog = ({ checkActive, books, loading, skeletonCount, typeBook, 
                                 <Paginator
                                     pagePrevText={<FontAwesomeIcon icon={faArrowLeft} />}
                                     pageNextText={<FontAwesomeIcon icon={faArrowRight} />}
-                                    totalRecords={books.length}
+                                    totalRecords={books?.length}
                                     pageLimit={pageLimit}
                                     pageNeighbours={2}
                                     setOffset={setOffset}

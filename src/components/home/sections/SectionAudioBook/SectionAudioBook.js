@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CardBook from '../../../global/card/CardBook/CardBook'
 import CardSkeleton from '../../../global/card/CardSkeleton/CardSkeleton'
 
 const SectionAudioBook = ({ loading, audioBooks }) => {
+    const navigate = useNavigate()
     return (
         <section className="py-5">
             <div className="container p-3">
@@ -12,7 +13,7 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
                         <p className="text-muted">Belajar lebih interaktif dan mudah dengan buku audio</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <Link to="/katalog?type=buku-audio" className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</Link>
+                        <div onClick={() => navigate('/katalog')} className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</div>
                     </div>
                 </div>
                 <div className="row mt-4">

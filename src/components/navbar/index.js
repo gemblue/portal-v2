@@ -44,7 +44,7 @@ const Navbar = () => {
                                 <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <a class="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownCatalogue" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownCatalogue" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Katalog Buku
                                 </a>
                                 <NavLink to="/katalog" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
@@ -70,7 +70,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
-                                <a class="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownGuide" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownGuide" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Petunjuk
                                 </a>
                                 <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>

@@ -1,12 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import Hero from '../../components/catalog/hero'
 import SectionCatalog from '../../components/catalog/sections/SectionCatalog/SectionCatalog'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
 
 const Catalog = () => {
+    // State handle query params from homepage
+    const location = useLocation()
+    const [title, setTitle] = useState(location.state !== null ? location.state.title : null)
+    const [typeSearchBook] = useState(location.state !== null ? location.state.typeBook : null)
 
     const [loading, setLoading] = useState(false)
     const [books, setBooks] = useState([])
@@ -15,8 +19,7 @@ const Catalog = () => {
     const [typeCatalogue, setTypeCatalogue] = useState('getPenggerakTextBooks')
 
     // Handle filter audio book from homepage link
-    const [params] = useSearchParams()
-    const [typeParams, setTypeParams] = useState(params.get('type'))
+    // const [typeAudio] = useState(location.state !== null ? location.state.type : null)
 
     // State for filter endpoints
     const [popularBook, setPopularBook] = useState('')
@@ -34,12 +37,31 @@ const Catalog = () => {
     const [lessonPKN, setLessonPKN] = useState('')
 
     useEffect(() => {
-
         // Default routing endpoints
         let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}`;
 
         // Filter route endpoints
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
+
+        // Filter search from homepage
+        if (title !== null && !popularBook) {
+            setTypeBook('')
+            if (typeSearchBook === 'Kurikulum Merdeka') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getPenggerakTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getPenggerakTextBooks');
+            }
+            if (typeSearchBook === 'Teks K13') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getTextBooks');
+            }
+            if (typeSearchBook === 'Nonteks') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getNonTextBooks');
+            }
+        }
+
+        // Handle redirect from homepage only buku audio
+
 
         const getBooks = async () => {
             setLoading(true)
@@ -114,10 +136,12 @@ const Catalog = () => {
             <Hero
                 typeCatalogue={typeCatalogue}
                 setTypeCatalogue={(type) => {
+                    setTitle(null)
                     setTypeCatalogue(type)
                 }}
             />
             <SectionCatalog
+                searchTitle={title}
                 books={books}
                 loading={loading}
                 skeletonCount={limit}
@@ -125,7 +149,7 @@ const Catalog = () => {
                 typeCatalogue={typeCatalogue}
                 checkActive={checkActive}
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
-                setTypeBook={(type) => { setTypeBook(type); setTypeParams('') }}
+                setTypeBook={(type) => setTypeBook(type)}
                 setLevel={(level) => handleSetLevel(level)}
                 setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}
                 setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '')}
