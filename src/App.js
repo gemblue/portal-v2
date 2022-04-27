@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 //Import pages
 import Home from "../src/pages/index"
+import FAQ from "../src/pages/FAQ"
 import NotFound from "../src/pages/error/notFound"
 import Login from "../src/pages/auth/Login"
 import Register from "../src/pages/auth/Register"
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/faq" element={<FAQ />} />
       <Route path="/test" element={<Test />} />
       <Route path="/katalog" element={<Catalog />} />
       <Route path="/katalog/buku-teks-k13" element={<BukuTeksK13 />} />

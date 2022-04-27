@@ -321,7 +321,6 @@ const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, pr
                         <div class="modal-body">
                             <table className="table table-striped">
                                 <tbody>
-
                                     <tr>
                                         <td>Zona 1</td>
                                         <td>Rp {formatPrice(price_zone_1)}</td>
@@ -345,6 +344,48 @@ const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, pr
                                     <tr>
                                         <td>Zona 5B</td>
                                         <td>Rp {formatPrice(price_zone_5B)}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <small type="button" className="text-primary d-block" data-bs-toggle="modal" data-bs-target="#zonaModal">Pelajari Zona</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="zonaModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Keterangan Zona</h5>
+                            {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
+                            <button type="button" className="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#hetModal">Kembali</button>
+                        </div>
+                        <div class="modal-body">
+                            <table className="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td width={80}>Zona 1</td>
+                                        <td>Jawa Barat, Jawa Tengah, Jawa Timur, Daerah Istimewa Yogyakarta, DKI Jakarta, dan Banten</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 2</td>
+                                        <td>Bali, Nusa Tenggara Barat, Lampung (kecuali (i) Pesisir Barat), dan Sumatera Selatan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 3</td>
+                                        <td>Bengkulu, Jambi, Bangka Belitung,  Sumatera  Barat  (kecuali  (i)  Kepulauan  Mentawai  dan  (ii)  Solok Selatan), Riau (kecuali (i) Bengkalis, (ii) Kepulauan Meranti, (iii) , Sumatera Utara (kecuali (i) Nias, (ii) Nias Selatan, (iii) Nias Utara, (iv) Nias Barat), Sulawesi Selatan, Sulawesi Utara (kecuali (i) Kepulauan Sangihe, dan (ii) Kepulauan Talaud), Sulawesi Tengah (kecuali  (i)  Banggai  Kepulauan,  (ii)  Tojo  Uno- Uno, (iii) Sigi, dan (iv) Banggai Laut), Sulawesi Barat, Sulawesi Tenggara (Kecuali (i) Konawe,  (ii) Bombana, dan (iii) Konawe Kepulauan), dan Gorontalo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 4</td>
+                                        <td>Nanggroe Aceh Darussalam (kecuali (i) Aceh Besar dan (ii) Aceh Singkil), Kepulauan Riau (kecuali (i) Karimun, (ii)  Kepulauan Anambas, dan (iii)  Natuna), Nusa  Tenggara  Timur (kecuali (i) Sumba Barat, (ii) Sumba  Timur,  (iii)  Timor  Tengah  Selatan,  (iv)  Belu,  (v)  Alor,  (vi)  Lembata,  (vii)  Ende,  (viii) Manggarai,   (ix)   Rote   Ndao,   (x)   Manggarai   Barat,   (xi)   Sumba   Tengah,   (xii)   Sumba   Barat   Daya,   (xiii) Nagekeo, (xiv) Manggarai Timur, (xv) Sabu Raijua, dan (xvi) Malaka), Kalimantan  Barat  (kecuali  (i) Kapuas Hulu, (ii) Sanggau), Kalimantan Selatan, Kalimantan Tengah, Kalimantan Timur (kecuali (i) Mahakam Hulu, (ii) Berau), Kalimantan  Timur,  dan  Kalimantan  Utara  (kecuali  (i)  Nunukan,  (ii) Malinau.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 5A</td>
+                                        <td>(1) Aceh  Besar,  (2)  Aceh  Singkil,  (3)  Nias,  (4)  Nias  Selatan,  (5)  Nias  Utara,  (6)  Nias  Barat,  (7)  Kep. Mentawai,  (8)  Solok  Selatan,  (9)  Pesisir  Barat,  (10)  Sumba  Barat,  (11)  Sumba  Timur,  (12)  Timor Tengah Selatan, (13) Belu, (14) Alor, (15) Lembata, (16) Ende, (17) Manggarai, (18) Rote Ndao, (19) Manggarai Barat, (20) Sumba  Tengah,  (21) Sumba Barat Daya, (22)  Nagekeo, (23) Manggarai Timur, (24) Sabu Raijua, (25) Malaka, (26) Banggai  Kepulauan,  (27)  Tujo  Una-Una,  (28)  Sigi,  (29)  Banggai Laut, (30) Konawe, (31) Bombana, (32) Konawe Kepulauan, (33) Bengkalis, (34) Kepulauan Meranti, (35) Karimun, (36) Kepulauan Anambas, (37) Natuna, (38) Kapuas Hulu, (39) Mahakam Hulu, (40) Sanggau, (41) Nunukan, (42) Malinau,  (43)  Berau,  (44)  Kepulauan Sangihe, dan (45) Kepulauan Talaud.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zona 5B</td>
+                                        <td>(1) Aceh  Besar,  (2)  Aceh  Singkil,  (3)  Nias,  (4)  Nias  Selatan,  (5)  Nias  Utara,  (6)  Nias  Barat,  (7)  Kep. Mentawai,  (8)  Solok  Selatan,  (9)  Pesisir  Barat,  (10)  Sumba  Barat,  (11)  Sumba  Timur,  (12)  Timor Tengah Selatan, (13) Belu, (14) Alor, (15) Lembata, (16) Ende, (17) Manggarai, (18) Rote Ndao, (19) Manggarai Barat, (20) Sumba  Tengah,  (21) Sumba Barat Daya, (22)  Nagekeo, (23) Manggarai Timur, (24) Sabu Raijua, (25) Malaka, (26) Banggai  Kepulauan,  (27)  Tujo  Una-Una,  (28)  Sigi,  (29)  Banggai Laut, (30) Konawe, (31) Bombana, (32) Konawe Kepulauan, (33) Bengkalis, (34) Kepulauan Meranti, (35) Karimun, (36) Kepulauan Anambas, (37) Natuna, (38) Kapuas Hulu, (39) Mahakam Hulu, (40) Sanggau, (41) Nunukan, (42) Malinau,  (43)  Berau,  (44)  Kepulauan Sangihe, dan (45) Kepulauan Talaud.</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -43,7 +43,6 @@ const Catalog = () => {
         // Filter route endpoints
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
 
-        console.log(title);
         // Filter search from homepage
         if (title !== null && !popularBook) {
             setTypeBook('')
@@ -160,7 +159,7 @@ const Catalog = () => {
                 checkActive={checkActive}
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
                 setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
-                setTypeBook={(type) => setTypeBook(type)}
+                setTypeBook={(type) => { setTypeBook(type); setTitle(null) }}
                 setLevel={(level) => handleSetLevel(level)}
                 setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}
                 setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '')}

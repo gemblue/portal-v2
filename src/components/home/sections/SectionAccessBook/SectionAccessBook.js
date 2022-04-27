@@ -17,7 +17,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Kurikulum Merdeka</h5>
                                         <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2021</p>
-                                        <Link to="/katalog?type=getPenggerakTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-kurikulum-merdeka" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Teks K-13</h5>
                                         <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2013</p>
-                                        <Link to="/katalog?type=getTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-teks-k13" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">Buku Nonteks</h5>
                                         <p className="card-text text-muted">Buku umum sebagai pelengkap belajarmu</p>
-                                        <Link to="/katalog?type=getNonTextBooks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-non-teks" className="card-text"><small className="text-primary">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>

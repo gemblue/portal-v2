@@ -15,43 +15,73 @@ const SectionTestimony = () => {
         {
             comment: 'Bukunya bagus bagus',
             avatar: '/assets/image/testimony/pic1.webp',
-            name: 'Aldian',
-            school: 'SMK TI GARNUS'
+            name: 'Aldiansyah Ibrahim',
+            school: 'SMK TI Garuda Nusantara'
         },
         {
             comment: 'Buku Elektronik Interaktif keren sekali',
             avatar: '/assets/image/testimony/pic2.webp',
             name: 'Luella Syifa',
-            school: 'SMK TI GARNUS'
+            school: 'SMK TI Garuda Nusantara'
         },
         {
             comment: 'Animasi Buku Interaktifnya sangat menarik',
             avatar: '/assets/image/testimony/pic4.webp',
             name: 'Hadyan Palupi',
-            school: 'SMK TI GARNUS'
+            school: 'MA Persis Tasikmalaya'
         },
         {
             comment: 'Sangat membantu saya buat belajar',
             avatar: '/assets/image/testimony/pic3.webp',
             name: 'Mochamad Firman',
-            school: 'SMK TI GARNUS'
+            school: 'SMPN 1 Padalarang'
         },
         {
-            comment: 'Animasi Buku Interaktifnya sangat menarik',
-            avatar: '/assets/image/testimony/pic4.webp',
-            name: 'Hadyan Palupi',
-            school: 'SMK TI GARNUS'
+            comment: 'Sangat memudahkan dan membantu siswa maupun guru mendapat wawasan',
+            avatar: '/assets/image/testimony/pic5.jpeg',
+            name: 'Nui',
+            school: 'Guru SMK Telkom Bandung'
         },
         {
-            comment: 'Buku Elektronik Interaktif keren sekali',
-            avatar: '/assets/image/testimony/pic1.webp',
-            name: 'Luella Syifa',
-            school: 'SMK TI GARNUS'
+            comment: 'Pembelajar menjadi lebih efektif, efesien dan menarik',
+            avatar: '/assets/image/testimony/pic6.jpeg',
+            name: 'Bella',
+            school: 'Guru SMPN 3 Baleendah'
+        },
+        {
+            comment: 'Buku-bukunya lengkap dan variatif',
+            avatar: '/assets/image/testimony/pic7.jpeg',
+            name: 'Radit',
+            school: 'Siswa SMPN 3 Baleendah'
+        },
+        {
+            comment: 'Support system yang bagus untuk kemajuan pendidikan',
+            avatar: '/assets/image/testimony/pic8.jpeg',
+            name: 'Naila',
+            school: 'Umum'
+        },
+        {
+            comment: 'Support system yang bagus untuk kemajuan pendidikan',
+            avatar: '/assets/image/testimony/pic8.jpeg',
+            name: 'Naila',
+            school: 'Umum'
+        },
+        {
+            comment: 'Support system yang bagus untuk kemajuan pendidikan',
+            avatar: '/assets/image/testimony/pic8.jpeg',
+            name: 'Naila',
+            school: 'Umum'
+        },
+        {
+            comment: 'Support system yang bagus untuk kemajuan pendidikan',
+            avatar: '/assets/image/testimony/pic8.jpeg',
+            name: 'Naila',
+            school: 'Umum'
         },
     ]
 
     const testimony = [];
-    const limit = 2;
+    const limit = 3;
     let start = 1;
     let counter = 0;
     let testimonyTemp = [];
@@ -75,9 +105,15 @@ const SectionTestimony = () => {
                 <Swiper
                     autoplay={{ delay: '0ms' }}
                     loop
-                    speed={20000}
+                    speed={40000}
                     spaceBetween={0}
-                    slidesPerView={3}
+                    slidesPerView={1}
+                    breakpoints={{
+                        // when window width is >= 414px
+                        450: {
+                            slidesPerView: 2.1,
+                        },
+                    }}
                 // onSlideChange={() => console.log('slide change')}
                 // onSwiper={(swiper) => console.log(swiper)}
                 >
@@ -99,7 +135,7 @@ const SectionTestimony = () => {
                                                     </div>
                                                     <div className="col-lg-9">
                                                         <small className="d-block fw-bold text-center text-lg-start">{item[0].name}</small>
-                                                        <small>SMP 1 Padalarang</small>
+                                                        <small>{item[0].school}</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -118,12 +154,31 @@ const SectionTestimony = () => {
                                                     </div>
                                                     <div className="col-lg-9">
                                                         <small className="d-block fw-bold text-center text-lg-start">{item[1].name}</small>
-                                                        <small>SMP 1 Padalarang</small>
+                                                        <small>{item[1].school}</small>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {/* <div className="pe-4 my-3">
+                                        <div className="card h-100 shadow border-0" style={{ minWidth: '130px' }}>
+                                            <div className="card-body">
+                                                <div className="text-end text-muted">
+                                                    <FontAwesomeIcon icon={faQuoteLeft} />
+                                                </div>
+                                                <div className="mb-3 text-muted">{item[2].comment}</div>
+                                                <div className="row align-items-center">
+                                                    <div className="col-lg-3 text-center text-md-start">
+                                                        <img src={item[2].avatar} className="rounded-circle" width={50} height={50} alt="" />
+                                                    </div>
+                                                    <div className="col-lg-9">
+                                                        <small className="d-block fw-bold text-center text-lg-start">{item[2].name}</small>
+                                                        <small>{item[2].school}</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> */}
 
                                 </SwiperSlide>
                             )

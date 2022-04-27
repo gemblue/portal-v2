@@ -64,7 +64,7 @@ const SectionFAQ = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link to="#" className="btn btn-outline-primary">Lihat Semua Pertanyaan</Link>
+                            <Link to="/faq" className="btn btn-outline-primary">Lihat Semua Pertanyaan</Link>
                         </div>
                     </div>
                     <div className="col-lg-5">
