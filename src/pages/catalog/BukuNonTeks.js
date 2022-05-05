@@ -11,6 +11,7 @@ const BukuNonTeks = () => {
     // State handle query params from homepage
     const location = useLocation()
     const [title, setTitle] = useState(location.state !== null ? location.state.title : null)
+    const [typeSearchBook, setTypeSearchBook] = useState(location.state !== null ? location.state.typeBook : null)
 
     const [loading, setLoading] = useState(false)
     const [books, setBooks] = useState([])
@@ -53,6 +54,23 @@ const BukuNonTeks = () => {
         // Filter route endpoints for popular book
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
 
+        // Filter search from homepage
+        if (title !== null && !popularBook) {
+            setTypeBook('')
+            if (typeSearchBook === 'Kurikulum Merdeka') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getPenggerakTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getPenggerakTextBooks');
+            }
+            if (typeSearchBook === 'Teks K13') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getTextBooks');
+            }
+            if (typeSearchBook === 'Nonteks') {
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?title=${title}&limit=20&offset=0`;
+                setTypeCatalogue('getNonTextBooks');
+            }
+        }
+
         const getBooks = async () => {
             setLoading(true)
             try {
@@ -64,7 +82,7 @@ const BukuNonTeks = () => {
             }
         };
         getBooks()
-    }, [typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, popularBook, latestBook])
+    }, [typeSearchBook, title, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, popularBook, latestBook])
 
     // const filterLevel = (PAUD, SD, SMP, SMA) => {
     //     levelPAUD === '' ? setLevelPAUD(PAUD) : PAUD !== '' && setLevelPAUD('')
@@ -121,6 +139,15 @@ const BukuNonTeks = () => {
         }
     }
 
+    const filterSearchCatalogue = (data) => {
+        setTitle(data.title)
+        setTypeCatalogue(data.typeCatalogue)
+
+        data.typeCatalogue === 'getPenggerakTextBooks' && setTypeSearchBook('Kurikulum Merdeka')
+        data.typeCatalogue === 'getTextBooks' && setTypeSearchBook('Teks K13')
+        data.typeCatalogue === 'getNonTextBooks' && setTypeSearchBook('Nonteks')
+    }
+
     return (
         <Layout>
             <Hero
@@ -139,6 +166,7 @@ const BukuNonTeks = () => {
                 typeBook={typeBook}
                 typeCatalogue={typeCatalogue}
                 checkActive={checkActive}
+                setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
                 setTypeBook={(type) => setTypeBook(type)}
                 setLevel={(level) => handleSetLevel(level)}
