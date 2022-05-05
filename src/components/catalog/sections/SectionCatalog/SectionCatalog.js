@@ -10,7 +10,7 @@ import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 import fuzzy from "fuzzy"
 
-const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
+const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -166,6 +166,89 @@ const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, book
                         </div>
                         <div className="card mt-3">
                             <div className="card-header">
+                                Kelas
+                            </div>
+                            <div className="card-body row overflow-auto">
+                                <div className="col-6">
+                                    <div className="form-check">
+                                        <input onChange={setClass1} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            I
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass2} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            II
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass3} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            III
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass4} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            IV
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass5} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            V
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass6} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            VI
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+                                    <div className="form-check">
+                                        <input onChange={setClass7} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            VII
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass8} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            VIII
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass9} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            IX
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass10} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            X
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass11} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            XI
+                                        </label>
+                                    </div>
+                                    <div className="form-check">
+                                        <input onChange={setClass12} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                                            XII
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card mt-3">
+                            <div className="card-header">
                                 MATA PELAJARAN
                             </div>
                             <div className="card-body overflow-auto" style={{ height: '160px' }}>
@@ -260,9 +343,9 @@ const SectionCatalog = ({ setSearchTypeCatalogue, searchTitle, checkActive, book
                             <div className="col-4 col-lg-4 my-auto text-end">
                                 <span className="d-none d-md-inline">Urutkan : </span>
                                 <select className="form-select d-inline filter-type">
-                                    <option selected onClick={() => setPopularBook('')}>Semua</option>
+                                    <option selected onClick={() => { setPopularBook(''); setLatestBook('') }}>Semua</option>
                                     <option onClick={() => setPopularBook('getPopularCatalogue')}>Terpopuler</option>
-                                    <option value="2">Terbaru</option>
+                                    <option onClick={() => setLatestBook('sort=desc')}>Terbaru</option>
                                 </select>
                             </div>
                         </div>
