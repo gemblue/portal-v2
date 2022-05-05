@@ -305,11 +305,7 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                     <input value={search} onChange={handleSearch} onKeyDown={e => e.code === 'Enter' && searchBook()} type="text" className="form-control py-2 border-start-0 border-end-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
                                     <button onClick={() => searchBook()} className="btn btn-orange" type="button">Cari</button>
                                 </div>
-                                {
-                                    searchTitle !== null && (
-                                        <div className="mt-3">Hasil pencarian dari : <strong>{searchTitle}</strong> </div>
-                                    )
-                                }
+
                                 {
                                     search != '' && (
                                         <div className="card-body bg-white p-0 py-2 px-3 position-absolute" style={{ zIndex: '10' }}>
@@ -349,6 +345,11 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                 </select>
                             </div>
                         </div>
+                        {
+                            searchTitle !== null && (
+                                <div className="mt-3">Hasil pencarian dari : <strong>{searchTitle}</strong> </div>
+                            )
+                        }
                         <div className="row">
                             {
                                 loading
