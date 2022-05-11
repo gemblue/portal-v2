@@ -16,9 +16,19 @@ import ForParent from "./pages/guide/forParent"
 import ForStudent from "./pages/guide/forStudent"
 import ForTeacher from "./pages/guide/forTeacher"
 import Test from './test';
+import { useEffect } from 'react';
 
 const App = () => {
-
+  useEffect(() => {
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        // Delete all the cache files
+        names.forEach(name => {
+          caches.delete(name);
+        })
+      });
+    }
+  }, [])
   return (
     <Routes>
       <Route path="/" element={<Home />} />
