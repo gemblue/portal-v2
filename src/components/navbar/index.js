@@ -6,6 +6,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 const Navbar = () => {
     const navigate = useNavigate()
     const logout = () => {
+
+        // Check if collapsed is show
+        const toggler = document.getElementById('navbarNav')
+        toggler.classList.contains('show') && toggler.classList.remove('show')
+
+        // Delete localstorage and navigate route to root
         localStorage.removeItem('user_token')
         localStorage.removeItem('user_profile')
         navigate('/')
@@ -101,6 +107,13 @@ const Navbar = () => {
                             <li className="nav-item mx-1">
                                 <div onClick={() => window.location.replace("https://pusbuk.kemdikbud.go.id")} className="nav-link" style={{ cursor: 'pointer' }}>Profil</div>
                             </li>
+                            {
+                                token && (
+                                    <li className="nav-item mx-1 mt-3 d-block d-lg-none">
+                                        <div onClick={() => logout()} className="nav-link" style={{ cursor: 'pointer' }}>Logout</div>
+                                    </li>
+                                )
+                            }
                         </ul>
                         <ul className="navbar-nav mb-2 mb-lg-0 text-center text-xl-start">
 
