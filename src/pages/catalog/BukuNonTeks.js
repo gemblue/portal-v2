@@ -48,9 +48,22 @@ const BukuNonTeks = () => {
     const [lessonBInggris, setLessonBInggris] = useState('')
     const [lessonMatematika, setLessonMatematika] = useState('')
     const [lessonPKN, setLessonPKN] = useState('')
+    const [lessonInformatika, setLessonInformatika] = useState('')
+    const [lessonPJOK, setLessonPJOK] = useState('')
+    const [lessonIslam, setLessonIslam] = useState('')
+    const [lessonKristen, setLessonKristen] = useState('')
+    const [lessonKatolik, setLessonKatolik] = useState('')
+    const [lessonHindu, setLessonHindu] = useState('')
+    const [lessonBuddha, setLessonBuddha] = useState('')
+    const [lessonKhonghucu, setLessonKhonghucu] = useState('')
+    const [lessonKepercayaan, setLessonKepercayaan] = useState('')
+    const [lessonSeniTari, setLessonSeniTari] = useState('')
+    const [lessonSeniMusik, setLessonSeniMusik] = useState('')
+    const [lessonSeniRupa, setLessonSeniRupa] = useState('')
+    const [lessonSeniTeater, setLessonSeniTeater] = useState('')
 
     useEffect(() => {
-        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}&${class1}&${class2}&${class3}&${class4}&${class5}&${class6}&${class7}&${class8}&${class9}&${class10}&${class11}&${class12}&${latestBook}`
+        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}&${lessonInformatika}&${lessonPJOK}&${lessonIslam}&${lessonKristen}&${lessonKatolik}&${lessonHindu}&${lessonBuddha}&${lessonKhonghucu}&${lessonKepercayaan}&${lessonSeniTari}&${lessonSeniMusik}&${lessonSeniRupa}&${lessonSeniTeater}&${class1}&${class2}&${class3}&${class4}&${class5}&${class6}&${class7}&${class8}&${class9}&${class10}&${class11}&${class12}&${latestBook}`;
         // Filter route endpoints for popular book
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
 
@@ -82,7 +95,7 @@ const BukuNonTeks = () => {
             }
         };
         getBooks()
-    }, [typeSearchBook, title, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, popularBook, latestBook])
+    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, lessonInformatika, lessonPJOK, lessonIslam, lessonKristen, lessonKatolik, lessonHindu, lessonBuddha, lessonKhonghucu, lessonKepercayaan, lessonSeniTari, lessonSeniMusik, lessonSeniRupa, lessonSeniTeater, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, latestBook])
 
     // const filterLevel = (PAUD, SD, SMP, SMA) => {
     //     levelPAUD === '' ? setLevelPAUD(PAUD) : PAUD !== '' && setLevelPAUD('')
@@ -91,13 +104,26 @@ const BukuNonTeks = () => {
     //     levelSMA === '' ? setLevelSMA(SMA) : SMA !== '' && setLevelSMA('')
     // }
 
-    const filterLesson = (IPA, IPS, BIndonesia, BInggris, Matematika, PKN) => {
+    const filterLesson = (IPA, IPS, BIndonesia, BInggris, Matematika, PKN, Informatika, PJOK, Islam, Kristen, Katolik, Hindu, Buddha, Khonghucu, Kepercayaan, SeniTari, SeniMusik, SeniRupa, SeniTeater) => {
         lessonIPA === '' ? setLessonIPA(IPA) : IPA !== '' && setLessonIPA('')
         lessonIPS === '' ? setLessonIPS(IPS) : IPS !== '' && setLessonIPS('')
         lessonBIndonesia === '' ? setLessonBIndonesia(BIndonesia) : BIndonesia !== '' && setLessonBIndonesia('')
         lessonBInggris === '' ? setLessonBInggris(BInggris) : BInggris !== '' && setLessonBInggris('')
         lessonMatematika === '' ? setLessonMatematika(Matematika) : Matematika !== '' && setLessonMatematika('')
         lessonPKN === '' ? setLessonPKN(PKN) : PKN !== '' && setLessonPKN('')
+        lessonInformatika === '' ? setLessonInformatika(Informatika) : Informatika !== '' && setLessonInformatika('')
+        lessonPJOK === '' ? setLessonPJOK(PJOK) : PJOK !== '' && setLessonPJOK('')
+        lessonIslam === '' ? setLessonIslam(Islam) : Islam !== '' && setLessonIslam('')
+        lessonKristen === '' ? setLessonKristen(Kristen) : Kristen !== '' && setLessonKristen('')
+        lessonKatolik === '' ? setLessonKatolik(Katolik) : Katolik !== '' && setLessonKatolik('')
+        lessonHindu === '' ? setLessonHindu(Hindu) : Hindu !== '' && setLessonHindu('')
+        lessonBuddha === '' ? setLessonBuddha(Buddha) : Buddha !== '' && setLessonBuddha('')
+        lessonKhonghucu === '' ? setLessonKhonghucu(Khonghucu) : Khonghucu !== '' && setLessonKhonghucu('')
+        lessonKepercayaan === '' ? setLessonKepercayaan(Kepercayaan) : Kepercayaan !== '' && setLessonKepercayaan('')
+        lessonSeniTari === '' ? setLessonSeniTari(SeniTari) : SeniTari !== '' && setLessonSeniTari('')
+        lessonSeniMusik === '' ? setLessonSeniMusik(SeniMusik) : SeniMusik !== '' && setLessonSeniMusik('')
+        lessonSeniRupa === '' ? setLessonSeniRupa(SeniRupa) : SeniRupa !== '' && setLessonSeniRupa('')
+        lessonSeniTeater === '' ? setLessonSeniTeater(SeniTeater) : SeniTeater !== '' && setLessonSeniTeater('')
     }
 
     const handleSetLevel = (type) => {
@@ -170,12 +196,25 @@ const BukuNonTeks = () => {
                 setTypeCatalogue={(type) => setTypeCatalogue(type)}
                 setTypeBook={(type) => setTypeBook(type)}
                 setLevel={(level) => handleSetLevel(level)}
-                setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '')}
-                setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '')}
-                setLessonBIndonesia={() => filterLesson('', '', 'subject_indonesia', '', '', '')}
-                setLessonBInggris={() => filterLesson('', '', '', 'subject_inggris', '', '')}
-                setLessonMatematika={() => filterLesson('', '', '', '', 'subject_matematika', '')}
-                setLessonPkn={() => filterLesson('', '', '', '', '', 'subject_ppkn')}
+                setLessonIPA={() => filterLesson('subject_ipa', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonIPS={() => filterLesson('', 'subject_ips', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonBIndonesia={() => filterLesson('', '', 'subject_indonesia', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonBInggris={() => filterLesson('', '', '', 'subject_inggris', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonMatematika={() => filterLesson('', '', '', '', 'subject_matematika', '', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonPkn={() => filterLesson('', '', '', '', '', 'subject_ppkn', '', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonInformatika={() => filterLesson('', '', '', '', '', '', 'subject_informatika', '', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonPJOK={() => filterLesson('', '', '', '', '', '', '', 'subject_pjok', '', '', '', '', '', '', '', '', '', '', '')}
+                setLessonIslam={() => filterLesson('', '', '', '', '', '', '', '', 'subject_agama_islam', '', '', '', '', '', '', '', '', '', '')}
+                setLessonKristen={() => filterLesson('', '', '', '', '', '', '', '', '', 'subject_agama_kristen', '', '', '', '', '', '', '', '', '')}
+                setLessonKatolik={() => filterLesson('', '', '', '', '', '', '', '', '', '', 'subject_agama_katolik', '', '', '', '', '', '', '', '')}
+                setLessonHindu={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', 'subject_agama_hindu', '', '', '', '', '', '', '')}
+                setLessonBuddha={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', 'subject_agama_budha', '', '', '', '', '', '')}
+                setLessonKhonghucu={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_agama_khonghucu', '', '', '', '', '')}
+                setLessonKepercayaan={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_kepercayaan', '', '', '', '')}
+                setLessonSeniTari={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_seni_tari', '', '', '')}
+                setLessonSeniMusik={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_seni_musik', '', '')}
+                setLessonSeniRupa={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_seni_rupa', '')}
+                setLessonSeniTeater={() => filterLesson('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'subject_seni_teater')}
                 setClass1={() => class1 === '' ? setClass1('class_1') : setClass1('')}
                 setClass2={() => class2 === '' ? setClass2('class_2') : setClass2('')}
                 setClass3={() => class3 === '' ? setClass3('class_3') : setClass3('')}

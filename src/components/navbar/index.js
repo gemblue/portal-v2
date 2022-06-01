@@ -21,12 +21,12 @@ const Navbar = () => {
     const navbar = document.querySelector('.navbar');
     window.onscroll = () => {
         if (window.pageYOffset > 200) {
-            navbar.classList.remove('bg-light')
+            navbar.classList.remove('bg-soft-blue')
             navbar.classList.add('bg-white')
         }
         if (window.pageYOffset < 200) {
             navbar.classList.remove('bg-white')
-            navbar.classList.add('bg-light')
+            navbar.classList.add('bg-soft-blue')
         }
     }
 
@@ -36,7 +36,7 @@ const Navbar = () => {
 
     return (
         <section className="sticky-top fixed-top" id="navbar">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <nav className="navbar navbar-expand-lg navbar-light bg-soft-blue">
                 <div className="container">
                     <Link to="/" className="navbar-brand">
                         <img src="/assets/image/logo/sibi-nav-logo.png" className="nav-logo" alt="" />
@@ -47,13 +47,13 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item mx-1">
-                                <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Beranda</NavLink>
+                                <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link fw-bold' : 'nav-link'} aria-current="page">Beranda</NavLink>
                             </li>
                             <li className="nav-item dropdown mx-1">
                                 <a className="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownCatalogue" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Katalog Buku
                                 </a>
-                                <NavLink to="/katalog" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
+                                <NavLink to="/katalog" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link fw-bold dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Katalog Buku</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="dropdownCatalogue">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/katalog/buku-kurikulum-merdeka">
@@ -79,7 +79,7 @@ const Navbar = () => {
                                 <a className="nav-link dropdown-toggle dropdown-mobile" href="#" id="dropdownGuide" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Petunjuk
                                 </a>
-                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link text-blue dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>
+                                <NavLink to="/panduan/siswa" className={({ isActive }) => isActive ? 'dropdown-desktop nav-link fw-bold dropdown-toggle' : 'dropdown-desktop nav-link dropdown-toggle'} aria-current="page">Petunjuk</NavLink>
                                 <ul className="dropdown-menu px-2" aria-labelledby="dropdownGuide">
                                     <li>
                                         <Link className="dropdown-item p-2" to="/panduan/siswa">
@@ -102,7 +102,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             {/* <li className="nav-item mx-1">
-                                <a target="_blank" rel="noreferrer" href="https://pusbuk.kemdikbud.go.id" className={({ isActive }) => isActive ? 'nav-link text-blue' : 'nav-link'} aria-current="page">Profil</a>
+                                <a target="_blank" rel="noreferrer" href="https://pusbuk.kemdikbud.go.id" className={({ isActive }) => isActive ? 'nav-link fw-bold' : 'nav-link'} aria-current="page">Profil</a>
                             </li> */}
                             <li className="nav-item mx-1">
                                 <div onClick={() => window.location.replace("https://pusbuk.kemdikbud.go.id")} className="nav-link" style={{ cursor: 'pointer' }}>Profil</div>

@@ -61,8 +61,8 @@ const Hero = () => {
         <section id="hero" className={`bg-soft-blue position-relative ${styles.hero}`}>
             <div className="container p-3">
                 <div className="row">
-                    <div className="col-lg-5 order-last order-md-first my-5 my-md-auto">
-                        <h1 className="text-blue fw-bold" style={{ fontSize: '3rem' }}>Buku untuk Semua</h1>
+                    <div className="col-lg-6 order-last order-md-first my-5 my-md-auto">
+                        <h1 className={`${styles['title-hero']} text-blue fw-bold`}>Buku untuk Semua</h1>
                         <p className="lead">Akses <div className="d-inline-flex flex-column"><span>di mana pun, kapan pun,</span><span className="mt-n3 d-none d-md-block"><img src="/assets/image/home/line-title.png" alt="line title" /></span></div> Baca buku yuk!</p>
                         <div className="input-group shadow-sm mt-5">
                             <span className="input-group-text bg-white border-0"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
@@ -109,7 +109,7 @@ const Hero = () => {
                             }
                         </div>
                     </div>
-                    <div className="col-lg-7">
+                    <div className="col-lg-6">
                         <img src="/assets/image/home/aset home day.png" className="w-100 d-block d-lg-none" alt="" />
                     </div>
                 </div>

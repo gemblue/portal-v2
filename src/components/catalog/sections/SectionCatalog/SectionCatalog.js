@@ -10,7 +10,7 @@ import { BASE_URL } from '../../../../utils/config'
 import axios from 'axios'
 import fuzzy from "fuzzy"
 
-const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLevelPAUD, setLevelSD, setLevelSMP, setLevelSMA, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setPopularBook }) => {
+const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -286,6 +286,84 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                     <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Pendidikan Kewarganegaraan
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonInformatika} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Informatika
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonPJOK} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        PJOK
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonIslam} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Islam
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonKristen} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Kristen
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonKatolik} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Katolik
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonHindu} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Hindu
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonBuddha} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Buddha
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonKhonghucu} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Pendidikan Agama Khonghucu
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonKepercayaan} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Kepercayaan
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonSeniTari} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Seni Tari
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonSeniMusik} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Seni Musik
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonSeniRupa} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Seni Rupa
+                                    </label>
+                                </div>
+                                <div className="form-check">
+                                    <input onChange={setLessonSeniTeater} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                        Seni Teater
                                     </label>
                                 </div>
                             </div>

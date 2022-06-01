@@ -3,7 +3,14 @@
   padding-bottom: 160px;
 }
 
+.title-hero {
+  font-size: 3rem;
+}
+
 @media screen and (max-width: 767px) {
+  .title-hero {
+    font-size: 2rem;
+  }
   .hero {
     padding-top: 40px;
     padding-bottom: 70px;
