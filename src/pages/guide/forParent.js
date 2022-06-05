@@ -35,7 +35,7 @@ const ForParent = () => {
             <Hero content={content} role="parent" />
             <SectionIntroParent />
             <SectionJelajahi />
-            <SectionStats data={statisticBook} />
+            <SectionStats data={statisticBook} guide />
         </Layout>
     )
 }

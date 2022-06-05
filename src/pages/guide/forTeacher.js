@@ -35,7 +35,7 @@ const ForTeacher = () => {
             <Hero content={content} role="teacher" />
             <SectionIntroTeacher />
             <SectionJelajahi />
-            <SectionStats data={statisticBook} />
+            <SectionStats data={statisticBook} guide />
         </Layout>
     )
 }

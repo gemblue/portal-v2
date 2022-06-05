@@ -2,9 +2,9 @@ const SectionIntroTeacher = () => {
     return (
         <section className="py-5">
             <div className="container p-3">
-                <div className="row align-items-center text-center text-md-start">
+                <div className="row align-items-center">
                     <div className="col-lg-6 text-center mb-4">
-                        <img src="/assets/image/guide/teacher/aset panduan guru poin 1.png" className="w-75" alt="" />
+                        <img src="/assets/image/guide/teacher/aset panduan guru poin 1.png" style={{ width: '60%' }} alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Akses gratis buku <br /> pelajaran resmi</h2>
@@ -13,18 +13,18 @@ const SectionIntroTeacher = () => {
                         <p>Dapatkan "update" buku teks pelajaran, berdasarkan kurikulum yang berlaku, buku Kurikulum 2013 (K-13) dan Kurikulum Merdeka.</p>
                     </div>
                 </div>
-                <div className="row align-items-center mt-5 text-center text-md-start">
+                <div className="row align-items-center mt-5">
                     <div className="col-lg-6 ps-lg-5 order-last order-md-first mt-4 mt-md-0">
                         <h2 className="text-blue mb-3 fw-bold">Pengadaan <br /> buku sekolah</h2>
                         <p>Bapak/Ibu dapat melihat berbagai judul buku referensi yang "layak" berdasarkan hasil penilaian Pusat Perbukuan untuk kebutuhan pengadaan buku sekolah.</p>
                     </div>
                     <div className="col-lg-6 text-center">
-                        <img src="/assets/image/guide/teacher/aset panduan guru poin 2.png" className="w-75" alt="" />
+                        <img src="/assets/image/guide/teacher/aset panduan guru poin 2.png" style={{ width: '60%' }} alt="" />
                     </div>
                 </div>
-                <div className="row align-items-center mt-5 text-center text-md-start">
+                <div className="row align-items-center mt-5">
                     <div className="col-lg-6 text-center mb-4">
-                        <img src="/assets/image/guide/teacher/aset panduan guru poin 3.png" className="w-75" alt="" />
+                        <img src="/assets/image/guide/teacher/aset panduan guru poin 3.png" style={{ width: '60%' }} alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2 className="text-blue mb-3 fw-bold">Keuntungan jika <br /> daftar akun</h2>

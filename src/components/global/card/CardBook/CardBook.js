@@ -2,11 +2,11 @@ import styles from "./CardBook.module.scss"
 
 const CardBook = ({ image, title, typeBook, level }) => {
     return (
-        <div className={`card border-0 h-100 mt-3 ${styles.card}`}>
+        <div className={`card border-0 mt-3 ${styles.card}`}>
             <div className="card-header text-center text-lg-start bg-white p-0 border-0" style={{ backgroundImage: 'url(/assets/image/home/ellipse-1.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
                 <img src={image || '/assets/image/catalog/book-placeholder.jpg'} alt={title} className={styles['img-size']} />
             </div>
-            <div className="card-body">
+            <div className="card-body px-2 px-lg-0 py-2">
 
                 {typeBook === 'pdf' && (<span className="badge rounded-pill bg-danger mt-2">PDF</span>)}
                 {typeBook === 'audio' && (<span className="badge rounded-pill bg-success mt-2">Audio</span>)}

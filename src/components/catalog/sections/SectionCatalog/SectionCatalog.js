@@ -414,8 +414,8 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                     )
                                 }
                             </div>
-                            <div className="col-4 col-lg-4 my-auto text-end">
-                                <span className="d-none d-md-inline">Urutkan : </span>
+                            <div className="col-4 col-lg-4 my-auto text-end fw-bold">
+                                <span className="d-none d-md-inline">Urutkan : &nbsp;</span>
                                 <select className="form-select d-inline filter-type">
                                     <option selected onClick={() => { setPopularBook(''); setLatestBook('') }}>Semua</option>
                                     <option onClick={() => setPopularBook('getPopularCatalogue')}>Terpopuler</option>

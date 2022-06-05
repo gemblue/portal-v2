@@ -1,9 +1,11 @@
 import { faBars, faDoorOpen, faTachometerAlt, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+    const location = useLocation()
+    console.log(location);
     const navigate = useNavigate()
     const logout = () => {
 
@@ -19,14 +21,28 @@ const Navbar = () => {
 
     // Handle page on scroll navbar change background 
     const navbar = document.querySelector('.navbar');
-    window.onscroll = () => {
-        if (window.pageYOffset > 200) {
-            navbar.classList.remove('bg-soft-blue')
-            navbar.classList.add('bg-white')
+    if (location.pathname.includes('/katalog')) {
+        window.onscroll = () => {
+            if (window.pageYOffset > 100) {
+                navbar.classList.remove('bg-white')
+                navbar.classList.add('bg-soft-blue')
+            }
+            if (window.pageYOffset < 100) {
+                navbar.classList.remove('bg-soft-blue')
+                navbar.classList.add('bg-soft-white')
+            }
         }
-        if (window.pageYOffset < 200) {
-            navbar.classList.remove('bg-white')
-            navbar.classList.add('bg-soft-blue')
+    } else {
+
+        window.onscroll = () => {
+            if (window.pageYOffset > 200) {
+                navbar.classList.remove('bg-soft-blue')
+                navbar.classList.add('bg-white')
+            }
+            if (window.pageYOffset < 200) {
+                navbar.classList.remove('bg-white')
+                navbar.classList.add('bg-soft-blue')
+            }
         }
     }
 

@@ -99,93 +99,73 @@ const SectionTestimony = () => {
     });
 
     return (
-        <section className="py-5" style={{ background: 'linear-gradient(to bottom, white, #fef2e8)' }}>
+        <section className="py-5" style={{ background: 'linear-gradient(to bottom, white, #e5f8ff, #e5f8ff)' }}>
             <div className="container p-3">
                 <h3 className="mb-4">Apa kata mereka?</h3>
-                <Swiper
-                    autoplay={{ delay: '0ms' }}
-                    loop
-                    speed={40000}
-                    spaceBetween={0}
-                    slidesPerView={1}
-                    breakpoints={{
-                        // when window width is >= 414px
-                        450: {
-                            slidesPerView: 2.1,
-                        },
-                    }}
-                // onSlideChange={() => console.log('slide change')}
-                // onSwiper={(swiper) => console.log(swiper)}
-                >
-                    {
-                        testimony.map((item, index) => {
-                            return (
-                                <SwiperSlide key={index}>
 
-                                    <div className="pe-4 my-3">
-                                        <div className="card h-100 shadow border-0" style={{ minWidth: '130px' }}>
-                                            <div className="card-body">
-                                                <div className="text-end text-muted">
-                                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                                </div>
-                                                <div className="mb-3 text-muted">{item[0].comment}</div>
-                                                <div className="row align-items-center">
-                                                    <div className="col-lg-3 text-center text-md-start">
-                                                        <img src={item[0].avatar} className="rounded-circle" width={50} height={50} alt="" />
-                                                    </div>
-                                                    <div className="col-lg-9">
-                                                        <small className="d-block fw-bold text-center text-lg-start">{item[0].name}</small>
-                                                        <small>{item[0].school}</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="ps-4 my-3">
-                                        <div className="card shadow border-0" style={{ minWidth: '130px' }}>
-                                            <div className="card-body">
-                                                <div className="text-end text-muted">
-                                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                                </div>
-                                                <div className="mb-3 text-muted">{item[1].comment}</div>
-                                                <div className="row align-items-center">
-                                                    <div className="col-lg-3 text-center text-md-start">
-                                                        <img src={item[1].avatar} className="rounded-circle" width={50} height={50} alt="" />
-                                                    </div>
-                                                    <div className="col-lg-9">
-                                                        <small className="d-block fw-bold text-center text-lg-start">{item[1].name}</small>
-                                                        <small>{item[1].school}</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* <div className="pe-4 my-3">
-                                        <div className="card h-100 shadow border-0" style={{ minWidth: '130px' }}>
-                                            <div className="card-body">
-                                                <div className="text-end text-muted">
-                                                    <FontAwesomeIcon icon={faQuoteLeft} />
-                                                </div>
-                                                <div className="mb-3 text-muted">{item[2].comment}</div>
-                                                <div className="row align-items-center">
-                                                    <div className="col-lg-3 text-center text-md-start">
-                                                        <img src={item[2].avatar} className="rounded-circle" width={50} height={50} alt="" />
-                                                    </div>
-                                                    <div className="col-lg-9">
-                                                        <small className="d-block fw-bold text-center text-lg-start">{item[2].name}</small>
-                                                        <small>{item[2].school}</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> */}
-
-                                </SwiperSlide>
-                            )
-                        })
-                    }
-                </Swiper>
             </div>
+            <Swiper
+                autoplay={{ delay: '0ms' }}
+                loop
+                speed={40000}
+                spaceBetween={5}
+                slidesPerView={3.5}
+                breakpoints={{
+                    // when window width is >= 414px
+                    350: {
+                        slidesPerView: 1.8,
+                    },
+                }}
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+            >
+                {
+                    testimony.map((item, index) => {
+                        return (
+                            <SwiperSlide key={index}>
+                                <div className="pe-4 my-3">
+                                    <div className="card shadow border-0" style={{ minWidth: '130px' }}>
+                                        <div className="card-body px-3">
+                                            <div className="text-end text-muted">
+                                                <FontAwesomeIcon size='xl' icon={faQuoteLeft} />
+                                            </div>
+                                            <div className="mb-2 text-muted">{item[0].comment}</div>
+                                            <div className="row px-lg-1 align-items-center">
+                                                <div className="col-lg-1 pe-0 d-flex justify-content-center text-center text-md-start">
+                                                    <img src={item[0].avatar} className="rounded-circle me-lg-auto mb-2 mb-lg-0" width={50} height={50} alt="" />
+                                                </div>
+                                                <div className="col-lg-10 ms-1">
+                                                    <small className="d-block fw-bold text-lg-start">{item[0].name}</small>
+                                                    <small>{item[0].school}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="ps-4 my-3">
+                                    <div className="card shadow border-0" style={{ minWidth: '130px' }}>
+                                        <div className="card-body px-3">
+                                            <div className="text-end text-muted">
+                                                <FontAwesomeIcon size='xl' icon={faQuoteLeft} />
+                                            </div>
+                                            <div className="mb-2 text-muted">{item[1].comment}</div>
+                                            <div className="row px-lg-1 align-items-center">
+                                                <div className="col-lg-1 pe-0 d-flex justify-content-center text-center text-md-start">
+                                                    <img src={item[1].avatar} className="rounded-circle me-lg-auto mb-2 mb-lg-0" width={50} height={50} alt="" />
+                                                </div>
+                                                <div className="col-lg-10 ms-1">
+                                                    <small className="d-block fw-bold text-lg-start">{item[1].name}</small>
+                                                    <small>{item[1].school}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })
+                }
+            </Swiper>
         </section >
     )
 }

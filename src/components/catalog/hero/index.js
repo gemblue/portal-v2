@@ -12,8 +12,8 @@ const Hero = ({ typeCatalogue, setTypeCatalogue, setURL }) => {
     typeCatalogue === 'getNonTextBooks' && (active3 = 'active-type-catalogue')
 
     return (
-        <section className="bg-soft-blue" id="typeCatalogue">
-            <div className="container py-5">
+        <section className="bg-soft-blue" id="typeCatalogue" style={{ background: 'url(/assets/image/catalog/bg-hero.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
+            <div className="container py-4">
                 <div className="d-flex flex-column flex-lg-row">
                     <button onClick={() => { navigate('/katalog/buku-kurikulum-merdeka') }} className={`${active2} card card-type p-3 border-0 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
                         <img src="/assets/image/home/Group 79.png" width="40" alt="" />
