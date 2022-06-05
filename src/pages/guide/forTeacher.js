@@ -31,7 +31,7 @@ const ForTeacher = () => {
     }
 
     return (
-        <Layout>
+        <Layout guide>
             <Hero content={content} role="teacher" />
             <SectionIntroTeacher />
             <SectionJelajahi />

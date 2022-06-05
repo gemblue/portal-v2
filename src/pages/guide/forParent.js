@@ -31,7 +31,7 @@ const ForParent = () => {
     }
 
     return (
-        <Layout>
+        <Layout guide>
             <Hero content={content} role="parent" />
             <SectionIntroParent />
             <SectionJelajahi />

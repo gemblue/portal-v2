@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import './Footer.scss';
 
-const Footer = () => {
+const Footer = ({ guide }) => {
+    let backgroundColor = '#2f3e59'
+    guide && (backgroundColor = '#405272')
+
     return (
-        <footer id="Footer">
+        <footer id="Footer" style={{ backgroundColor: backgroundColor }}>
             <div className="container">
                 <div className="row justify-content-between my-5">
                     <div className="col-md-4 pe-md-5">
