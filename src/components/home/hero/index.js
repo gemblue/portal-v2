@@ -80,7 +80,7 @@ const Hero = () => {
                         <div className="position-relative bg-danger">
                             {
                                 search !== '' && (
-                                    <div className="card-body bg-white p-0 py-2 px-3 position-absolute">
+                                    <div className="card-body bg-white p-0 py-2 px-3 position-absolute" style={{ zIndex: '99' }}>
                                         <h6>Hasil pencarian :</h6>
                                         <div className="list-group">
                                             {
