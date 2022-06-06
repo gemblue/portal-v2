@@ -26,7 +26,7 @@ const Hero = ({ content, role }) => {
                     </div>
                 </div>
             </div>
-            <img src={content.image} style={{ zIndex: '1', left: '50%', bottom: '-2%' }} className="d-none d-lg-block position-absolute " alt="" />
+            <img src={content.image} style={{ zIndex: '1', left: '50%', bottom: '0%' }} className="d-none d-lg-block position-absolute " alt="" />
             <img src={content.vector} style={{ width: '41%', right: '0%' }} className="d-none d-lg-block position-absolute bottom-0" alt="" />
         </section >
     )
