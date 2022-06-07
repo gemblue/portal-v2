@@ -30,17 +30,32 @@ const Navbar = ({ nightMode }) => {
     if (location.pathname.includes('/katalog')) {
         window.onscroll = () => {
             if (window.pageYOffset > 100) {
+                if (nightMode) {
+                    button.classList.remove('btn-outline-white')
+                    button.classList.add('btn-outline-primary')
+
+                    navbar.classList.remove('navbar-dark')
+                    navbar.classList.add('navbar-light')
+                }
+
                 navbar.classList.remove('bg-white')
                 navbar.classList.add('bg-soft-blue')
             }
             if (window.pageYOffset < 100) {
+                if (nightMode) {
+                    navbar.classList.remove('navbar-light')
+                    navbar.classList.add('navbar-dark')
+
+                    button.classList.remove('btn-outline-primary')
+                    button.classList.add('btn-outline-white')
+                }
                 navbar.classList.remove('bg-soft-blue')
                 navbar.classList.add('bg-soft-white')
             }
         }
     } else {
         window.onscroll = () => {
-            if (window.pageYOffset > 200) {
+            if (window.pageYOffset > 100) {
                 if (nightMode) {
                     button.classList.remove('btn-outline-white')
                     button.classList.add('btn-outline-primary')
@@ -52,7 +67,7 @@ const Navbar = ({ nightMode }) => {
                 navbar.classList.remove('bg-soft-blue')
                 navbar.classList.add('bg-white')
             }
-            if (window.pageYOffset < 200) {
+            if (window.pageYOffset < 100) {
                 if (nightMode) {
                     navbar.classList.remove('navbar-light')
                     navbar.classList.add('navbar-dark')
