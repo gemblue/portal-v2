@@ -16,7 +16,7 @@ const Home = () => {
     // Handle night mode
     let nightMode = false
     let hours = (new Date()).getHours();
-    hours >= 18 && (nightMode = true)
+    hours >= 18 || hours <= 6 ? (nightMode = true) : (nightMode = false)
 
     const [popularBooks, setPopularBooks] = useState([])
     const [audioBooks, setAudioBooks] = useState([])

@@ -36,10 +36,13 @@ const Navbar = ({ nightMode }) => {
 
                     navbar.classList.remove('navbar-dark')
                     navbar.classList.add('navbar-light')
-                }
 
-                navbar.classList.remove('bg-white')
-                navbar.classList.add('bg-soft-blue')
+                    navbar.classList.remove('bg-night')
+                    navbar.classList.add('bg-white')
+                } else {
+                    navbar.classList.remove('bg-white')
+                    navbar.classList.add('bg-soft-blue')
+                }
             }
             if (window.pageYOffset < 100) {
                 if (nightMode) {
@@ -48,9 +51,14 @@ const Navbar = ({ nightMode }) => {
 
                     button.classList.remove('btn-outline-primary')
                     button.classList.add('btn-outline-white')
+
+                    navbar.classList.remove('bg-white')
+                    navbar.classList.add('bg-night')
+                } else {
+                    navbar.classList.remove('bg-soft-blue')
+                    navbar.classList.add('bg-soft-white')
+
                 }
-                navbar.classList.remove('bg-soft-blue')
-                navbar.classList.add('bg-soft-white')
             }
         }
     } else {

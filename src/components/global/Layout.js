@@ -6,7 +6,7 @@ const Layout = ({ children, guide }) => {
     // Handle night mode in navbar
     let nightMode = false
     let hours = (new Date()).getHours();
-    hours >= 18 && (nightMode = true)
+    hours >= 18 || hours <= 6 ? (nightMode = true) : (nightMode = false)
 
     return (
         <>
