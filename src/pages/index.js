@@ -12,6 +12,12 @@ import SectionTestimony from '../components/home/sections/SectionTestimony/Secti
 import { BASE_URL } from '../utils/config'
 
 const Home = () => {
+
+    // Handle night mode
+    let nightMode = false
+    let hours = (new Date()).getHours();
+    hours >= 18 && hours <= 6 && (nightMode = true)
+
     const [popularBooks, setPopularBooks] = useState([])
     const [audioBooks, setAudioBooks] = useState([])
     const [statisticBook, setStatisticBook] = useState([])
@@ -52,8 +58,8 @@ const Home = () => {
     }, [])
 
     return (
-        <Layout>
-            <Hero />
+        <Layout nightMode={nightMode}>
+            <Hero nightMode={nightMode} />
             <SectionStats data={statisticBook} />
             <SectionPopularBook
                 loading={loading}
@@ -65,8 +71,8 @@ const Home = () => {
                 audioBooks={audioBooks}
             />
             <SectionBookForAll />
-            <SectionTestimony />
-            <SectionFAQ />
+            <SectionTestimony nightMode={nightMode} />
+            <SectionFAQ nightMode={nightMode} />
         </Layout>
     )
 }

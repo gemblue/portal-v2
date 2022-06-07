@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 
 SwiperCore.use([Grid, Autoplay]);
 
-const SectionTestimony = () => {
+const SectionTestimony = ({ nightMode }) => {
+    let linearBgColor = nightMode ? 'linear-gradient(to bottom, white,white, #6686b7, #6686b7)' : 'linear-gradient(to bottom, white, #e5f8ff, #e5f8ff)'
     const data = [
         {
             comment: 'Bukunya bagus bagus',
@@ -99,10 +100,12 @@ const SectionTestimony = () => {
     });
 
     return (
-        <section className="py-5" style={{ background: 'linear-gradient(to bottom, white, #e5f8ff, #e5f8ff)' }}>
-            <div className="container p-3">
-                <h3 className="mb-4">Apa kata mereka?</h3>
-
+        <section className="py-5" style={{ background: linearBgColor }}>
+            <div className="position-relative">
+                <div className="container p-3">
+                    <h3 className="fw-bold">Apa <div className="d-inline-flex flex-column"><span>Kata Mereka?</span><span className="mt-n4"><img src="/assets/image/testimony/line.png" alt="line title" /></span></div></h3>
+                </div>
+                <img src="/assets/image/testimony/Hearts.png" className="position-absolute end-0" style={{ top: '-20%' }} alt="" />
             </div>
             <Swiper
                 autoplay={{ delay: '0ms' }}

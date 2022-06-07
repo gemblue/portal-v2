@@ -3,9 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ nightMode }) => {
+
+    // Handle night mode
+    let backgroundColor = nightMode ? 'bg-night' : 'bg-soft-blue'
+    let navbarType = nightMode ? 'navbar-dark' : 'navbar-light'
+    let buttonColor = nightMode ? 'btn-outline-white' : 'btn-outline-primary'
+
     const location = useLocation()
-    console.log(location);
     const navigate = useNavigate()
     const logout = () => {
 
@@ -21,6 +26,7 @@ const Navbar = () => {
 
     // Handle page on scroll navbar change background 
     const navbar = document.querySelector('.navbar');
+    let button = document.querySelector('.btn-login')
     if (location.pathname.includes('/katalog')) {
         window.onscroll = () => {
             if (window.pageYOffset > 100) {
@@ -33,13 +39,27 @@ const Navbar = () => {
             }
         }
     } else {
-
         window.onscroll = () => {
             if (window.pageYOffset > 200) {
+                if (nightMode) {
+                    button.classList.remove('btn-outline-white')
+                    button.classList.add('btn-outline-primary')
+
+                    navbar.classList.remove('navbar-dark')
+                    navbar.classList.add('navbar-light')
+                }
+
                 navbar.classList.remove('bg-soft-blue')
                 navbar.classList.add('bg-white')
             }
             if (window.pageYOffset < 200) {
+                if (nightMode) {
+                    navbar.classList.remove('navbar-light')
+                    navbar.classList.add('navbar-dark')
+
+                    button.classList.remove('btn-outline-primary')
+                    button.classList.add('btn-outline-white')
+                }
                 navbar.classList.remove('bg-white')
                 navbar.classList.add('bg-soft-blue')
             }
@@ -52,10 +72,14 @@ const Navbar = () => {
 
     return (
         <section className="sticky-top fixed-top" id="navbar">
-            <nav className="navbar navbar-expand-lg navbar-light bg-soft-blue">
+            <nav className={`navbar navbar-expand-lg ${navbarType} ${backgroundColor}`}>
                 <div className="container">
-                    <Link to="/" className="navbar-brand">
-                        <img src="/assets/image/logo/sibi-nav-logo.png" className="nav-logo" alt="" />
+                    <Link to="/" className="navbar-brand d-flex align-items-center">
+                        <img src="/assets/image/logo-sibi.png" className="nav-logo w-100" alt="" />
+                        <div className={navbarType} style={{ fontSize: '.8rem' }}>
+                            <div>Sistem Informasi</div>
+                            <div className="fw-bold">Perbukuan Indonesia</div>
+                        </div>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -137,7 +161,7 @@ const Navbar = () => {
                                 token == null
                                     ? (
                                         <li className="nav-item ms-3 pt-1">
-                                            <Link to="/login" className="btn btn-sm btn-outline-primary">Masuk</Link>
+                                            <Link to="/login" className={`btn btn-sm ${buttonColor} btn-login`}>Masuk</Link>
                                         </li>
                                     )
                                     : (

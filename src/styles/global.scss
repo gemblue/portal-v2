@@ -32,6 +32,9 @@ body {
 .bg-pink {
   background-color: #fff0e6;
 }
+.bg-night {
+  background-color: #6686b7 !important;
+}
 
 // Text
 .text-blue {
@@ -43,8 +46,13 @@ body {
   background-color: #fff !important;
 }
 .btn-outline-white {
-  background-color: #fff !important;
+  color: #fff !important;
+  background-color: rgba(0, 0, 0, 0);
   border: 1px solid rgb(202, 202, 202) !important;
+}
+.btn-outline-white:hover {
+  color: #000 !important;
+  background-color: #fff !important;
 }
 .btn-outline-blue {
   font-weight: 600 !important;

@@ -1,10 +1,10 @@
 import Footer from '../footer/Footer'
 import Navbar from '../navbar'
 
-const Layout = ({ children, guide }) => {
+const Layout = ({ children, guide, nightMode }) => {
     return (
         <>
-            <Navbar />
+            <Navbar nightMode={nightMode} />
             <main>
                 {children}
             </main>

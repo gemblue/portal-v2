@@ -8,7 +8,13 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import fuzzy from "fuzzy"
 
-const Hero = () => {
+const Hero = ({ nightMode }) => {
+
+    // Handle night mode
+    let backgroundColor = nightMode ? 'bg-night' : 'bg-soft-blue'
+    let titleColor = nightMode ? 'text-white' : 'text-blue'
+    let descColor = nightMode ? 'text-white' : 'text-dark'
+    let vector = nightMode ? '/assets/image/home/aset home night.png' : '/assets/image/home/aset home day.png'
 
     const navigate = useNavigate()
     const [lists, setLists] = useState([])
@@ -58,12 +64,12 @@ const Hero = () => {
     }
 
     return (
-        <section id="hero" className={`bg-soft-blue position-relative ${styles.hero}`}>
+        <section id="hero" className={`${backgroundColor} position-relative ${styles.hero}`}>
             <div className="container p-3">
                 <div className="row">
                     <div className="col-lg-6 order-last order-md-first my-5 my-md-auto">
-                        <h1 className={`${styles['title-hero']} text-blue fw-bold`}>Buku untuk Semua</h1>
-                        <p className="lead">Akses <div className="d-inline-flex flex-column"><span>di mana pun, kapan pun,</span><span className="mt-n3 d-none d-md-block"><img src="/assets/image/home/line-title.png" alt="line title" /></span></div> Baca buku yuk!</p>
+                        <h1 className={`${styles['title-hero']} ${titleColor} fw-bold`}>Buku untuk Semua</h1>
+                        <p className={`lead ${descColor}`}>Akses <div className="d-inline-flex flex-column"><span>di mana pun, kapan pun,</span><span className="mt-n3 d-none d-md-block"><img src="/assets/image/home/line-title.png" alt="line title" /></span></div> Baca buku yuk!</p>
                         <div className="input-group shadow-sm mt-5">
                             <span className="input-group-text bg-white border-0"><FontAwesomeIcon className='text-muted' icon={faSearch} /></span>
                             <input value={search} onChange={handleSearch} onKeyDown={e => e.code === 'Enter' && searchBook()} type="text" className="form-control py-3 border-0 px-1" placeholder="Cari buku disini" aria-label="Cari buku disini" />
@@ -110,11 +116,11 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <img src="/assets/image/home/aset home day.png" className="w-100 d-block d-lg-none" alt="" />
+                        <img src={vector} className="w-100 d-block d-lg-none" alt="" />
                     </div>
                 </div>
             </div>
-            <img src="/assets/image/home/aset home day.png" style={{ zIndex: '1', left: '45%', bottom: '3%' }} className=" d-none d-lg-block position-absolute" alt="" />
+            <img src={vector} style={{ zIndex: '1', left: '45%', bottom: '3%' }} className=" d-none d-lg-block position-absolute" alt="" />
         </section >
     )
 }
