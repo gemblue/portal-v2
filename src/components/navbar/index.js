@@ -98,8 +98,8 @@ const Navbar = ({ nightMode }) => {
             <nav className={`navbar navbar-expand-lg ${navbarType} ${backgroundColor}`}>
                 <div className="container">
                     <Link to="/" className="navbar-brand d-flex align-items-center">
-                        <img src="/assets/image/logo-sibi.png" className="nav-logo w-100" alt="" />
-                        <div className={navbarType} style={{ fontSize: '.8rem' }}>
+                        <img src="/assets/image/logo-sibi.png" height={50} alt="" />
+                        <div className={navbarType} style={{ fontSize: '.95rem' }}>
                             <div>Sistem Informasi</div>
                             <div className="fw-bold">Perbukuan Indonesia</div>
                         </div>
