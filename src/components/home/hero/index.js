@@ -79,7 +79,7 @@ const Hero = ({ nightMode }) => {
                                 <li><div onClick={() => setTypeBook('Teks K13')} className="dropdown-item" style={{ cursor: 'pointer' }}>Teks K13</div></li>
                                 <li><div onClick={() => setTypeBook('Nonteks')} className="dropdown-item" style={{ cursor: 'pointer' }}>Nonteks</div></li>
                             </ul>
-                            <div className="bg-white my-auto p-2">
+                            <div className="bg-white my-auto" style={{ padding: '9px' }}>
                                 <button onClick={() => searchBook()} className="btn btn-orange" type="button">Cari</button>
                             </div>
                         </div>
