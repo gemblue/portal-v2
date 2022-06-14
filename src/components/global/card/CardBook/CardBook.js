@@ -1,9 +1,14 @@
 import styles from "./CardBook.module.scss"
 
 const CardBook = ({ image, title, typeBook, level }) => {
+
+    // Shuffle array content image for background cover book
+    const ellipseArray = ['ellipse-1.png', 'ellipse-2.png', 'ellipse-3.png']
+    const ellipseBackground = ellipseArray.sort(() => (Math.random() > 0.3) ? 1 : -1)
+
     return (
         <div className={`card border-0 mt-3 ${styles.card}`}>
-            <div className="card-header text-center text-lg-start bg-white p-0 border-0" style={{ backgroundImage: 'url(/assets/image/home/ellipse-1.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
+            <div className="card-header text-center text-lg-start bg-white p-0 border-0" style={{ backgroundImage: `url(/assets/image/home/${ellipseBackground[1]})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
                 <img src={image || '/assets/image/catalog/book-placeholder.jpg'} alt={title} className={styles['img-size']} />
             </div>
             <div className="card-body px-5 px-lg-0 py-2">
