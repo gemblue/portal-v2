@@ -8,7 +8,7 @@ const Navbar = ({ nightMode }) => {
     // Handle night mode
     let backgroundColor = nightMode ? 'bg-night' : 'bg-soft-blue'
     let navbarType = nightMode ? 'navbar-dark' : 'navbar-light'
-    let buttonColor = nightMode ? 'btn-outline-white' : 'btn-outline-primary'
+    let buttonColor = nightMode ? 'btn-outline-white' : 'btn-outline-blue'
 
     const location = useLocation()
     const navigate = useNavigate()

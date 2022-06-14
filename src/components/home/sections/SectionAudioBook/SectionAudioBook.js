@@ -9,11 +9,11 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
             <div className="container p-3">
                 <div className="row align-items-center">
                     <div className="col-lg-6 ">
-                        <h3>Buku <div className="d-inline-flex flex-column"><span>audio</span><span className="mt-n4"><img src="/assets/image/home/line-subtitle.png" alt="line title" /></span></div></h3>
+                        <h3 className="fw-bold">Buku <div className="d-inline-flex flex-column"><span>audio</span><span className="mt-n4"><img src="/assets/image/home/line-subtitle.png" alt="line title" /></span></div></h3>
                         <p className="text-muted">Belajar lebih interaktif dan mudah dengan buku audio</p>
                     </div>
                     <div className="col-lg-6 text-end">
-                        <div onClick={() => navigate('/katalog')} className="btn btn-sm btn-outline-primary">Lihat Semua Buku Audio</div>
+                        <div onClick={() => navigate('/katalog')} className="btn btn-sm btn-outline-blue">Lihat Semua Buku Audio</div>
                     </div>
                 </div>
                 <div className="row mt-4">
@@ -41,7 +41,7 @@ const SectionAudioBook = ({ loading, audioBooks }) => {
                     }
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

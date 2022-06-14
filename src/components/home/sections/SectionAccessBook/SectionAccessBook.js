@@ -17,7 +17,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body px-3">
                                         <div className="fw-bold mb-1" style={{ fontSize: '1.1rem' }}>Buku Kurikulum Merdeka</div>
                                         <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2021</p>
-                                        <Link to="/katalog/buku-kurikulum-merdeka" className="card-text text-decoration-none"><small className="text-blue">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-kurikulum-merdeka" className="card-text text-decoration-none"><small className="text-blue fw-bold">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body px-3">
                                         <div className="fw-bold mb-1" style={{ fontSize: '1.1rem' }}>Buku Teks K-13</div>
                                         <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2013</p>
-                                        <Link to="/katalog/buku-teks-k13" className="card-text text-decoration-none"><small className="text-blue">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-teks-k13" className="card-text text-decoration-none"><small className="text-blue fw-bold">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ const SectionAccessBook = () => {
                                     <div className="card-body px-3">
                                         <div className="fw-bold mb-1" style={{ fontSize: '1.1rem' }}>Buku Nonteks</div>
                                         <p className="card-text text-muted">Buku umum sebagai pelengkap belajarmu</p>
-                                        <Link to="/katalog/buku-non-teks" className="card-text text-decoration-none"><small className="text-blue">Lihat selengkapnya &#8594;</small></Link>
+                                        <Link to="/katalog/buku-non-teks" className="card-text text-decoration-none"><small className="text-blue fw-bold">Lihat selengkapnya &#8594;</small></Link>
                                     </div>
                                 </div>
                             </div>

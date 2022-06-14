@@ -6,7 +6,7 @@ const CardBook = ({ image, title, typeBook, level }) => {
             <div className="card-header text-center text-lg-start bg-white p-0 border-0" style={{ backgroundImage: 'url(/assets/image/home/ellipse-1.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'bottom' }}>
                 <img src={image || '/assets/image/catalog/book-placeholder.jpg'} alt={title} className={styles['img-size']} />
             </div>
-            <div className="card-body px-2 px-lg-0 py-2">
+            <div className="card-body px-5 px-lg-0 py-2">
 
                 {typeBook === 'pdf' && (<span className="badge rounded-pill bg-danger mt-2">PDF</span>)}
                 {typeBook === 'audio' && (<span className="badge rounded-pill bg-success mt-2">Audio</span>)}
