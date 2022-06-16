@@ -1,3 +1,5 @@
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -9,6 +11,8 @@ const Register = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const { resetField, register, getValues, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
@@ -44,7 +48,7 @@ const Register = () => {
                     <div className="card mt-2 shadow">
                         <div className="card-body p-4">
                             {
-                                message != '' && (
+                                message !== '' && (
                                     <div className="alert alert-danger alert-dismissible fade show">
                                         {message}
                                     </div>
@@ -86,14 +90,24 @@ const Register = () => {
                                         <label className="form-label fw-bold float-start">KATA SANDI</label>
                                         <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
-                                    <input {...register('password', { required: true })} type="password" className="form-control" placeholder="Masukan kata sandi" />
+                                    <div class="input-group mb-3">
+                                        <input type={showPassword ? 'text' : 'password'} {...register('password', { required: true })} className="form-control" placeholder="Masukan kata sandi" />
+                                        <span onClick={() => setShowPassword(!showPassword)} class="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
+                                            {showPassword ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
+                                        </span>
+                                    </div>
                                     {errors.password && errors.password.type == "required" && <small className="text-danger">Kata sandi wajib diisi</small>}
                                 </div>
                                 <div className="form-group my-4">
                                     <div>
                                         <label className="form-label fw-bold">ULANGI KATA SANDI</label>
                                     </div>
-                                    <input {...register('confirm_password', { required: true })} type="password" className="form-control" placeholder="Masukan ulang kata sandi" />
+                                    <div class="input-group mb-3">
+                                        <input type={showConfirmPassword ? 'text' : 'password'} {...register('confirm_password', { required: true })} className="form-control" placeholder="Masukan ulang kata sandi" />
+                                        <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} class="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
+                                            {showConfirmPassword ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
+                                        </span>
+                                    </div>
                                     {errors.confirm_password && errors.confirm_password.type === 'required' && <small className="text-danger">Konfirmasi kata sandi harus diisi</small>}
                                 </div>
                                 <div className="form-group d-grid gap-2">
