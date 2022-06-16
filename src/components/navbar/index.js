@@ -66,7 +66,7 @@ const Navbar = ({ nightMode }) => {
             if (window.pageYOffset > 100) {
                 if (nightMode) {
                     button.classList.remove('btn-outline-white')
-                    button.classList.add('btn-outline-primary')
+                    button.classList.add('btn-outline-blue')
 
                     navbar.classList.remove('navbar-dark')
                     navbar.classList.add('navbar-light')
@@ -80,7 +80,7 @@ const Navbar = ({ nightMode }) => {
                     navbar.classList.remove('navbar-light')
                     navbar.classList.add('navbar-dark')
 
-                    button.classList.remove('btn-outline-primary')
+                    button.classList.remove('btn-outline-blue')
                     button.classList.add('btn-outline-white')
                 }
                 navbar.classList.remove('bg-white')
@@ -213,11 +213,11 @@ const Navbar = ({ nightMode }) => {
                                                 <li>
                                                     <hr className="dropdown-divider" />
                                                 </li>
-                                                <li>
+                                                {/* <li>
                                                     <Link className="dropdown-item" to="/dashboard">
                                                         <FontAwesomeIcon icon={faTachometerAlt} className="me-1" /> Dashboard
                                                     </Link>
-                                                </li>
+                                                </li> */}
                                                 <li
                                                     className="dropdown-item"
                                                     onClick={logout}
