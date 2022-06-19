@@ -11,7 +11,7 @@ import axios from 'axios'
 import fuzzy from "fuzzy"
 import { Tooltip } from 'bootstrap'
 
-const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setPopularBook }) => {
+const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -419,6 +419,36 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                                     <input onChange={setLessonSeniTeater} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                                         Seni Teater
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSosiologi} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Sosiologi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonAntropologi} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Antropologi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonEkonomi} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Ekonomi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonGeografi} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Geografi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSejarah} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Sejarah
                                                     </label>
                                                 </div>
                                             </div>
