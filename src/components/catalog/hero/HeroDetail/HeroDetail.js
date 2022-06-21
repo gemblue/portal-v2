@@ -65,27 +65,27 @@ const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, pr
     }
 
     const pushLog = async (type) => {
-        if (token) {
-            const payload = {
-                slug: slug,
-                activity: type
-            }
 
-            const convertRAW = JSON.stringify(payload)
-
-            try {
-                const response = await axios.post(`${BASE_URL}/api/statistic/push`, convertRAW, {
-                    headers: {
-                        Authorization: token,
-                    },
-                })
-                if (response.data.status == 'success') {
-                    console.log('log pushed');
-                }
-            } catch (error) {
-                console.log('failed log pushed');
-            }
+        const payload = {
+            slug: slug,
+            activity: type
         }
+
+        const convertRAW = JSON.stringify(payload)
+
+        try {
+            const response = await axios.post(`${BASE_URL}/api/statistic/push`, convertRAW, {
+                headers: {
+                    Authorization: token,
+                },
+            })
+            if (response.data.status == 'success') {
+                console.log('log pushed');
+            }
+        } catch (error) {
+            console.log('failed log pushed');
+        }
+
     }
 
     const handleLogin = () => {
