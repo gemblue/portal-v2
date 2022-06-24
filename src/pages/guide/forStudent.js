@@ -25,7 +25,7 @@ const ForStudent = () => {
     const content = {
         subtitle: 'BUKU UNTUK SISWA',
         title: 'Belajar jadi lebih mudah',
-        image: '/assets/image/guide/forStudent.png',
+        image: '/assets/image/guide/untuk siswa.png',
         vector: '/assets/image/guide/vectorForStudent.png',
         description: 'Temukan buku pelajaran resmi kemendikbud disini'
     }

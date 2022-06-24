@@ -21,13 +21,13 @@ const Hero = ({ content, role }) => {
 
                     </div>
                     <div className="col-lg-6 position-relative">
-                        <img src={content.image} className="w-100 d-block d-lg-none position-relative" alt="" style={{ zIndex: '1' }} />
-                        <img src={content.vector} className="w-100 d-block d-lg-none position-absolute end-0 bottom-0" alt="" />
+                        <img src={content.image} className="w-100 d-block d-lg-none position-relative" alt="" style={{ zIndex: '1', right: '-5%' }} />
+                        {/* <img src={content.vector} className="w-100 d-block d-lg-none position-absolute end-0 bottom-0" alt="" /> */}
                     </div>
                 </div>
             </div>
-            <img src={content.image} style={{ zIndex: '1', left: '50%', bottom: '0%' }} className="d-none d-lg-block position-absolute " alt="" />
-            <img src={content.vector} style={{ width: '41%', right: '0%' }} className="d-none d-lg-block position-absolute bottom-0" alt="" />
+            <img src={content.image} style={{ zIndex: '1', left: '50%', bottom: '0%' }} className="d-none w-50 d-lg-block position-absolute " alt="" />
+            {/* <img src={content.vector} style={{ width: '41%', right: '0%' }} className="d-none d-lg-block position-absolute bottom-0" alt="" /> */}
         </section >
     )
 }

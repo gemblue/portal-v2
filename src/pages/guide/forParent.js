@@ -25,7 +25,7 @@ const ForParent = () => {
     const content = {
         subtitle: 'BUKU UNTUK ORANG TUA',
         title: 'Bantu tingkatkan proses belajar anak',
-        image: '/assets/image/guide/forParent.png',
+        image: '/assets/image/guide/untuk ortu.png',
         vector: '/assets/image/guide/vectorForParent.png',
         description: 'Dengan akses gratis ke semua buku pelajaran resmi kemendikbud dari jenjang pendidikan PAUD sampai SMA'
     }
