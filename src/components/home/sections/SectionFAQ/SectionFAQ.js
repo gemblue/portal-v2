@@ -71,7 +71,7 @@ const SectionFAQ = ({ nightMode }) => {
                         </div>
                     </div>
                     <div className="col-lg-5">
-                        <img src={vector} className="w-100 ms-4" alt="" />
+                        <img src={vector} className="w-100 m-faq" alt="" />
                     </div>
                 </div>
             </div>
