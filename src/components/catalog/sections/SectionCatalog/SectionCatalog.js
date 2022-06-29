@@ -11,7 +11,7 @@ import axios from 'axios'
 import fuzzy from "fuzzy"
 import { Tooltip } from 'bootstrap'
 
-const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setPopularBook }) => {
+const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -104,50 +104,50 @@ const SectionCatalog = ({ setLatestBook, setClass1, setClass2, setClass3, setCla
                                                 TIPE BUKU
                                             </div>
                                             <div className="card-body">
-                                                <div onChange={() => setTypeBook('')} className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeA" />
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_A')} checked={level === 'level_A' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeA" />
                                                     <label className="form-check-label" htmlFor="typeA">
                                                         Pembaca Dini A
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
+                                                    <input onClick={() => setLevelNonText('level_B')} checked={level === 'level_B' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
                                                     <label className="form-check-label" htmlFor="typeB1">
                                                         Pembaca Awal B1
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeB2" />
+                                                    <input onClick={() => setLevelNonText('level_B2')} checked={level === 'level_B2' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB2" />
                                                     <label className="form-check-label" htmlFor="typeB2">
                                                         Pembaca Awal B2
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeB3" />
+                                                    <input onClick={() => setLevelNonText('level_B3')} checked={level === 'level_B3' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB3" />
                                                     <label className="form-check-label" htmlFor="typeB3">
                                                         Pembaca Awal B3
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeC" />
+                                                    <input onClick={() => setLevelNonText('level_C')} checked={level === 'level_C' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeC" />
                                                     <label className="form-check-label" htmlFor="typeC">
                                                         Pembaca Lanjut C
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
+                                                    <input onClick={() => setLevelNonText('level_D')} checked={level === 'level_D' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
                                                     <label className="form-check-label" htmlFor="typeD1">
                                                         Pembaca Semenjana D1
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeD2" />
+                                                    <input onClick={() => setLevelNonText('level_D2')} checked={level === 'level_D2' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD2" />
                                                     <label className="form-check-label" htmlFor="typeD2">
                                                         Pembaca Semenjana D2
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input className="form-check-input" name="type_book" type="checkbox" id="typeE" />
+                                                    <input onClick={() => setLevelNonText('level_E')} checked={level === 'level_E' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeE" />
                                                     <label className="form-check-label" htmlFor="typeE">
                                                         Pembaca Mahir E
                                                     </label>
