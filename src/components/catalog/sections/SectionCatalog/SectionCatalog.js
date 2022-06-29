@@ -89,12 +89,14 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
         setSearch('')
     }
 
+    const titleSidebar = typeCatalogue === 'getPenggerakTextBooks' ? 'Buku Kurikulum Merdeka' : typeCatalogue === 'getTextBooks' ? 'Buku Teks K13' : 'Buku Non Teks'
+
     return (
         <section id="catalog">
             <div className="container px-3 py-5">
                 <div className="row">
                     <div className="col-lg-3">
-                        <h4>Buku Kurikulum <br /> Merdeka</h4>
+                        <h4>{titleSidebar}</h4>
                         {
                             typeCatalogue === 'getNonTextBooks'
                                 ? (
