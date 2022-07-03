@@ -97,13 +97,13 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
-                                <GoogleLogin
+                                {/* <GoogleLogin
                                     clientId="470560417504-qip8ungpk2kahp8n690sta3717a9dao1.apps.googleusercontent.com"
                                     buttonText="Login With Google"
                                     onSuccess={responseGoogle}
                                     onFailure={responseGoogle}
                                     cookiePolicy={'single_host_origin'}
-                                />
+                                /> */}
                                 <div className="my-2">Atau</div>
                                 <p className="mb-0">Belum punya akun? <Link to="/registrasi" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
                                 <p>Lupa kata sandi? <Link to="/lupa-sandi" className="text-decoration-none text-blue"> Klik disini</Link> </p>
