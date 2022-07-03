@@ -17,9 +17,20 @@ import ForStudent from "./pages/guide/forStudent"
 import ForTeacher from "./pages/guide/forTeacher"
 import Test from './test';
 import { useEffect } from 'react';
+import { gapi } from "gapi-script";
 
 const App = () => {
+
   useEffect(() => {
+
+    gapi.load("client:auth2", () => {
+      gapi.client.init({
+        clientId:
+          "470560417504-qip8ungpk2kahp8n690sta3717a9dao1.apps.googleusercontent.com",
+        plugin_name: "chat",
+      });
+    });
+
     if ('caches' in window) {
       caches.keys().then((names) => {
         // Delete all the cache files

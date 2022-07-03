@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config/'
+import { GoogleLogin } from 'react-google-login';
 
 const Login = () => {
     // Check if success from register
@@ -46,6 +47,11 @@ const Login = () => {
             setLoading(false)
         }
     }
+
+    const responseGoogle = (response) => {
+        console.log(response);
+    }
+
     return (
         <Layout>
             <section className="row justify-content-center pt-2 pt-md-5 p-3 p-md-0" id="login">
@@ -91,6 +97,14 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
+                                <GoogleLogin
+                                    clientId="470560417504-qip8ungpk2kahp8n690sta3717a9dao1.apps.googleusercontent.com"
+                                    buttonText="Login With Google"
+                                    onSuccess={responseGoogle}
+                                    onFailure={responseGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                />
+                                <div className="my-2">Atau</div>
                                 <p className="mb-0">Belum punya akun? <Link to="/registrasi" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
                                 <p>Lupa kata sandi? <Link to="/lupa-sandi" className="text-decoration-none text-blue"> Klik disini</Link> </p>
                             </div>
