@@ -74,6 +74,7 @@ const CatalogDetail = () => {
                 totalDownload={book.total_download}
                 totalRead={book.total_read}
                 loading={loading}
+                category={book.category}
                 price_zone_1={book.price_zone_1}
                 price_zone_2={book.price_zone_2}
                 price_zone_3={book.price_zone_3}

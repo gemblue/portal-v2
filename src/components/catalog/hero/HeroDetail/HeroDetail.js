@@ -12,7 +12,7 @@ import styles from './HeroDetail.module.scss'
 import { Modal as modal } from 'bootstrap'
 import { formatPrice } from '../../../../utils/helper'
 
-const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
+const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
     const [loading, setLoading] = useState(false)
     const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
@@ -210,7 +210,7 @@ const HeroDetail = ({ price_zone_1, price_zone_2, price_zone_3, price_zone_4, pr
                                             {price_zone_1 !== null && (
                                                 <>
                                                     <small className="text-muted">Rp {formatPrice(price_zone_1)}</small>
-                                                    <small type="button" className="text-primary d-block" data-bs-toggle="modal" data-bs-target="#hetModal">Lihat zona..</small>
+                                                    {category !== 'buku_non_teks' && (<small type="button" className="text-primary d-block" data-bs-toggle="modal" data-bs-target="#hetModal">Lihat zona..</small>)}
                                                 </>
                                             )}
                                         </div>
