@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-do
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config/'
 import { GoogleLogin } from 'react-google-login';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
     // Check if success from register
@@ -16,6 +18,7 @@ const Login = () => {
 
     // Define login state
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
     const { resetField, register, handleSubmit, formState: { errors } } = useForm();
@@ -84,7 +87,12 @@ const Login = () => {
                                         <label className="form-label fw-bold float-start">KATA SANDI</label>
                                         <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
-                                    <input {...register('password', { required: true })} type="password" className="form-control" placeholder="Masukan kata sandi" />
+                                    <div class="input-group">
+                                        <input {...register('password', { required: true })} type={showPassword ? 'text' : 'password'} className="form-control border-end-0" placeholder="Masukan kata sandi" />
+                                        <span onClick={() => setShowPassword(!showPassword)} class="input-group-text bg-white border-start-0 cursor-pointer">
+                                            {showPassword ? <FontAwesomeIcon icon={faEye} /> : <FontAwesomeIcon icon={faEyeSlash} />}
+                                        </span>
+                                    </div>
                                     {errors.password && <small className="text-danger">Password wajib diisi</small>}
                                 </div>
                                 <div className="form-group d-grid gap-2">
