@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
+
     // Check if success from register
     let search = useLocation().search;
     const [params] = useState(new URLSearchParams(search).get('register'))
@@ -25,15 +26,17 @@ const Login = () => {
 
     useEffect(() => {
         params === 'success' && (setSuccessRegister(true))
-    }, [])
+    }, [params])
 
     const onSubmit = async (data) => {
         setLoading(true)
-        const payload = JSON.stringify(data)
+
+        const googleLogin = data.tokenId !== undefined
+        const endpoint = googleLogin ? 'sync' : 'login'
+        const payload = googleLogin ? { id_token: data.tokenId } : data
 
         try {
-            const response = await axios.post(`${BASE_URL}/api/user/login`, payload)
-
+            const response = await axios.post(`${BASE_URL}/api/user/${endpoint}`, JSON.stringify(payload))
             if (response.data.status == 'failed') {
                 setMessage(response.data.message)
             } else {
@@ -49,10 +52,6 @@ const Login = () => {
         } finally {
             setLoading(false)
         }
-    }
-
-    const responseGoogle = (response) => {
-        console.log(response);
     }
 
     return (
@@ -105,13 +104,13 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
-                                {/* <GoogleLogin
-                                    clientId="470560417504-qip8ungpk2kahp8n690sta3717a9dao1.apps.googleusercontent.com"
+                                <GoogleLogin
+                                    clientId="104944373110-hd7umobu1j3k66fnjm82l8gd32vnefm8.apps.googleusercontent.com"
                                     buttonText="Login With Google"
-                                    onSuccess={responseGoogle}
-                                    onFailure={responseGoogle}
+                                    onSuccess={onSubmit}
+                                    onFailure={onSubmit}
                                     cookiePolicy={'single_host_origin'}
-                                /> */}
+                                />
                                 <div className="my-2">Atau</div>
                                 <p className="mb-0">Belum punya akun? <Link to="/registrasi" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
                                 <p>Lupa kata sandi? <Link to="/lupa-sandi" className="text-decoration-none text-blue"> Klik disini</Link> </p>
