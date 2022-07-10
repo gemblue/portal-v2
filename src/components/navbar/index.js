@@ -213,11 +213,11 @@ const Navbar = ({ nightMode }) => {
                                                 <li>
                                                     <hr className="dropdown-divider" />
                                                 </li>
-                                                {/* <li>
-                                                    <Link className="dropdown-item" to="/dashboard">
+                                                <li>
+                                                    <Link className="dropdown-item" to="/user/dashboard">
                                                         <FontAwesomeIcon icon={faTachometerAlt} className="me-1" /> Dashboard
                                                     </Link>
-                                                </li> */}
+                                                </li>
                                                 <li
                                                     className="dropdown-item"
                                                     onClick={logout}
