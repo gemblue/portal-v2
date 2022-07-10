@@ -1,4 +1,4 @@
-import { faBars, faDoorOpen, faTachometerAlt, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faSignOut, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
@@ -173,7 +173,8 @@ const Navbar = ({ nightMode }) => {
                             {
                                 token && (
                                     <li className="nav-item mx-1 mt-3 d-block d-lg-none">
-                                        <div onClick={() => logout()} className="nav-link" style={{ cursor: 'pointer' }}>Logout</div>
+                                        <Link to="/user/dashboard" className="nav-link"><FontAwesomeIcon icon={faDoorOpen} /> Dasbor</Link>
+                                        <div onClick={() => logout()} className="nav-link" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faSignOut} /> Logout</div>
                                     </li>
                                 )
                             }
