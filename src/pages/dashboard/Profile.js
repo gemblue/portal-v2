@@ -121,8 +121,8 @@ const Profile = () => {
                     {errors.portfolio_link && errors.portfolio_link.type === 'required' && <small className="text-danger">Link portofolio harus diisi</small>}
                 </div>
                 <div className="form-group text-end">
-                    <button className="btn btn-primary">
-                        {loading ? (<div class="spinner-border spinner-border-sm" role="status"></div>) : 'simpan'}
+                    <button className="btn btn-orange">
+                        {loading ? (<div class="spinner-border spinner-border-sm" role="status"></div>) : 'Simpan'}
                     </button>
                 </div>
             </form>
