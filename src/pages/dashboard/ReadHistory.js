@@ -30,7 +30,7 @@ const ReadHistory = () => {
 
     return (
         <Layout>
-            <div className="mb-3">Histori Baca</div>
+            <div className="mb-3">Riwayat Baca</div>
 
             {
                 loading

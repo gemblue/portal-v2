@@ -31,7 +31,7 @@ const DownloadHistory = () => {
 
     return (
         <Layout>
-            <div className="mb-3">Histori Unduh</div>
+            <div className="mb-3">Riwayat Unduh</div>
 
             {
                 loading
