@@ -40,9 +40,7 @@
     "start": "react-scripts start",
     "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prebuild": "npm run generate-build-meta",
-    "generate-build-meta": "node ./node_modules/react-clear-browser-cache/bin/cli.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
