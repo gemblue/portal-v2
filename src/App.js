@@ -18,7 +18,6 @@ import ForTeacher from "./pages/guide/forTeacher"
 import Test from './test';
 import { useEffect } from 'react';
 import { gapi } from "gapi-script";
-import { useClearCache } from 'react-clear-cache';
 
 // Import page dashboard
 import Dashboard from "../src/pages/dashboard/index"
@@ -29,12 +28,11 @@ import ReadHistory from './pages/dashboard/ReadHistory';
 
 const App = () => {
   const isAuthenticated = localStorage.getItem('user_token')
-  const { isLatestVersion, emptyCacheStorage } = useClearCache()
 
   useEffect(() => {
     // Clear all caches browser
-    // caches.keys().then(list => list.map(key => caches.delete(key)))
-    // caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
+
+    caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
 
     gapi.load("client:auth2", () => {
       gapi.client.init({
@@ -53,82 +51,64 @@ const App = () => {
     //   });
     // }
   }, [])
-  if (!isLatestVersion) {
-    return (
-      <p>
-        <a
-          className="btn btn-primary m-3"
-          href="#/"
-          onClick={e => {
-            e.preventDefault();
-            emptyCacheStorage();
-          }}
-        >
-          Update version
-        </a>
-      </p>
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/faq" element={<FAQ />} />
+      <Route path="/test" element={<Test />} />
+      <Route path="/katalog" element={<Catalog />} />
+      <Route path="/katalog/buku-teks-k13" element={<BukuTeksK13 />} />
+      <Route path="/katalog/buku-kurikulum-merdeka" element={<BukuKurikulumMerdeka />} />
+      <Route path="/katalog/buku-non-teks" element={<BukuNonTeks />} />
+      <Route path="/katalog/:slug" element={<CatalogDetail />} />
+      <Route path="/panduan/orang-tua" element={<ForParent />} />
+      <Route path="/panduan/siswa" element={<ForStudent />} />
+      <Route path="/panduan/guru" element={<ForTeacher />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/registrasi" element={<Register />} />
+      <Route path="/lupa-sandi" element={<ForgotPassword />} />
 
-    )
-  }
-  if (isLatestVersion) {
-    return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/katalog" element={<Catalog />} />
-        <Route path="/katalog/buku-teks-k13" element={<BukuTeksK13 />} />
-        <Route path="/katalog/buku-kurikulum-merdeka" element={<BukuKurikulumMerdeka />} />
-        <Route path="/katalog/buku-non-teks" element={<BukuNonTeks />} />
-        <Route path="/katalog/:slug" element={<CatalogDetail />} />
-        <Route path="/panduan/orang-tua" element={<ForParent />} />
-        <Route path="/panduan/siswa" element={<ForStudent />} />
-        <Route path="/panduan/guru" element={<ForTeacher />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registrasi" element={<Register />} />
-        <Route path="/lupa-sandi" element={<ForgotPassword />} />
+      {/* Route dashboard */}
+      <Route path="/user" element={<Navigate to="/user/dashboard" />} />
+      <Route path="/user/*">
+        <Route
+          path="dashboard"
+          element={
+            <ProtectedRoute auth={isAuthenticated}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute auth={isAuthenticated}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="riwayat-unduh"
+          element={
+            <ProtectedRoute auth={isAuthenticated}>
+              <DownloadHistory />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="riwayat-baca"
+          element={
+            <ProtectedRoute auth={isAuthenticated}>
+              <ReadHistory />
+            </ProtectedRoute>
+          }
+        />
+      </Route>
 
-        {/* Route dashboard */}
-        <Route path="/user" element={<Navigate to="/user/dashboard" />} />
-        <Route path="/user/*">
-          <Route
-            path="dashboard"
-            element={
-              <ProtectedRoute auth={isAuthenticated}>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="profile"
-            element={
-              <ProtectedRoute auth={isAuthenticated}>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="riwayat-unduh"
-            element={
-              <ProtectedRoute auth={isAuthenticated}>
-                <DownloadHistory />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="riwayat-baca"
-            element={
-              <ProtectedRoute auth={isAuthenticated}>
-                <ReadHistory />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    );
-  }
 }
 
 export default App
