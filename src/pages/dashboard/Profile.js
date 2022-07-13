@@ -1,4 +1,4 @@
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useState } from 'react'
@@ -13,6 +13,7 @@ const Profile = () => {
     const { reset, register, handleSubmit, formState: { errors } } = useForm()
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const getProfile = async () => {
@@ -26,8 +27,8 @@ const Profile = () => {
                     username: response.data.result.username,
                     email: response.data.result.email,
                     name: response.data.result.name,
-                    interest: response.data.result.interest,
-                    portfolio_link: response.data.result.portfolio_link,
+                    // interest: response.data.result.interest,
+                    // portfolio_link: response.data.result.portfolio_link,
                     phone: response.data.result.phone,
                     address: response.data.result.address,
                     birthday: response.data.result.birthday,
@@ -43,7 +44,6 @@ const Profile = () => {
 
 
     const onSubmit = async (data) => {
-        console.log(data)
         setLoading(true)
 
         try {
@@ -52,10 +52,10 @@ const Profile = () => {
                     Authorization: userToken
                 }
             })
-            console.log(response)
-            setSuccess(true)
+            response.data.status === 'success' ? setSuccess(true) : setError(true)
             window.scrollTo({ top: 0, behavior: 'smooth' })
         } catch (error) {
+            setError(true)
             console.log(error)
         } finally {
             setLoading(false)
@@ -72,6 +72,16 @@ const Profile = () => {
                         <FontAwesomeIcon icon={faCheckCircle} />
                         <span className="ms-2">Data profil berhasil diupdate</span>
                         <button onClick={() => setSuccess(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                )
+            }
+
+            {
+                error && (
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <FontAwesomeIcon icon={faTimesCircle} />
+                        <span className="ms-2">Data profil gagal diupdate</span>
+                        <button onClick={() => setError(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 )
             }
@@ -105,21 +115,21 @@ const Profile = () => {
                     <input {...register('birthday', { required: false })} type="date" className="form-control" placeholder="Masukan alamat" id="alamat" />
                     {errors.birthday && errors.birthday.type === 'required' && <small className="text-danger">Tanggal lahir harus diisi</small>}
                 </div>
-                <div className="form-group mb-3">
+                {/* <div className="form-group mb-3">
                     <label htmlFor="interest" className="form-label">Interest</label>
                     <input {...register('interest', { required: false })} type="text" className="form-control" placeholder="Masukan interest" id="interest" />
                     {errors.interest && errors.interest.type === 'required' && <small className="text-danger">Interest harus diisi</small>}
-                </div>
+                </div> */}
                 <div className="form-group mb-3">
                     <label htmlFor="deskripsi" className="form-label">Deskripsi</label>
                     <input {...register('description', { required: false })} type="text" className="form-control" placeholder="Masukan deskripsi" id="deskripsi" />
                     {errors.description && errors.description.type === 'required' && <small className="text-danger">Deskripsi harus diisi</small>}
                 </div>
-                <div className="form-group mb-3">
+                {/* <div className="form-group mb-3">
                     <label htmlFor="portfolioLink" className="form-label">Link Portofolio</label>
                     <input {...register('portfolio_link', { required: false })} type="text" className="form-control" placeholder="Masukan link portofolio" id="portfolioLink" />
                     {errors.portfolio_link && errors.portfolio_link.type === 'required' && <small className="text-danger">Link portofolio harus diisi</small>}
-                </div>
+                </div> */}
                 <div className="form-group text-end">
                     <button className="btn btn-orange">
                         {loading ? (<div class="spinner-border spinner-border-sm" role="status"></div>) : 'Simpan'}
