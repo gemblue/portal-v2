@@ -424,6 +424,12 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
+                                                    <input onChange={setLessonPrakarya} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
+                                                        Prakarya
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
                                                     <input onChange={setLessonSosiologi} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                                         Sosiologi
@@ -451,12 +457,6 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                     <input onChange={setLessonSejarah} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                                         Sejarah
-                                                    </label>
-                                                </div>
-                                                <div className="form-check">
-                                                    <input onChange={setLessonPrakarya} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                                                        Prakarya
                                                     </label>
                                                 </div>
                                             </div>
