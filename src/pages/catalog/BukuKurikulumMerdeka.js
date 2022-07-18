@@ -177,6 +177,16 @@ const BukuTeksK13 = () => {
                 setLevel(type)
             }
         }
+
+        if (type == 'level_slb') {
+            if (checkActive == type) {
+                setCheckActive('')
+                setLevel('')
+            } else {
+                setCheckActive(type)
+                setLevel(type)
+            }
+        }
     }
 
     const filterSearchCatalogue = (data) => {

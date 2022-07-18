@@ -20,6 +20,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
 
     const [lists, setLists] = useState([])
     const [search, setSearch] = useState('')
+    console.log(typeCatalogue)
 
     // Tooltip configuration
     const message = [
@@ -219,6 +220,16 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                         SMA/MA/SMK/MAK
                                                     </label>
                                                 </div>
+                                                {
+                                                    typeCatalogue === "getPenggerakTextBooks" && (
+                                                        <div className="form-check">
+                                                            <input onClick={() => setLevel('level_slb')} checked={checkActive == 'level_slb' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check5" />
+                                                            <label className="form-check-label" htmlFor="checkSLB">
+                                                                SLB (SDLB/SMPLB/SMALB)
+                                                            </label>
+                                                        </div>
+                                                    )
+                                                }
                                             </div>
                                         </div>
                                         <div className="card mt-3">
