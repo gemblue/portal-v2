@@ -178,7 +178,7 @@ const BukuTeksK13 = () => {
             }
         }
 
-        if (type == 'level_slb') {
+        if (type == 'level_sdlb') {
             if (checkActive == type) {
                 setCheckActive('')
                 setLevel('')
