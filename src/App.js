@@ -69,7 +69,7 @@ const App = () => {
       <Route path="/lupa-sandi" element={<ForgotPassword />} />
 
       {/* Route dashboard */}
-      <Route path="/user" element={<Navigate to="/user/dashboard" />} />
+      {/* <Route path="/user" element={<Navigate to="/user/dashboard" />} /> */}
       <Route path="/user/*">
         <Route
           path="dashboard"
