@@ -27,11 +27,9 @@ import DownloadHistory from './pages/dashboard/DownloadHistory';
 import ReadHistory from './pages/dashboard/ReadHistory';
 
 const App = () => {
-  const isAuthenticated = localStorage.getItem('user_token')
 
   useEffect(() => {
     // Clear all caches browser
-
     caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
 
     gapi.load("client:auth2", () => {
@@ -41,16 +39,8 @@ const App = () => {
         plugin_name: "chat",
       });
     });
-
-    // if ('caches' in window) {
-    //   caches.keys().then((names) => {
-    //     // Delete all the cache files
-    //     names.forEach(name => {
-    //       caches.delete(name);
-    //     })
-    //   });
-    // }
   }, [])
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -69,12 +59,12 @@ const App = () => {
       <Route path="/lupa-sandi" element={<ForgotPassword />} />
 
       {/* Route dashboard */}
-      {/* <Route path="/user" element={<Navigate to="/user/dashboard" />} /> */}
+      <Route path="/user" element={<Navigate to="/user/dashboard" />} />
       <Route path="/user/*">
         <Route
           path="dashboard"
           element={
-            <ProtectedRoute auth={isAuthenticated}>
+            <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
           }
@@ -82,7 +72,7 @@ const App = () => {
         <Route
           path="profile"
           element={
-            <ProtectedRoute auth={isAuthenticated}>
+            <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           }
@@ -90,7 +80,7 @@ const App = () => {
         <Route
           path="riwayat-unduh"
           element={
-            <ProtectedRoute auth={isAuthenticated}>
+            <ProtectedRoute>
               <DownloadHistory />
             </ProtectedRoute>
           }
@@ -98,7 +88,7 @@ const App = () => {
         <Route
           path="riwayat-baca"
           element={
-            <ProtectedRoute auth={isAuthenticated}>
+            <ProtectedRoute>
               <ReadHistory />
             </ProtectedRoute>
           }
