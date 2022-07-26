@@ -29,8 +29,17 @@ import ReadHistory from './pages/dashboard/ReadHistory';
 const App = () => {
 
   useEffect(() => {
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        // Delete all the cache files
+        names.forEach(name => {
+          caches.delete(name);
+        })
+      })
+    }
     // Clear all caches browser
     caches.keys().then((keyList) => Promise.all(keyList.map((key) => caches.delete(key))))
+
 
     gapi.load("client:auth2", () => {
       gapi.client.init({
