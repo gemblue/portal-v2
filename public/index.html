@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <!--
+   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
@@ -26,8 +26,32 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>SIBI - Sistem Informasi Perbukuan Indonesia</title>
+ 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQZ4PELP78"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KQZ4PELP78');
+  </script>
+
+  <!-- Remove SW-->
+  <script>
+    navigator.serviceWorker.getRegistrations()
+    .then( function(registrations) { 
+        for(let registration of registrations) { 
+        registration.unregister(); 
+        } 
+  }); 
+  </script>
+
+  <!-- WebAnalytics-->
+  <script data-host="https://webanalytic.info" data-dnt="false" src="https://webanalytic.info/js/script.js" id="ZwSg9rf6GA" async defer></script>
 </head>
 <body>
+  
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <!--
