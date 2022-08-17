@@ -60,7 +60,6 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
     const handleSearch = ({ currentTarget = {} }) => {
         const { value } = currentTarget
         setSearch(value)
-
     }
 
     // Set for pagination

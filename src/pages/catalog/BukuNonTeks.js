@@ -24,7 +24,7 @@ const BukuNonTeks = () => {
     const [latestBook, setLatestBook] = useState('')
 
     // State for filter level
-    const [level, setLevel] = useState('level_A')
+    const [level, setLevel] = useState('')
 
 
     useEffect(() => {
@@ -71,6 +71,10 @@ const BukuNonTeks = () => {
         data.typeCatalogue === 'getNonTextBooks' && setTypeSearchBook('Nonteks')
     }
 
+    const handleFilterLevel = (filter) => {
+        filter === level ? setLevel("") : setLevel(filter)
+    }
+
     return (
         <Layout>
             <Hero
@@ -90,7 +94,7 @@ const BukuNonTeks = () => {
                 typeCatalogue={typeCatalogue}
                 setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
                 level={level}
-                setLevelNonText={(level) => setLevel(level)}
+                setLevelNonText={(filter) => handleFilterLevel(filter)}
             />
         </Layout>
     )
