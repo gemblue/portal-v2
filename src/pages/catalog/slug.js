@@ -68,7 +68,7 @@ const CatalogDetail = () => {
                             </div>
                         </div>
                     )
-                    : book.length !== 0
+                    : book.length !== 0 && book.status === 'publish'
                         ? (
                             <>
                                 <SectionBreadcumb
@@ -125,7 +125,7 @@ const CatalogDetail = () => {
 
                         )
             }
-        </Layout >
+        </Layout>
     )
 }
 
