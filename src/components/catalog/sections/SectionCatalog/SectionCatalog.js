@@ -11,7 +11,7 @@ import axios from 'axios'
 import fuzzy from "fuzzy"
 import { Tooltip } from 'bootstrap'
 
-const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setLessonPrakarya, setLessonIPAS, setLessonTeknikKonstruksiDanPerumahan, setLessonTeknikOtomotif, setLessonTeknikElektronika, setLessonTeknikPesawatUdara, setLessonTeknikKonstruksiKapal, setLessonTeknikKetenagalistrikan, setLessonTeknikGeospasial, setLessonTeknikGeologiPertambangan, setLessonLayananKesehatan, setLessonAgriteknologiPengolahanHasilPertanian, setLessonManajementPerkantoranDanLayananBisnis, setLessonUsahaLayananPariwisata, setLessonDesainKomunikasiVisual, setPopularBook }) => {
+const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setLessonPrakarya, setLessonIPAS, setLessonTeknikKonstruksiDanPerumahan, setLessonTeknikOtomotif, setLessonTeknikElektronika, setLessonTeknikPesawatUdara, setLessonTeknikKonstruksiKapal, setLessonTeknikKetenagalistrikan, setLessonTeknikGeospasial, setLessonTeknikGeologiPertambangan, setLessonLayananKesehatan, setLessonAgriteknologiPengolahanHasilPertanian, setLessonManajementPerkantoranDanLayananBisnis, setLessonUsahaLayananPariwisata, setLessonDesainKomunikasiVisual, setLessonTeknikFurniture, setLessonKuliner, setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -482,6 +482,12 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
+                                                    <input onChange={setLessonTeknikKonstruksiKapal} className="form-check-input" type="checkbox" value="" id="teknikKonstruksiKapal" />
+                                                    <label className="form-check-label" htmlFor="teknikKonstruksiKapal">
+                                                        Teknik Konstruksi Kapal
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
                                                     <input onChange={setLessonTeknikOtomotif} className="form-check-input" type="checkbox" value="" id="teknikOtomotif" />
                                                     <label className="form-check-label" htmlFor="teknikOtomotif">
                                                         Teknik Otomotif
@@ -545,6 +551,18 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                     <input onChange={setLessonDesainKomunikasiVisual} className="form-check-input" type="checkbox" value="" id="desainKomunikasiVisual" />
                                                     <label className="form-check-label" htmlFor="desainKomunikasiVisual">
                                                         Desain Komunikasi Visual
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikFurniture} className="form-check-input" type="checkbox" value="" id="teknikFurniture" />
+                                                    <label className="form-check-label" htmlFor="teknikFurniture">
+                                                        Teknik Furniture
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKuliner} className="form-check-input" type="checkbox" value="" id="kuliner" />
+                                                    <label className="form-check-label" htmlFor="kuliner">
+                                                        Kuliner
                                                     </label>
                                                 </div>
                                             </div>
