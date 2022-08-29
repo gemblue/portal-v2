@@ -236,7 +236,7 @@ const Catalog = () => {
                 setLessonManajementPerkantoranDanLayananBisnis={() => lessonManajementPerkantoranDanLayananBisnis === '' ? setLessonManajementPerkantoranDanLayananBisnis('subject_manajemen_perkantoran_dan_layanan_bisnis') : setLessonManajementPerkantoranDanLayananBisnis('')}
                 setLessonUsahaLayananPariwisata={() => lessonUsahaLayananPariwisata === '' ? setLessonUsahaLayananPariwisata('subject_usaha_layanan_pariwisata') : setLessonUsahaLayananPariwisata('')}
                 setLessonDesainKomunikasiVisual={() => lessonDesainKomunikasiVisual === '' ? setLessonDesainKomunikasiVisual('subject_desain_komunikasi_visual') : setLessonDesainKomunikasiVisual('')}
-                setLessonTeknikFurniture={() => lessonTeknikFurniture === '' ? setLessonTeknikFurniture('subject_teknik_furnitur') : setLessonTeknikFurniture('')}
+                setLessonTeknikFurniture={() => lessonTeknikFurniture === '' ? setLessonTeknikFurniture('subject_teknik_furniture') : setLessonTeknikFurniture('')}
                 setLessonKuliner={() => lessonKuliner === '' ? setLessonKuliner('subject_kuliner') : setLessonKuliner('')}
                 setPopularBook={(popular) => setPopularBook(popular)}
                 setClass1={() => class1 === '' ? setClass1('class_1') : setClass1('')}
