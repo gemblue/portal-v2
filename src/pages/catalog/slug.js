@@ -60,70 +60,59 @@ const CatalogDetail = () => {
     return (
         <Layout>
             {
-                loading
-                    ? (
-                        <div className="text-center my-5">
-                            <div class="spinner-border" style={{ width: '3rem', height: '3rem' }} role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    )
-                    : book.length !== 0 && book.status === 'publish'
-                        ? (
-                            <>
-                                <SectionBreadcumb
-                                    category={book.category}
-                                    level={book.level}
-                                    title={book.title}
-                                    slug={book.slug}
-                                />
-                                <HeroDetail
-                                    id={book.id}
-                                    token={token}
-                                    slug={book.slug}
-                                    image={book.image}
-                                    bookType={book.type}
-                                    title={book.title}
-                                    publisher={book.publisher}
-                                    isbn={book.isbn}
-                                    edition={book.edition}
-                                    writer={book.writer}
-                                    attachment={book.attachment}
-                                    totalDownload={book.total_download}
-                                    totalRead={book.total_read}
-                                    loading={loading}
-                                    category={book.category}
-                                    price_zone_1={book.price_zone_1}
-                                    price_zone_2={book.price_zone_2}
-                                    price_zone_3={book.price_zone_3}
-                                    price_zone_4={book.price_zone_4}
-                                    price_zone_5A={book.price_zone_5A}
-                                    price_zone_5B={book.price_zone_5B}
-                                />
-                                {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
-                                <SectionReview
-                                    token={token}
-                                    slug={book.slug}
-                                />
-                                <SectionTestimonyComment reviews={reviews} />
-                                <SectionRecommended
-                                    recommendBooks={recommendBooks}
-                                    loading={loading}
-                                />
-                            </>
-                        )
-                        : (
-                            <div className="text-center my-5">
-                                <img
-                                    width="60"
-                                    src="/assets/image/catalog/not-found.png"
-                                    className="img-fluid"
-                                    alt="Not found"
-                                />
-                                <div className="text-center mt-2">Buku tidak ditemukan / dalam revisi</div>
-                            </div>
-
-                        )
+                book.length !== 0 ? (
+                    <>
+                        <SectionBreadcumb
+                            category={book.category}
+                            level={book.level}
+                            title={book.title}
+                            slug={book.slug}
+                        />
+                        <HeroDetail
+                            id={book.id}
+                            token={token}
+                            slug={book.slug}
+                            image={book.image}
+                            bookType={book.type}
+                            title={book.title}
+                            publisher={book.publisher}
+                            isbn={book.isbn}
+                            edition={book.edition}
+                            writer={book.writer}
+                            attachment={book.attachment}
+                            totalDownload={book.total_download}
+                            totalRead={book.total_read}
+                            loading={loading}
+                            category={book.category}
+                            price_zone_1={book.price_zone_1}
+                            price_zone_2={book.price_zone_2}
+                            price_zone_3={book.price_zone_3}
+                            price_zone_4={book.price_zone_4}
+                            price_zone_5A={book.price_zone_5A}
+                            price_zone_5B={book.price_zone_5B}
+                        />
+                        {book.type === 'audio' && <SectionAudioPlayer audio={book.audio_attachment} />}
+                        <SectionReview
+                            token={token}
+                            slug={book.slug}
+                        />
+                        <SectionTestimonyComment reviews={reviews} />
+                        <SectionRecommended
+                            recommendBooks={recommendBooks}
+                            loading={loading}
+                        />
+                    </>
+                ) : (
+                    <div className="text-center my-5">
+                        <img
+                            width="60"
+                            src="/assets/image/catalog/not-found.png"
+                            className="img-fluid"
+                            alt="Not found"
+                        />
+                        <div className="text-center mt-2">Buku tidak ditemukan / dalam revisi</div>
+                    </div>
+                )
             }
         </Layout>
     )
