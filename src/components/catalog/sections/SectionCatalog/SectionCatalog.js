@@ -139,13 +139,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                 <div className="form-check">
                                                     <input onClick={() => setLevelNonText('level_D')} checked={level === 'level_D' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
                                                     <label className="form-check-label" htmlFor="typeD1">
-                                                        Pembaca Semenjana D1
-                                                    </label>
-                                                </div>
-                                                <div className="form-check">
-                                                    <input onClick={() => setLevelNonText('level_D2')} checked={level === 'level_D2' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD2" />
-                                                    <label className="form-check-label" htmlFor="typeD2">
-                                                        Pembaca Semenjana D2
+                                                        Pembaca Semenjana D
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
@@ -702,7 +696,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                         <td>{message[2]}</td>
                                     </tr>
                                     <tr>
-                                        <td>Pembaca Semenjana D1 dan D2</td>
+                                        <td>Pembaca Semenjana D</td>
                                         <td>{message[3]}</td>
                                     </tr>
                                     <tr>
