@@ -1,4 +1,4 @@
-import { faDoorOpen, faSignOut, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faSignOut, faTachometerAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
@@ -200,12 +200,10 @@ const Navbar = ({ nightMode }) => {
                                                 aria-expanded="false"
                                             >
                                                 <strong>{user && user.name}</strong>
-                                                <img
-                                                    className="rounded-circle"
-                                                    src={user && user.avatar}
-                                                    alt=""
-                                                    style={{ width: "40px", height: "40px" }}
-                                                />
+                                                {user.avatar
+                                                    ? (<img className="rounded-circle" src={user && user.avatar} alt="" style={{ width: "40px", height: "40px" }}/>)
+                                                    : (<FontAwesomeIcon icon={faUserCircle} size="xl" />)
+                                                }                                                
                                             </a>
                                             <ul className="dropdown-menu dropdown-menu-end profile" aria-labelledby="navbarDropdown">
                                                 <li className="py-0">
