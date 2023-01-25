@@ -12,7 +12,7 @@ import styles from './HeroDetail.module.scss'
 import { Modal as modal } from 'bootstrap'
 import { formatPrice } from '../../../../utils/helper'
 
-const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead }) => {
+const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay }) => {
     const [loading, setLoading] = useState(false)
     const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
@@ -160,7 +160,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                                                 <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
                                                     <FontAwesomeIcon icon={faFileAudio} className="me-1" /> Unduh PDF
                                                 </a>
-                                                <small className="my-3 text-muted d-block">Telah diputar {totalRead.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
+                                                <small className="my-3 text-muted d-block">Telah diputar {totalPlay} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada audio</small>
                                             </>
                                         )
                                     }
