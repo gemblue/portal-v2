@@ -18,7 +18,7 @@ const SectionStats = ({ data, guide }) => {
                             </div>
                             <img src="/assets/image/home/line-stats.png" className="position-absolute mx-auto" style={{ zIndex: '1', bottom: '5%', left: '16%', width: '65%' }} alt="" />
                         </div>
-                        <p className="text-white">Buku telah dibaca</p>
+                        <p className="text-white">Kali buku dibaca</p>
                     </div>
                     <div className="col-6 col-lg-2">
                         <div className="position-relative">
@@ -27,7 +27,7 @@ const SectionStats = ({ data, guide }) => {
                             </div>
                             <img src="/assets/image/home/line-stats.png" className="position-absolute mx-auto" style={{ zIndex: '1', bottom: '5%', left: '16%', width: '66%' }} alt="" />
                         </div>
-                        <p className="text-white">Buku terunduh</p>
+                        <p className="text-white">Kali buku diunduh</p>
                     </div>
                     <div className="col-6 col-lg-2">
                         <div className="position-relative">
@@ -50,7 +50,7 @@ const SectionStats = ({ data, guide }) => {
                     <div className="col-6 col-lg-2">
                         <div className="position-relative">
                             <div className={`${styles.count} position-relative`} style={{ zIndex: '100' }}>
-                                <CountUp end={780907} duration={5} formattingFn={val => formatNumber(val)} />
+                                <CountUp end={1334557} duration={5} formattingFn={val => formatNumber(val)} />
                             </div>
                             <img src="/assets/image/home/line-stats.png" className="position-absolute mx-auto" style={{ zIndex: '1', bottom: '4%', left: '16%', width: '65%' }} alt="" />
                         </div>
