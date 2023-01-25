@@ -27,7 +27,7 @@ const SectionStats = ({ data, guide }) => {
                             </div>
                             <img src="/assets/image/home/line-stats.png" className="position-absolute mx-auto" style={{ zIndex: '1', bottom: '5%', left: '16%', width: '66%' }} alt="" />
                         </div>
-                        <p className="text-white">Kali Buku diunduh</p>
+                        <p className="text-white">Kali buku diunduh</p>
                     </div>
                     <div className="col-6 col-lg-2">
                         <div className="position-relative">
