@@ -201,7 +201,7 @@ const Navbar = ({ nightMode }) => {
                                             >
                                                 <strong>{user && user.name}</strong>
                                                 {user.avatar
-                                                    ? (<img className="rounded-circle" src={user && user.avatar} alt="" style={{ width: "40px", height: "40px" }}/>)
+                                                    ? (<img className="rounded-circle" src={user.avatar} alt="" style={{ width: "40px", height: "40px" }}/>)
                                                     : (<FontAwesomeIcon icon={faUserCircle} size="xl" />)
                                                 }                                                
                                             </a>
