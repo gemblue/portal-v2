@@ -44,7 +44,7 @@ const BukuNonTeks = () => {
                 setTypeCatalogue('getTextBooks');
             }
             if (typeSearchBook === 'Nonteks') {
-                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?title=${title}&limit=20&offset=0`;
+                ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?title=${title}&limit=20&offset=0&sort=desc`;
                 setTypeCatalogue('getNonTextBooks');
             }
         }
