@@ -113,7 +113,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
-                                                    <input onClick={() => setLevelNonText('level_B')} checked={level === 'level_B' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
+                                                    <input onClick={() => setLevelNonText('level_B')} checked={level === 'level_B1' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
                                                     <label className="form-check-label" htmlFor="typeB1">
                                                         Pembaca Awal B1
                                                     </label>
