@@ -24,11 +24,11 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
 
     // Tooltip configuration
     const message = [
-        "Pembaca yang baru kali pertama mengenal buku yang memerlukan perancah(scaffolding) yaitu guru dan orang tua untuk secara aktif dan intensif mendampingi anak membaca.Pembaca pada tahap ini berusaha memahami arti setiap kata, frasa, dan kalimat sederhana yang tertulis.",
-        "Pembaca yang sudah mengenal buku dan mampu membaca teks sederhana berupa kata / frasa dengan kombinasi bunyi huruf, klausa, dan kalimat dengan tingkat kesulitan yang meningkat.Pembaca pada jenjang ini dibagi menjadi tiga subjenjang berdasarkan tingkat kesulitan teks yang dipadupadankan terkait dengan kombinasi bunyi huruf, suku kata, dan kata, makna kosakata, dan struktur kalimat.",
-        "Pembaca yang sudah sangat mengenali aneka jenis buku serta mampu membaca teks secara lancar dalam bentuk paragraf.Tema buku yang mereka baca semakin beragam.Mereka sudah mulai mempraktikkan membaca buku dengan anatomi yang lengkap(misalnya bab - bab buku).",
-        "Pembaca yang semakin mahir membaca aneka jenis buku dengan kemampuan membaca untuk memahami beragam genre teks yang sudah meningkat.Pembaca pada jenjang ini dibagi atas dua subjenjang berdasarkan tingkat kesulitan teks yang meningkat; ragam atau genre teks / buku yang lebih bervariasi, serta kemampuan membaca banyak buku, lalu melakukan sintesis pemikiran—merujuk beberapa buku atau bacaan untuk menciptakan karya.",
-        "Pembaca yang merupakan orang dewasa dengan kemampuan membaca secara analitis dan kritis serta kemampuan membaca banyak buku untuk menyintesis pemikiran secara lebih baik.Pembaca mahir dapat disejajarkan pada jenjang pendidikan tinggi."
+        "Jenjang A atau Jenjang Pembaca Dini adalah jenjang pembaca yang baru kali pertama mengenal buku yang memerlukan Perancah (scaffolding) untuk mendampingi anak membaca.",
+        "Jenjang B atau Jenjang Pembaca Awal adalah jenjang pembaca yang memerlukan Perancah (scaffolding) dan mampu membaca teks berupa kata/frasa dengan kombinasi bunyi huruf, klausa, dan kalimat sederhana. ",
+        "Jenjang C atau Jenjang Pembaca Semenjana adalah jenjang pembaca yang mampu membaca teks secara lancar berbentuk paragraf dalam satu wacana.",
+        "Jenjang D atau Jenjang Pembaca Madya adalah jenjang pembaca yang mampu memahami beragam teks dengan tingkat kesulitan menengah.",
+        "Jenjang E atau Jenjang Pembaca Mahir adalah jenjang pembaca yang mampu membaca secara analitis dan kritis berbagai sumber bacaan untuk menyintesis pemikiran secara lebih baik. "
     ]
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -133,13 +133,13 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                 <div className="form-check">
                                                     <input onClick={() => setLevelNonText('level_C')} checked={level === 'level_C' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeC" />
                                                     <label className="form-check-label" htmlFor="typeC">
-                                                        Pembaca Lanjut C
+                                                        Pembaca Semenjana C
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
                                                     <input onClick={() => setLevelNonText('level_D')} checked={level === 'level_D' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
                                                     <label className="form-check-label" htmlFor="typeD1">
-                                                        Pembaca Semenjana D
+                                                        Pembaca Madya D
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
@@ -692,11 +692,11 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                         <td>{message[1]}</td>
                                     </tr>
                                     <tr>
-                                        <td>Pembaca Lanjut C</td>
+                                        <td>Pembaca Semenjana C</td>
                                         <td>{message[2]}</td>
                                     </tr>
                                     <tr>
-                                        <td>Pembaca Semenjana D</td>
+                                        <td>Pembaca Madya D</td>
                                         <td>{message[3]}</td>
                                     </tr>
                                     <tr>
