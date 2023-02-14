@@ -226,10 +226,10 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                     type="application/pdf"
                     data={attachment}
                     width="100%"
-                    height="800"
+                    style={{height: '90vh'}}
                     aria-label={title}
                 >
-                    <p>Silahkan klik tombol unduh untuk membaca</p>
+                    <p className="m-0">Silahkan klik tombol unduh untuk membaca</p>
                     <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
                 </object>
             </Modal>
