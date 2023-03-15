@@ -83,10 +83,13 @@ const BukuTeksK13 = () => {
     const [lessonDesainKomunikasiVisual, setLessonDesainKomunikasiVisual] = useState('')
     const [lessonTeknikFurniture, setLessonTeknikFurniture] = useState('')
     const [lessonKuliner, setLessonKuliner] = useState('')
+    const [lessonBiologi, setLessonBiologi] = useState('')
+    const [lessonFisika, setLessonFisika] = useState('')
+    const [lessonKimia, setLessonKimia] = useState('')
 
     useEffect(() => {
         // Default routing endpoints
-        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}&${lessonInformatika}&${lessonPJOK}&${lessonIslam}&${lessonKristen}&${lessonKatolik}&${lessonHindu}&${lessonBuddha}&${lessonKhonghucu}&${lessonKepercayaan}&${lessonSeniTari}&${lessonSeniMusik}&${lessonSeniRupa}&${lessonSeniTeater}&${lessonSosiologi}&${lessonAntropologi}&${lessonEkonomi}&${lessonGeografi}&${lessonSejarah}&${lessonPrakarya}&${lessonIPAS}&${lessonTeknikKonstruksiDanPerumahan}&${lessonTeknikOtomotif}&${lessonTeknikElektronika}&${lessonTeknikPesawatUdara}&${lessonTeknikKonstruksiKapal}&${lessonTeknikKetenagalistrikan}&${lessonTeknikGeospasial}&${lessonTeknikGeologiPertambangan}&${lessonLayananKesehatan}&${lessonAgriteknologiPengolahanHasilPertanian}&${lessonManajementPerkantoranDanLayananBisnis}&${lessonUsahaLayananPariwisata}&${lessonDesainKomunikasiVisual}&${lessonTeknikFurniture}&${lessonKuliner}&${class1}&${class2}&${class3}&${class4}&${class5}&${class6}&${class7}&${class8}&${class9}&${class10}&${class11}&${class12}&${latestBook}`;
+        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${lessonIPA}&${lessonIPS}&${lessonBIndonesia}&${lessonBInggris}&${lessonMatematika}&${lessonPKN}&${lessonInformatika}&${lessonPJOK}&${lessonIslam}&${lessonKristen}&${lessonKatolik}&${lessonHindu}&${lessonBuddha}&${lessonKhonghucu}&${lessonKepercayaan}&${lessonSeniTari}&${lessonSeniMusik}&${lessonSeniRupa}&${lessonSeniTeater}&${lessonSosiologi}&${lessonAntropologi}&${lessonEkonomi}&${lessonGeografi}&${lessonSejarah}&${lessonPrakarya}&${lessonIPAS}&${lessonTeknikKonstruksiDanPerumahan}&${lessonTeknikOtomotif}&${lessonTeknikElektronika}&${lessonTeknikPesawatUdara}&${lessonTeknikKonstruksiKapal}&${lessonTeknikKetenagalistrikan}&${lessonTeknikGeospasial}&${lessonTeknikGeologiPertambangan}&${lessonLayananKesehatan}&${lessonAgriteknologiPengolahanHasilPertanian}&${lessonManajementPerkantoranDanLayananBisnis}&${lessonUsahaLayananPariwisata}&${lessonDesainKomunikasiVisual}&${lessonTeknikFurniture}&${lessonKuliner}&${lessonBiologi}&${lessonFisika}&${lessonKimia}&${class1}&${class2}&${class3}&${class4}&${class5}&${class6}&${class7}&${class8}&${class9}&${class10}&${class11}&${class12}&${latestBook}`;
 
         // Filter route endpoints for popular book
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
@@ -119,7 +122,7 @@ const BukuTeksK13 = () => {
             }
         };
         getBooks()
-    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, lessonInformatika, lessonPJOK, lessonIslam, lessonKristen, lessonKatolik, lessonHindu, lessonBuddha, lessonKhonghucu, lessonKepercayaan, lessonSeniTari, lessonSeniMusik, lessonSeniRupa, lessonSeniTeater, lessonSosiologi, lessonAntropologi, lessonEkonomi, lessonGeografi, lessonSejarah, lessonPrakarya, lessonIPAS, lessonTeknikKonstruksiDanPerumahan, lessonTeknikOtomotif, lessonTeknikElektronika, lessonTeknikPesawatUdara, lessonTeknikKonstruksiKapal, lessonTeknikKetenagalistrikan, lessonTeknikGeospasial, lessonTeknikGeologiPertambangan, lessonLayananKesehatan, lessonAgriteknologiPengolahanHasilPertanian, lessonManajementPerkantoranDanLayananBisnis, lessonUsahaLayananPariwisata, lessonDesainKomunikasiVisual, lessonTeknikFurniture, lessonKuliner, class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, latestBook])
+    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, lessonIPA, lessonIPS, lessonBIndonesia, lessonBInggris, lessonMatematika, lessonPKN, lessonInformatika, lessonPJOK, lessonIslam, lessonKristen, lessonKatolik, lessonHindu, lessonBuddha, lessonKhonghucu, lessonKepercayaan, lessonSeniTari, lessonSeniMusik, lessonSeniRupa, lessonSeniTeater, lessonSosiologi, lessonAntropologi, lessonEkonomi, lessonGeografi, lessonSejarah, lessonPrakarya, lessonIPAS, lessonTeknikKonstruksiDanPerumahan, lessonTeknikOtomotif, lessonTeknikElektronika, lessonTeknikPesawatUdara, lessonTeknikKonstruksiKapal, lessonTeknikKetenagalistrikan, lessonTeknikGeospasial, lessonTeknikGeologiPertambangan, lessonLayananKesehatan, lessonAgriteknologiPengolahanHasilPertanian, lessonManajementPerkantoranDanLayananBisnis, lessonUsahaLayananPariwisata, lessonDesainKomunikasiVisual, lessonTeknikFurniture, lessonKuliner, lessonBiologi, lessonFisika, lessonKimia,class1, class2, class3, class4, class5, class6, class7, class8, class9, class10, class11, class12, latestBook])
 
     const handleSetLevel = (type) => {
         if (type == 'level_paud') {
@@ -242,6 +245,9 @@ const BukuTeksK13 = () => {
                 setLessonDesainKomunikasiVisual={() => lessonDesainKomunikasiVisual === '' ? setLessonDesainKomunikasiVisual('subject_desain_komunikasi_visual') : setLessonDesainKomunikasiVisual('')}
                 setLessonTeknikFurniture={() => lessonTeknikFurniture === '' ? setLessonTeknikFurniture('subject_teknik_furniture') : setLessonTeknikFurniture('')}
                 setLessonKuliner={() => lessonKuliner === '' ? setLessonKuliner('subject_kuliner') : setLessonKuliner('')}
+                setLessonBiologi={() => lessonBiologi === '' ? setLessonBiologi('subject_biologi') : setLessonBiologi('')}
+                setLessonFisika={() => lessonFisika === '' ? setLessonFisika('subject_fisika') : setLessonFisika('')}
+                setLessonKimia={() => lessonKimia === '' ? setLessonKimia('subject_kimia') : setLessonKimia('')}
                 setClass1={() => class1 === '' ? setClass1('class_1') : setClass1('')}
                 setClass2={() => class2 === '' ? setClass2('class_2') : setClass2('')}
                 setClass3={() => class3 === '' ? setClass3('class_3') : setClass3('')}
