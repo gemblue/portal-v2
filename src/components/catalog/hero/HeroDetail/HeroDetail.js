@@ -222,16 +222,15 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                <object
+                <embed
                     type="application/pdf"
-                    data={attachment}
+                    src={ "https://docs.google.com/viewer?embedded=true&url=" + attachment}
                     width="100%"
                     style={{height: '90vh'}}
                     aria-label={title}
                 >
-                    <p className="m-0">Silahkan klik tombol unduh untuk membaca</p>
-                    <a className="btn btn-light" href={attachment}><i className="fas fa-fw fa-download" /> Unduh</a>
-                </object>
+                    
+                </embed>
             </Modal>
             <div className="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
