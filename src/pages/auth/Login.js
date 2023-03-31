@@ -104,14 +104,14 @@ const Login = () => {
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
-                                <GoogleLogin
+                                {/* <GoogleLogin
                                     clientId="104944373110-hd7umobu1j3k66fnjm82l8gd32vnefm8.apps.googleusercontent.com"
                                     buttonText="Login With Google"
                                     onSuccess={onSubmit}
                                     onFailure={onSubmit}
                                     cookiePolicy={'single_host_origin'}
                                 />
-                                <div className="my-2">Atau</div>
+                                <div className="my-2">Atau</div> */}
                                 <p className="mb-0">Belum punya akun? <Link to="/registrasi" className="text-decoration-none text-blue"> Daftar disini</Link> </p>
                                 <p>Lupa kata sandi? <Link to="/lupa-sandi" className="text-decoration-none text-blue"> Klik disini</Link> </p>
                             </div>

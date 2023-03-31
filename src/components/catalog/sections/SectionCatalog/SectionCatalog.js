@@ -155,6 +155,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                 </div>
                                             </div>
                                         </div>
+                                        {/* <div className="m-3 link text-blue" style={{cursor: 'pointer'}}>Buku Rekomendasi</div> */}
                                     </>
                                 )
                                 : (
