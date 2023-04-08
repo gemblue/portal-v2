@@ -11,6 +11,7 @@ import Modal from '../../modal/Modal'
 import styles from './HeroDetail.module.scss'
 import { Modal as modal } from 'bootstrap'
 import { formatPrice } from '../../../../utils/helper'
+import PdfViewer from '../../../global/PdfViewer'
 
 const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay }) => {
     const [loading, setLoading] = useState(false)
@@ -65,7 +66,6 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
     }
 
     const pushLog = async (type) => {
-
         const payload = {
             slug: slug,
             activity: type
@@ -222,15 +222,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                <embed
-                    type="application/pdf"
-                    src={ "https://docs.google.com/viewer?embedded=true&url=" + attachment}
-                    width="100%"
-                    style={{height: '90vh'}}
-                    aria-label={title}
-                >
-                    
-                </embed>
+                {!!attachment && <PdfViewer url={attachment}></PdfViewer>}
             </Modal>
             <div className="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
