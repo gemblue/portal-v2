@@ -4,6 +4,9 @@ import * as pdfjsLib from "pdfjs-dist";
 const PdfViewer = ({ url }) => {
   const [pdf, setPdf] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isRendered, setIsRendered] = useState(false);
   const totalPages = pdf ? pdf.numPages : 0;
 
   const canvasRef = useRef(null);
@@ -18,6 +21,7 @@ const PdfViewer = ({ url }) => {
   }
 
   useEffect(() => {
+    !isRendered && setLoading(true);
     // Load the PDF file
     const loadingTask = pdfjsLib.getDocument(url);
 
@@ -36,16 +40,22 @@ const PdfViewer = ({ url }) => {
     // Render the PDF file in the canvas element
     loadingTask.promise.then((pdf) => {
       setPdf(pdf);
-      pdf.getPage(currentPage).then((page) => {
-        const viewport = page.getViewport({ scale: 1 });
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        page.render({
-          canvasContext: ctx,
-          viewport: viewport,
-          rotation: viewport.width > viewport.height ? 0 : 180,
-        });
-      });
+      pdf
+        .getPage(currentPage)
+        .then((page) => {
+          const viewport = page.getViewport({ scale: 1 });
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          page
+            .render({
+              canvasContext: ctx,
+              viewport: viewport,
+              rotation: viewport.width > viewport.height ? 0 : 180,
+            })
+            .promise.then(() => setIsRendered(true))
+            .finally(() => setLoading(false));
+        })
+        .catch(() => setIsError(true));
     });
 
     // Clean up the event listener
@@ -56,7 +66,12 @@ const PdfViewer = ({ url }) => {
     <div className="pdf-container">
       <div className="pdf-header"></div>
       <div className="pdf-body">
-        <canvas ref={canvasRef} className="pdf-canvas" />
+        {loading && <img src="/assets/image/loading.gif" alt="loading..." />}
+        {isError && <p>Error saat menampilkan PDF</p>}
+        <canvas
+          ref={canvasRef}
+          className={`pdf-canvas ${loading && "d-none"}`}
+        />
       </div>
       <div className="pdf-footer">
         {currentPage > 1 && (
