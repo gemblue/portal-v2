@@ -70,24 +70,26 @@ const PdfViewer = ({ url }) => {
         {isError && <p>Error saat menampilkan PDF</p>}
         <canvas
           ref={canvasRef}
-          className={`pdf-canvas ${loading && "d-none"}`}
+          className={`pdf-canvas ${(loading || isError) && "d-none"}`}
         />
       </div>
-      <div className="pdf-footer">
-        {currentPage > 1 && (
-          <button className="btn btn-primary" onClick={prevPage}>
-            Back
-          </button>
-        )}
-        <span>
-          {currentPage} / {totalPages}
-        </span>
-        {currentPage !== totalPages && (
-          <button className="btn btn-primary" onClick={nextPage}>
-            Next
-          </button>
-        )}
-      </div>
+      {!loading && !isError && (
+        <div className="pdf-footer">
+          {currentPage > 1 && (
+            <button className="btn btn-primary" onClick={prevPage}>
+              Back
+            </button>
+          )}
+          <span>
+            {currentPage} / {totalPages}
+          </span>
+          {currentPage !== totalPages && (
+            <button className="btn btn-primary" onClick={nextPage}>
+              Next
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
