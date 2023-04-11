@@ -222,7 +222,7 @@ const Catalog = () => {
                 setLessonAntropologi={() => lessonAntropologi === '' ? setLessonAntropologi('subject_antropologi') : setLessonAntropologi('')}
                 setLessonEkonomi={() => lessonEkonomi === '' ? setLessonEkonomi('subject_ekonomi') : setLessonEkonomi('')}
                 setLessonGeografi={() => lessonGeografi === '' ? setLessonGeografi('subject_geografi') : setLessonGeografi('')}
-                setLessonSejarah={() => () => lessonSejarah === '' ? setLessonSejarah('subject_sejarah') : setLessonSejarah('')}
+                setLessonSejarah={() => lessonSejarah === '' ? setLessonSejarah('subject_sejarah') : setLessonSejarah('')}
                 setLessonPrakarya={() => lessonPrakarya === '' ? setLessonPrakarya('subject_prakarya') : setLessonPrakarya('')}
                 setLessonIPAS={() => lessonIPAS === '' ? setLessonIPAS('subject_ipas') : setLessonIPAS('')}
                 setLessonTeknikKonstruksiDanPerumahan={() => lessonTeknikKonstruksiDanPerumahan === '' ? setLessonTeknikKonstruksiDanPerumahan('subject_teknik_konstruksi_dan_perumahan') : setLessonTeknikKonstruksiDanPerumahan('')}
