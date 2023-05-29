@@ -25,6 +25,8 @@ import ProtectedRoute from './components/dashboard/sections/Sidebar/ProtectedRou
 import Profile from './pages/dashboard/Profile';
 import DownloadHistory from './pages/dashboard/DownloadHistory';
 import ReadHistory from './pages/dashboard/ReadHistory';
+import BukuRekomendasi from './pages/catalog/BukuRekomendasi';
+import DetailBukuRekomendasi from './pages/catalog/DetailBukuRekomendasi';
 
 const App = () => {
 
@@ -59,6 +61,8 @@ const App = () => {
       <Route path="/katalog/buku-teks-k13" element={<BukuTeksK13 />} />
       <Route path="/katalog/buku-kurikulum-merdeka" element={<BukuKurikulumMerdeka />} />
       <Route path="/katalog/buku-non-teks" element={<BukuNonTeks />} />
+      {/* <Route path="/katalog/buku-rekomendasi" element={<BukuRekomendasi />} /> */}
+      {/* <Route path="/katalog/buku-rekomendasi/:slug" element={<DetailBukuRekomendasi />} /> */}
       <Route path="/katalog/:slug" element={<CatalogDetail />} />
       <Route path="/panduan/orang-tua" element={<ForParent />} />
       <Route path="/panduan/siswa" element={<ForStudent />} />

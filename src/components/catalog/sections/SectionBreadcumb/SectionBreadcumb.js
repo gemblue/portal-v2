@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SectionBreadcumb = ({ category, level, title }) => {
+const SectionBreadcumb = ({ category, level, title, bookRecommendation }) => {
     let fixCategory = '';
     let categoryAction = '';
 
@@ -31,7 +31,12 @@ const SectionBreadcumb = ({ category, level, title }) => {
                         <li className="breadcrumb-item">
                             <Link to="/katalog" className="text-decoration-none text-blue">Katalog</Link>
                         </li>
-                        {category != "" && (
+                        {bookRecommendation && (
+                            <li className="breadcrumb-item">
+                                <Link to={`/katalog/buku-rekomendasi`} className="text-decoration-none text-blue">Buku Rekomendasi</Link>
+                            </li>)
+                        }
+                        {category != "" && !bookRecommendation && (
                             <li className="breadcrumb-item">
                                 <Link to={`/katalog?type=${categoryAction}`} className="text-decoration-none text-blue">{fixCategory}</Link>
                             </li>)

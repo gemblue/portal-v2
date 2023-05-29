@@ -20,7 +20,6 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
 
     const [lists, setLists] = useState([])
     const [search, setSearch] = useState('')
-    console.log(typeCatalogue)
 
     // Tooltip configuration
     const message = [
@@ -691,7 +690,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
             <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
