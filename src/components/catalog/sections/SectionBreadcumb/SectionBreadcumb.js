@@ -11,7 +11,7 @@ const SectionBreadcumb = ({ category, level, title, bookRecommendation }) => {
     }
 
     if (category === 'buku_sekolah_penggerak') {
-        fixCategory = 'Buku Kurikulum Merdeka';
+        fixCategory = 'Buku Teks Kurikulum Merdeka';
         categoryAction = 'getPenggerakTextBooks'
     }
 

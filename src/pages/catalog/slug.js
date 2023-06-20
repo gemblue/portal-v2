@@ -98,10 +98,12 @@ const CatalogDetail = () => {
                             slug={book.slug}
                         />
                         <SectionTestimonyComment reviews={reviews} />
-                        <SectionRecommended
-                            recommendBooks={recommendBooks}
-                            loading={loading}
-                        />
+                        {recommendBooks.length !== 0 && (
+                            <SectionRecommended
+                                recommendBooks={recommendBooks}
+                                loading={loading}
+                            />
+                        )}
                     </>
                 ) : (
                     <div className="text-center my-5">

@@ -22,7 +22,7 @@ const Footer = ({ guide }) => {
                             <div className="row">
                                 <div className="col-md-6">
                                     <NavLink className="nav-link" to="/">Beranda</NavLink>
-                                    <NavLink className="nav-link" to="/katalog/buku-kurikulum-merdeka">Buku Kurikulum Merdeka</NavLink>
+                                    <NavLink className="nav-link" to="/katalog/buku-kurikulum-merdeka">Buku Teks Kurikulum Merdeka</NavLink>
                                     <NavLink className="nav-link" to="/katalog/buku-teks-k13">Buku Teks K-13</NavLink>
                                     <NavLink className="nav-link" to="/katalog/buku-non-teks">Buku Nonteks</NavLink>
                                     <a className="nav-link" target="_blank" rel="noreferrer" href="https://app.buku.kemdikbud.go.id/penilaian">Penilaian</a>

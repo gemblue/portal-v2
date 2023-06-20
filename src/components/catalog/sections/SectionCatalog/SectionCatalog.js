@@ -88,7 +88,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
         setSearch('')
     }
 
-    const titleSidebar = typeCatalogue === 'getPenggerakTextBooks' ? 'Buku Kurikulum Merdeka' : typeCatalogue === 'getTextBooks' ? 'Buku Teks K13' : typeCatalogue === 'getRecommendationBooks' ? 'Buku Rekomendasi' : 'Buku Non Teks'
+    const titleSidebar = typeCatalogue === 'getPenggerakTextBooks' ? 'Buku Teks Kurikulum Merdeka' : typeCatalogue === 'getTextBooks' ? 'Buku Teks K13' : typeCatalogue === 'getRecommendationBooks' ? 'Buku Rekomendasi' : 'Buku Non Teks'
 
     return (
         <section id="catalog">

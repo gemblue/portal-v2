@@ -19,7 +19,7 @@ const Hero = ({ typeCatalogue, setTypeCatalogue, setURL }) => {
                 <div className="d-flex flex-column flex-lg-row">
                     <button onClick={() => { navigate('/katalog/buku-kurikulum-merdeka') }} className={`${active2} card card-type p-3 border-0 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
                         <img src="/assets/image/home/Group 79.png" width="40" alt="" />
-                        <div className="ms-2">Kurikulum Merdeka</div>
+                        <div className="ms-2">Teks Kurikulum Merdeka</div>
                     </button>
                     <button onClick={() => { navigate('/katalog/buku-teks-k13') }} className={`${active1} card card-type p-3 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
                         <img src="/assets/image/home/Group 76.png" width="40" alt="" />

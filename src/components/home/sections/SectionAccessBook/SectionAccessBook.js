@@ -15,7 +15,7 @@ const SectionAccessBook = () => {
                                 </div>
                                 <div className="col-md-9">
                                     <div className="card-body px-3">
-                                        <div className="fw-bold mb-1" style={{ fontSize: '1.1rem' }}>Buku Kurikulum Merdeka</div>
+                                        <div className="fw-bold mb-1" style={{ fontSize: '1.1rem' }}>Buku Teks Kurikulum Merdeka</div>
                                         <p className="card-text text-muted">Buku teks pelajaran terbitan tahun 2021</p>
                                         <Link to="/katalog/buku-kurikulum-merdeka" className="card-text text-decoration-none"><small className="text-blue fw-bold">Lihat selengkapnya &#8594;</small></Link>
                                     </div>

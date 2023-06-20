@@ -121,7 +121,7 @@ const Navbar = ({ nightMode }) => {
                                     <li>
                                         <Link className="dropdown-item p-2" to="/katalog/buku-kurikulum-merdeka">
                                             <img src="/assets/image/home/Group 79.png" width={30} alt="" />
-                                            <span className="ms-2 my-auto">Buku Kurikulum Merdeka</span>
+                                            <span className="ms-2 my-auto">Buku Teks Kurikulum Merdeka</span>
                                         </Link>
                                     </li>
                                     <li>
