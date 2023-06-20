@@ -64,7 +64,6 @@ const PdfViewer = ({ url }) => {
 
   return (
     <div className="pdf-container">
-      <div className="pdf-header"></div>
       <div className="pdf-body">
         {loading && <img src="/assets/image/loading.gif" alt="loading..." />}
         {isError && <p>Error saat menampilkan PDF</p>}
@@ -74,7 +73,7 @@ const PdfViewer = ({ url }) => {
         />
       </div>
       {!loading && !isError && (
-        <div className="pdf-footer">
+        <div className="pdf-footer p-2">
           {currentPage > 1 && (
             <button className="btn btn-primary" onClick={prevPage}>
               Back
