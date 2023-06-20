@@ -6,10 +6,12 @@ const Hero = ({ typeCatalogue, setTypeCatalogue, setURL }) => {
     let active1 = '';
     let active2 = '';
     let active3 = '';
+    let active4 = '';
 
     typeCatalogue === 'getTextBooks' && (active1 = 'active-type-catalogue')
     typeCatalogue === 'getPenggerakTextBooks' && (active2 = 'active-type-catalogue')
     typeCatalogue === 'getNonTextBooks' && (active3 = 'active-type-catalogue')
+    typeCatalogue === 'getRecommendationBooks' && (active4 = 'active-type-catalogue')
 
     return (
         <section className="bg-soft-blue" id="typeCatalogue" style={{ background: 'url(/assets/image/catalog/bg-hero.png)', backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
@@ -26,6 +28,10 @@ const Hero = ({ typeCatalogue, setTypeCatalogue, setURL }) => {
                     <button onClick={() => { navigate('/katalog/buku-non-teks') }} className={`${active3} card card-type p-3 border-0 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
                         <img src="/assets/image/home/Group 80.png" width="40" alt="" />
                         <div className="ms-2">Nonteks</div>
+                    </button>
+                    <button onClick={() => { navigate('/katalog/buku-rekomendasi') }} className={`${active4} card card-type p-3 border-0 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
+                        <img src="/assets/image/home/Group 79.png" width="40" alt="" />
+                        <div className="ms-2">Rekomendasi</div>
                     </button>
                 </div>
             </div>

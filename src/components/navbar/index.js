@@ -136,6 +136,12 @@ const Navbar = ({ nightMode }) => {
                                             <span className="ms-2 my-auto">Buku Nonteks</span>
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link className="dropdown-item p-2" to="/katalog/buku-rekomendasi">
+                                            <img src="/assets/image/home/Group 79.png" width={30} alt="" />
+                                            <span className="ms-2 my-auto">Buku Rekomendasi</span>
+                                        </Link>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown mx-1">
