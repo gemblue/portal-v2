@@ -29,10 +29,6 @@ const Hero = ({ typeCatalogue, setTypeCatalogue, setURL }) => {
                         <img src="/assets/image/home/Group 80.png" width="40" alt="" />
                         <div className="ms-2">Nonteks</div>
                     </button>
-                    <button onClick={() => { navigate('/katalog/buku-rekomendasi') }} className={`${active4} card card-type p-3 border-0 shadow d-flex flex-row align-items-center me-4 my-1 my-lg-0`}>
-                        <img src="/assets/image/home/Group 79.png" width="40" alt="" />
-                        <div className="ms-2">Rekomendasi</div>
-                    </button>
                 </div>
             </div>
         </section>
