@@ -13,7 +13,7 @@ import { Modal as modal } from 'bootstrap'
 import { formatPrice } from '../../../../utils/helper'
 import PdfViewer from '../../../global/PdfViewer'
 
-const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay }) => {
+const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay, level }) => {
     const [loading, setLoading] = useState(false)
     const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
@@ -123,7 +123,7 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
 
                                     {/* Handle type book PDF */}
                                     {
-                                        bookType === 'pdf' && !bookRecommendation && (
+                                        bookType === 'pdf' && !bookRecommendation && level !== 'Transisi' && (
                                             <>
                                                 {
                                                     !token ? (
