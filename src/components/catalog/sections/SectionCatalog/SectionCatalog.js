@@ -147,6 +147,12 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                         Pembaca Mahir E
                                                     </label>
                                                 </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_Transisi')} checked={level === 'level_Transisi' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeTransisi" />
+                                                    <label className="form-check-label" htmlFor="typeTransisi">
+                                                        Transisi PAUD SD
+                                                    </label>
+                                                </div>
                                                 <div className="mt-3">
                                                     <span className="link text-blue" style={{ cursor: 'pointer' }} data-bs-toggle="modal" data-bs-target="#descriptionModal">
                                                         Penjelasan Jenjang Buku
