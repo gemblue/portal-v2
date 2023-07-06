@@ -13,7 +13,7 @@ import { Modal as modal } from 'bootstrap'
 import { formatPrice } from '../../../../utils/helper'
 import PdfViewer from '../../../global/PdfViewer'
 
-const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay }) => {
+const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_zone_4, price_zone_5A, price_zone_5B, id, token, image, slug, bookType, title, publisher, isbn, edition, writer, attachment, totalDownload, totalRead, totalPlay }) => {
     const [loading, setLoading] = useState(false)
     const [failedReview, setFailedReview] = useState(false)
     const [successReview, setSuccessReview] = useState(false)
@@ -123,7 +123,7 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
 
                                     {/* Handle type book PDF */}
                                     {
-                                        bookType === 'pdf' && !bookRecommendation && attachment !== '' && (
+                                        bookType === 'pdf' && (
                                             <>
                                                 {
                                                     !token ? (
@@ -154,7 +154,7 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
 
                                     {/* Handle book type audio */}
                                     {
-                                        bookType === 'audio' && !bookRecommendation && (
+                                        bookType === 'audio' && (
                                             <>
                                                 <a onClick={() => pushLog('play')} href="#audioPlayer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
                                                 <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
@@ -167,7 +167,7 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
 
                                     {/* Handle book type interactive */}
                                     {
-                                        bookType === 'interactive' && !bookRecommendation && (
+                                        bookType === 'interactive' && (
                                             <>
                                                 <a onClick={() => pushLog('read')} href={attachment} target="_blank" rel="noreferrer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
                                                 <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
@@ -222,7 +222,17 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
                 </div>
             </div>
             <Modal id="readModal" title={title}>
-                {!!attachment && <PdfViewer url={attachment}></PdfViewer>}
+                {!!attachment && <object
+                    type="application/pdf"
+                    data={attachment}
+                    width="100%"
+                    style={{height: '90vh'}}
+                    aria-label={title}
+                >
+                    <PdfViewer url={attachment}></PdfViewer>
+                </object>
+                
+                }
             </Modal>
             <div className="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
@@ -356,7 +366,7 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
                                 <tbody>
                                     <tr>
                                         <td width={80}>Zona 1</td>
-                                        <td>Jawa Barat, Jawa Tengah, Jawa Timur, Daerah Istimewa Yogyakarta, DKI Jakarta, dan Banten.</td>
+                                        <td>Jawa Barat, Jawa Tengah, Jawa Timur, Daerah Istimewa Yogyakarta, DKI Jakarta, dan Banten</td>
                                     </tr>
                                     <tr>
                                         <td>Zona 2</td>
@@ -364,19 +374,19 @@ const HeroDetail = ({ bookRecommendation, category, price_zone_1, price_zone_2, 
                                     </tr>
                                     <tr>
                                         <td>Zona 3</td>
-                                        <td>Bengkulu, Jambi, Bangka Belitung,  Sumatera  Barat  (kecuali  (i)  Kepulauan  Mentawai  dan  (ii)  Solok Selatan), Riau (kecuali (i) Bengkalis, (ii) Kepulauan Meranti, (iii) , Sumatera Utara (kecuali (i) Nias, (ii) Nias Selatan, (iii) Nias Utara, (iv) Nias Barat), Sulawesi Selatan, Sulawesi Utara (kecuali (i) Kepulauan Sangihe, dan (ii) Kepulauan Talaud), Sulawesi Tengah (kecuali  (i)  Banggai  Kepulauan,  (ii)  Tojo  Una-Una, (iii) Sigi, dan (iv) Banggai Laut), Sulawesi Barat, Sulawesi Tenggara (Kecuali (i) Konawe,  (ii) Bombana, dan (iii) Konawe Kepulauan), dan Gorontalo.</td>
+                                        <td>Bengkulu, Jambi, Bangka Belitung,  Sumatera  Barat  (kecuali  (i)  Kepulauan  Mentawai  dan  (ii)  Solok Selatan), Riau (kecuali (i) Bengkalis, (ii) Kepulauan Meranti, (iii) , Sumatera Utara (kecuali (i) Nias, (ii) Nias Selatan, (iii) Nias Utara, (iv) Nias Barat), Sulawesi Selatan, Sulawesi Utara (kecuali (i) Kepulauan Sangihe, dan (ii) Kepulauan Talaud), Sulawesi Tengah (kecuali  (i)  Banggai  Kepulauan,  (ii)  Tojo  Uno- Uno, (iii) Sigi, dan (iv) Banggai Laut), Sulawesi Barat, Sulawesi Tenggara (Kecuali (i) Konawe,  (ii) Bombana, dan (iii) Konawe Kepulauan), dan Gorontalo.</td>
                                     </tr>
                                     <tr>
                                         <td>Zona 4</td>
-                                        <td>Nanggroe Aceh Darussalam (kecuali (i) Aceh Besar dan (ii) Aceh Singkil), Kepulauan Riau (kecuali (i) Karimun, (ii) Kepulauan Anambas, dan (iii)  Natuna), Nusa Tenggara Timur (kecuali (i) Sumba Barat, (ii) Sumba Timur, (iii) Timor Tengah Selatan, (iv) Belu, (v) Alor,  (vi) Lembata, (vii) Ende, (viii) Manggarai, (ix) Rote Ndao, (x) Manggarai Barat, (xi) Sumba Tengah, (xii) Sumba Barat Daya, (xiii) Nagekeo, (xiv) Manggarai Timur, (xv) Sabu Raijua, dan (xvi) Malaka), Kalimantan Barat (kecuali (i) Kapuas Hulu, (ii) Sanggau), Kalimantan Selatan, Kalimantan Tengah, Kalimantan Timur (kecuali (i) Mahakam Hulu, (ii) Berau), dan Kalimantan Utara (kecuali (i) Nunukan, (ii) Malinau).</td>
+                                        <td>Nanggroe Aceh Darussalam (kecuali (i) Aceh Besar dan (ii) Aceh Singkil), Kepulauan Riau (kecuali (i) Karimun, (ii)  Kepulauan Anambas, dan (iii)  Natuna), Nusa  Tenggara  Timur (kecuali (i) Sumba Barat, (ii) Sumba  Timur,  (iii)  Timor  Tengah  Selatan,  (iv)  Belu,  (v)  Alor,  (vi)  Lembata,  (vii)  Ende,  (viii) Manggarai,   (ix)   Rote   Ndao,   (x)   Manggarai   Barat,   (xi)   Sumba   Tengah,   (xii)   Sumba   Barat   Daya,   (xiii) Nagekeo, (xiv) Manggarai Timur, (xv) Sabu Raijua, dan (xvi) Malaka), Kalimantan  Barat  (kecuali  (i) Kapuas Hulu, (ii) Sanggau), Kalimantan Selatan, Kalimantan Tengah, Kalimantan Timur (kecuali (i) Mahakam Hulu, (ii) Berau), Kalimantan  Timur,  dan  Kalimantan  Utara  (kecuali  (i)  Nunukan,  (ii) Malinau.</td>
                                     </tr>
                                     <tr>
                                         <td>Zona 5A</td>
-                                        <td>(1) Aceh Besar, (2) Aceh Singkil, (3) Nias, (4) Nias Selatan, (5) Nias Utara, (6) Nias Barat, (7) Kep. Mentawai, (8) Solok Selatan, (9) Pesisir Barat, (10) Sumba Barat, (11) Sumba Timur, (12) Timor Tengah Selatan, (13) Belu, (14) Alor, (15) Lembata, (16) Ende, (17) Manggarai, (18) Rote Ndao, (19) Manggarai Barat, (20) Sumba Tengah, (21) Sumba Barat Daya, (22) Nagekeo, (23) Manggarai Timur, (24) Sabu Raijua, (25) Malaka, (26) Banggai Kepulauan, (27) Tojo Una-Una, (28) Sigi, (29) Banggai Laut, (30) Konawe, (31) Bombana, (32) Konawe Kepulauan, (33) Bengkalis, (34) Kepulauan Meranti, (35) Karimun, (36) Kepulauan Anambas, (37) Natuna, (38) Kapuas Hulu, (39) Mahakam Hulu, (40) Sanggau, (41) Nunukan, (42) Malinau, (43) Berau, (44) Kepulauan Sangihe, dan (45) Kepulauan Talaud.</td>
+                                        <td>(1) Aceh  Besar,  (2)  Aceh  Singkil,  (3)  Nias,  (4)  Nias  Selatan,  (5)  Nias  Utara,  (6)  Nias  Barat,  (7)  Kep. Mentawai,  (8)  Solok  Selatan,  (9)  Pesisir  Barat,  (10)  Sumba  Barat,  (11)  Sumba  Timur,  (12)  Timor Tengah Selatan, (13) Belu, (14) Alor, (15) Lembata, (16) Ende, (17) Manggarai, (18) Rote Ndao, (19) Manggarai Barat, (20) Sumba  Tengah,  (21) Sumba Barat Daya, (22)  Nagekeo, (23) Manggarai Timur, (24) Sabu Raijua, (25) Malaka, (26) Banggai  Kepulauan,  (27)  Tujo  Una-Una,  (28)  Sigi,  (29)  Banggai Laut, (30) Konawe, (31) Bombana, (32) Konawe Kepulauan, (33) Bengkalis, (34) Kepulauan Meranti, (35) Karimun, (36) Kepulauan Anambas, (37) Natuna, (38) Kapuas Hulu, (39) Mahakam Hulu, (40) Sanggau, (41) Nunukan, (42) Malinau,  (43)  Berau,  (44)  Kepulauan Sangihe, dan (45) Kepulauan Talaud.</td>
                                     </tr>
                                     <tr>
                                         <td>Zona 5B</td>
-                                        <td>Maluku, Maluku Utara, Papua, Papua Barat, Papua Barat Daya, Papua Selatan, Papua Tengah, dan Papua Pegunungan.</td>
+                                        <td>Papua, Papua Barat, Maluku, dan Maluku Utara</td>
                                     </tr>
                                 </tbody>
                             </table>
