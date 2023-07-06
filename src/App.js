@@ -11,6 +11,7 @@ import Catalog from "../src/pages/catalog"
 import BukuTeksK13 from "../src/pages/catalog/BukuTeksK13"
 import BukuKurikulumMerdeka from "../src/pages/catalog/BukuKurikulumMerdeka"
 import BukuNonTeks from "../src/pages/catalog/BukuNonTeks"
+import BukuTransisiPaudSD from "../src/pages/catalog/BukuTransisiPaudSD"
 import CatalogDetail from "../src/pages/catalog/slug"
 import ForParent from "./pages/guide/forParent"
 import ForStudent from "./pages/guide/forStudent"
@@ -61,7 +62,8 @@ const App = () => {
       <Route path="/katalog/buku-teks-k13" element={<BukuTeksK13 />} />
       <Route path="/katalog/buku-kurikulum-merdeka" element={<BukuKurikulumMerdeka />} />
       <Route path="/katalog/buku-non-teks" element={<BukuNonTeks />} />
-      <Route path="/katalog/buku-rekomendasi" element={<BukuRekomendasi />} /> */}
+      <Route path="/katalog/transisi-paud-sd" element={<BukuTransisiPaudSD />} />
+      <Route path="/katalog/buku-rekomendasi" element={<BukuRekomendasi />} />
       <Route path="/katalog/buku-rekomendasi/:slug" element={<DetailBukuRekomendasi />} />
       <Route path="/katalog/:slug" element={<CatalogDetail />} />
       <Route path="/panduan/orang-tua" element={<ForParent />} />
