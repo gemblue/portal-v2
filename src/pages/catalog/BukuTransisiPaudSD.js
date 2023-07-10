@@ -93,6 +93,7 @@ const BukuTransisiPaudSD = () => {
                 typeCatalogue={typeCatalogue}
                 setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
                 level={level}
+                setLevelNonText={(filter) => handleFilterLevel(filter)}
             />
         </Layout>
     )

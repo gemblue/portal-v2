@@ -94,505 +94,502 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
         <section id="catalog">
             <div className="container px-3 py-5">
                 <div className="row justify-content-center">
-                {
-                    level !== 'level_transisi' && (
-                        <div className="col-lg-3">
-                            <h4>{titleSidebar}</h4>
-                            {
-                                typeCatalogue === 'getNonTextBooks' || typeCatalogue === 'getRecommendationBooks'
-                                    ? (
-                                        <>
-                                            <div className="card mt-3">
-                                                <div className="card-header">
-                                                    TIPE BUKU
+                    <div className="col-lg-3">
+                        <h4>{titleSidebar}</h4>
+                        {
+                            typeCatalogue === 'getNonTextBooks' || typeCatalogue === 'getRecommendationBooks'
+                                ? (
+                                    <>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                TIPE BUKU
+                                            </div>
+                                            <div className="card-body">
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_A')} checked={level === 'level_A' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeA" />
+                                                    <label className="form-check-label" htmlFor="typeA">
+                                                        Pembaca Dini A
+                                                    </label>
                                                 </div>
-                                                <div className="card-body">
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_A')} checked={level === 'level_A' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeA" />
-                                                        <label className="form-check-label" htmlFor="typeA">
-                                                            Pembaca Dini A
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_B1')} checked={level === 'level_B1' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
-                                                        <label className="form-check-label" htmlFor="typeB1">
-                                                            Pembaca Awal B1
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_B2')} checked={level === 'level_B2' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB2" />
-                                                        <label className="form-check-label" htmlFor="typeB2">
-                                                            Pembaca Awal B2
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_B3')} checked={level === 'level_B3' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB3" />
-                                                        <label className="form-check-label" htmlFor="typeB3">
-                                                            Pembaca Awal B3
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_C')} checked={level === 'level_C' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeC" />
-                                                        <label className="form-check-label" htmlFor="typeC">
-                                                            Pembaca Semenjana C
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_D')} checked={level === 'level_D' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
-                                                        <label className="form-check-label" htmlFor="typeD1">
-                                                            Pembaca Madya D
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_E')} checked={level === 'level_E' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeE" />
-                                                        <label className="form-check-label" htmlFor="typeE">
-                                                            Pembaca Mahir E
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevelNonText('level_Transisi')} checked={level === 'level_Transisi' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeTransisi" />
-                                                        <label className="form-check-label" htmlFor="typeTransisi">
-                                                            Transisi PAUD SD
-                                                        </label>
-                                                    </div>
-                                                    <div className="mt-3">
-                                                        <span className="link text-blue" style={{ cursor: 'pointer' }} data-bs-toggle="modal" data-bs-target="#descriptionModal">
-                                                            Penjelasan Jenjang Buku
-                                                        </span>
-                                                    </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_B1')} checked={level === 'level_B1' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB1" />
+                                                    <label className="form-check-label" htmlFor="typeB1">
+                                                        Pembaca Awal B1
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_B2')} checked={level === 'level_B2' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB2" />
+                                                    <label className="form-check-label" htmlFor="typeB2">
+                                                        Pembaca Awal B2
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_B3')} checked={level === 'level_B3' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeB3" />
+                                                    <label className="form-check-label" htmlFor="typeB3">
+                                                        Pembaca Awal B3
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_C')} checked={level === 'level_C' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeC" />
+                                                    <label className="form-check-label" htmlFor="typeC">
+                                                        Pembaca Semenjana C
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_D')} checked={level === 'level_D' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeD1" />
+                                                    <label className="form-check-label" htmlFor="typeD1">
+                                                        Pembaca Madya D
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_E')} checked={level === 'level_E' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeE" />
+                                                    <label className="form-check-label" htmlFor="typeE">
+                                                        Pembaca Mahir E
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevelNonText('level_transisi')} checked={level === 'level_transisi' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeTransisi" />
+                                                    <label className="form-check-label" htmlFor="typeTransisi">
+                                                        Transisi PAUD SD
+                                                    </label>
+                                                </div>
+                                                <div className="mt-3">
+                                                    <span className="link text-blue" style={{ cursor: 'pointer' }} data-bs-toggle="modal" data-bs-target="#descriptionModal">
+                                                        Penjelasan Jenjang Buku
+                                                    </span>
                                                 </div>
                                             </div>
-                                        </>
-                                    )
-                                    : (
-                                        <>
-                                            <div className="card mt-3">
-                                                <div className="card-header">
-                                                    TIPE BUKU
+                                        </div>
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                TIPE BUKU
+                                            </div>
+                                            <div className="card-body">
+                                                <div onChange={() => setTypeBook('type_pdf')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="checkbox" id="typePDF" />
+                                                    <label className="form-check-label" htmlFor="typePDF">
+                                                        Buku PDF
+                                                    </label>
                                                 </div>
-                                                <div className="card-body">
-                                                    <div onChange={() => setTypeBook('type_pdf')} className="form-check">
-                                                        <input className="form-check-input" checked={typeBook == 'type_pdf' && true} name="type_book" type="checkbox" id="typePDF" />
-                                                        <label className="form-check-label" htmlFor="typePDF">
-                                                            Buku PDF
-                                                        </label>
-                                                    </div>
-                                                    <div onChange={() => setTypeBook('type_audio')} className="form-check">
-                                                        <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="checkbox" id="typeAudio" />
-                                                        <label className="form-check-label" htmlFor="typeAudio">
-                                                            Buku Audio
-                                                        </label>
-                                                    </div>
-                                                    <div onChange={() => setTypeBook('type_interactive')} className="form-check">
-                                                        <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="checkbox" id="typeInteractive" />
-                                                        <label className="form-check-label" htmlFor="typeInteractive">
-                                                            Buku Interaktif
-                                                        </label>
-                                                    </div>
+                                                <div onChange={() => setTypeBook('type_audio')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_audio' && true} name="type_book" type="checkbox" id="typeAudio" />
+                                                    <label className="form-check-label" htmlFor="typeAudio">
+                                                        Buku Audio
+                                                    </label>
+                                                </div>
+                                                <div onChange={() => setTypeBook('type_interactive')} className="form-check">
+                                                    <input className="form-check-input" checked={typeBook == 'type_interactive' && true} name="type_book" type="checkbox" id="typeInteractive" />
+                                                    <label className="form-check-label" htmlFor="typeInteractive">
+                                                        Buku Interaktif
+                                                    </label>
                                                 </div>
                                             </div>
-                                            <div className="card mt-3">
-                                                <div className="card-header">
-                                                    JENJANG
-                                                </div>
-                                                <div className="card-body">
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevel('level_paud')} checked={checkActive == 'level_paud' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
-                                                        <label className="form-check-label" htmlFor="checkPAUD">
-                                                            PAUD
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevel('level_sd')} checked={checkActive == 'level_sd' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
-                                                        <label className="form-check-label" htmlFor="checkSD">
-                                                            SD/MI
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevel('level_smp')} checked={checkActive == 'level_smp' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
-                                                        <label className="form-check-label" htmlFor="checkSMP">
-                                                            SMP/MTS
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onClick={() => setLevel('level_sma')} checked={checkActive == 'level_sma' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
-                                                        <label className="form-check-label" htmlFor="checkSMK">
-                                                            SMA/MA/SMK/MAK
-                                                        </label>
-                                                    </div>
-                                                    {
-                                                        typeCatalogue === "getPenggerakTextBooks" && (
-                                                            <div className="form-check">
-                                                                <input onClick={() => setLevel('level_sdlb')} checked={checkActive == 'level_sdlb' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check5" />
-                                                                <label className="form-check-label" htmlFor="checkSDLB">
-                                                                    SLB (SDLB/SMPLB/SMALB)
-                                                                </label>
-                                                            </div>
-                                                        )
-                                                    }
-                                                </div>
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                JENJANG
                                             </div>
-                                            <div className="card mt-3">
-                                                <div className="card-header">
-                                                    Kelas
+                                            <div className="card-body">
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_paud')} checked={checkActive == 'level_paud' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check1" />
+                                                    <label className="form-check-label" htmlFor="checkPAUD">
+                                                        PAUD
+                                                    </label>
                                                 </div>
-                                                <div className="card-body row overflow-auto">
-                                                    <div className="col-6">
-                                                        <div className="form-check">
-                                                            <input onChange={setClass1} className="form-check-input" type="checkbox" value="" id="I" />
-                                                            <label className="form-check-label" htmlFor="I">
-                                                                I
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass2} className="form-check-input" type="checkbox" value="" id="II" />
-                                                            <label className="form-check-label" htmlFor="II">
-                                                                II
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass3} className="form-check-input" type="checkbox" value="" id="III" />
-                                                            <label className="form-check-label" htmlFor="III">
-                                                                III
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass4} className="form-check-input" type="checkbox" value="" id="IV" />
-                                                            <label className="form-check-label" htmlFor="IV">
-                                                                IV
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass5} className="form-check-input" type="checkbox" value="" id="V" />
-                                                            <label className="form-check-label" htmlFor="V">
-                                                                V
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass6} className="form-check-input" type="checkbox" value="" id="VI" />
-                                                            <label className="form-check-label" htmlFor="VI">
-                                                                VI
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <div className="form-check">
-                                                            <input onChange={setClass7} className="form-check-input" type="checkbox" value="" id="VII" />
-                                                            <label className="form-check-label" htmlFor="VII">
-                                                                VII
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass8} className="form-check-input" type="checkbox" value="" id="VIII" />
-                                                            <label className="form-check-label" htmlFor="VIII">
-                                                                VIII
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass9} className="form-check-input" type="checkbox" value="" id="IX" />
-                                                            <label className="form-check-label" htmlFor="IX">
-                                                                IX
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass10} className="form-check-input" type="checkbox" value="" id="X" />
-                                                            <label className="form-check-label" htmlFor="X">
-                                                                X
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass11} className="form-check-input" type="checkbox" value="" id="XI" />
-                                                            <label className="form-check-label" htmlFor="XI">
-                                                                XI
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input onChange={setClass12} className="form-check-input" type="checkbox" value="" id="XII" />
-                                                            <label className="form-check-label" htmlFor="XII">
-                                                                XII
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_sd')} checked={checkActive == 'level_sd' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check2" />
+                                                    <label className="form-check-label" htmlFor="checkSD">
+                                                        SD/MI
+                                                    </label>
                                                 </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_smp')} checked={checkActive == 'level_smp' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check3" />
+                                                    <label className="form-check-label" htmlFor="checkSMP">
+                                                        SMP/MTS
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onClick={() => setLevel('level_sma')} checked={checkActive == 'level_sma' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check4" />
+                                                    <label className="form-check-label" htmlFor="checkSMK">
+                                                        SMA/MA/SMK/MAK
+                                                    </label>
+                                                </div>
+                                                {
+                                                    typeCatalogue === "getPenggerakTextBooks" && (
+                                                        <div className="form-check">
+                                                            <input onClick={() => setLevel('level_sdlb')} checked={checkActive == 'level_sdlb' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" type="checkbox" id="check5" />
+                                                            <label className="form-check-label" htmlFor="checkSDLB">
+                                                                SLB (SDLB/SMPLB/SMALB)
+                                                            </label>
+                                                        </div>
+                                                    )
+                                                }
                                             </div>
-                                            <div className="card mt-3">
-                                                <div className="card-header">
-                                                    MATA PELAJARAN
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                Kelas
+                                            </div>
+                                            <div className="card-body row overflow-auto">
+                                                <div className="col-6">
+                                                    <div className="form-check">
+                                                        <input onChange={setClass1} className="form-check-input" type="checkbox" value="" id="I" />
+                                                        <label className="form-check-label" htmlFor="I">
+                                                            I
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input onChange={setClass2} className="form-check-input" type="checkbox" value="" id="II" />
+                                                        <label className="form-check-label" htmlFor="II">
+                                                            II
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input onChange={setClass3} className="form-check-input" type="checkbox" value="" id="III" />
+                                                        <label className="form-check-label" htmlFor="III">
+                                                            III
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input onChange={setClass4} className="form-check-input" type="checkbox" value="" id="IV" />
+                                                        <label className="form-check-label" htmlFor="IV">
+                                                            IV
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input onChange={setClass5} className="form-check-input" type="checkbox" value="" id="V" />
+                                                        <label className="form-check-label" htmlFor="V">
+                                                            V
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input onChange={setClass6} className="form-check-input" type="checkbox" value="" id="VI" />
+                                                        <label className="form-check-label" htmlFor="VI">
+                                                            VI
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                                <div className="card-body overflow-auto" style={{ height: '230px' }}>
+                                                <div className="col-6">
                                                     <div className="form-check">
-                                                        <input onChange={setLessonIPA} className="form-check-input" type="checkbox" value="" id="IPA" />
-                                                        <label className="form-check-label" htmlFor="IPA">
-                                                            IPA
+                                                        <input onChange={setClass7} className="form-check-input" type="checkbox" value="" id="VII" />
+                                                        <label className="form-check-label" htmlFor="VII">
+                                                            VII
                                                         </label>
                                                     </div>
                                                     <div className="form-check">
-                                                        <input onChange={setLessonIPS} className="form-check-input" type="checkbox" value="" id="IPS" />
-                                                        <label className="form-check-label" htmlFor="IPS">
-                                                            IPS
+                                                        <input onChange={setClass8} className="form-check-input" type="checkbox" value="" id="VIII" />
+                                                        <label className="form-check-label" htmlFor="VIII">
+                                                            VIII
                                                         </label>
                                                     </div>
                                                     <div className="form-check">
-                                                        <input onChange={setLessonBIndonesia} className="form-check-input" type="checkbox" value="" id="bahasaIndonesia" />
-                                                        <label className="form-check-label" htmlFor="bahasaIndonesia">
-                                                            Bahasa Indonesia
+                                                        <input onChange={setClass9} className="form-check-input" type="checkbox" value="" id="IX" />
+                                                        <label className="form-check-label" htmlFor="IX">
+                                                            IX
                                                         </label>
                                                     </div>
                                                     <div className="form-check">
-                                                        <input onChange={setLessonBInggris} className="form-check-input" type="checkbox" value="" id="bahasaInggris" />
-                                                        <label className="form-check-label" htmlFor="bahasaInggris">
-                                                            Bahasa Inggris
+                                                        <input onChange={setClass10} className="form-check-input" type="checkbox" value="" id="X" />
+                                                        <label className="form-check-label" htmlFor="X">
+                                                            X
                                                         </label>
                                                     </div>
                                                     <div className="form-check">
-                                                        <input onChange={setLessonMatematika} className="form-check-input" type="checkbox" value="" id="matematika" />
-                                                        <label className="form-check-label" htmlFor="matematika">
-                                                            Matematika
+                                                        <input onChange={setClass11} className="form-check-input" type="checkbox" value="" id="XI" />
+                                                        <label className="form-check-label" htmlFor="XI">
+                                                            XI
                                                         </label>
                                                     </div>
                                                     <div className="form-check">
-                                                        <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="pkn" />
-                                                        <label className="form-check-label" htmlFor="pkn">
-                                                            Pendidikan Kewarganegaraan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonInformatika} className="form-check-input" type="checkbox" value="" id="informatika" />
-                                                        <label className="form-check-label" htmlFor="informatika">
-                                                            Informatika
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonPJOK} className="form-check-input" type="checkbox" value="" id="PJOK" />
-                                                        <label className="form-check-label" htmlFor="PJOK">
-                                                            PJOK
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonIslam} className="form-check-input" type="checkbox" value="" id="islam" />
-                                                        <label className="form-check-label" htmlFor="islam">
-                                                            Pendidikan Agama Islam
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKristen} className="form-check-input" type="checkbox" value="" id="kristen" />
-                                                        <label className="form-check-label" htmlFor="kristen">
-                                                            Pendidikan Agama Kristen
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKatolik} className="form-check-input" type="checkbox" value="" id="katolik" />
-                                                        <label className="form-check-label" htmlFor="katolik">
-                                                            Pendidikan Agama Katolik
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonHindu} className="form-check-input" type="checkbox" value="" id="hindu" />
-                                                        <label className="form-check-label" htmlFor="hindu">
-                                                            Pendidikan Agama Hindu
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonBuddha} className="form-check-input" type="checkbox" value="" id="buddha" />
-                                                        <label className="form-check-label" htmlFor="buddha">
-                                                            Pendidikan Agama Buddha
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKhonghucu} className="form-check-input" type="checkbox" value="" id="khonghucu" />
-                                                        <label className="form-check-label" htmlFor="khonghucu">
-                                                            Pendidikan Agama Khonghucu
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKepercayaan} className="form-check-input" type="checkbox" value="" id="kepercayaan" />
-                                                        <label className="form-check-label" htmlFor="kepercayaan">
-                                                            Kepercayaan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSeniTari} className="form-check-input" type="checkbox" value="" id="seniTari" />
-                                                        <label className="form-check-label" htmlFor="seniTari">
-                                                            Seni Tari
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSeniMusik} className="form-check-input" type="checkbox" value="" id="seniMusik" />
-                                                        <label className="form-check-label" htmlFor="seniMusik">
-                                                            Seni Musik
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSeniRupa} className="form-check-input" type="checkbox" value="" id="seniRupa" />
-                                                        <label className="form-check-label" htmlFor="seniRupa">
-                                                            Seni Rupa
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSeniTeater} className="form-check-input" type="checkbox" value="" id="seniTeater" />
-                                                        <label className="form-check-label" htmlFor="seniTeater">
-                                                            Seni Teater
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonPrakarya} className="form-check-input" type="checkbox" value="" id="prakarya" />
-                                                        <label className="form-check-label" htmlFor="prakarya">
-                                                            Prakarya
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSosiologi} className="form-check-input" type="checkbox" value="" id="sosiologi" />
-                                                        <label className="form-check-label" htmlFor="sosiologi">
-                                                            Sosiologi
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonAntropologi} className="form-check-input" type="checkbox" value="" id="antropologi" />
-                                                        <label className="form-check-label" htmlFor="antropologi">
-                                                            Antropologi
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonEkonomi} className="form-check-input" type="checkbox" value="" id="ekonomi" />
-                                                        <label className="form-check-label" htmlFor="ekonomi">
-                                                            Ekonomi
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonGeografi} className="form-check-input" type="checkbox" value="" id="geografi" />
-                                                        <label className="form-check-label" htmlFor="geografi">
-                                                            Geografi
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonSejarah} className="form-check-input" type="checkbox" value="" id="sejarah" />
-                                                        <label className="form-check-label" htmlFor="sejarah">
-                                                            Sejarah
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonIPAS} className="form-check-input" type="checkbox" value="" id="IPAS" />
-                                                        <label className="form-check-label" htmlFor="IPAS">
-                                                            IPAS
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikKonstruksiDanPerumahan} className="form-check-input" type="checkbox" value="" id="teknikKonstruksiDanPembangunan" />
-                                                        <label className="form-check-label" htmlFor="teknikKonstruksiDanPembangunan">
-                                                            Teknik Konstruksi Dan Pembangunan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikKonstruksiKapal} className="form-check-input" type="checkbox" value="" id="teknikKonstruksiKapal" />
-                                                        <label className="form-check-label" htmlFor="teknikKonstruksiKapal">
-                                                            Teknik Konstruksi Kapal
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikOtomotif} className="form-check-input" type="checkbox" value="" id="teknikOtomotif" />
-                                                        <label className="form-check-label" htmlFor="teknikOtomotif">
-                                                            Teknik Otomotif
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikElektronika} className="form-check-input" type="checkbox" value="" id="teknikElektronika" />
-                                                        <label className="form-check-label" htmlFor="teknikElektronika">
-                                                            Teknik Elektronika
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikPesawatUdara} className="form-check-input" type="checkbox" value="" id="teknikPesawatUdara" />
-                                                        <label className="form-check-label" htmlFor="teknikPesawatUdara">
-                                                            Teknik Pesawat Udara
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikKetenagalistrikan} className="form-check-input" type="checkbox" value="" id="teknikKetenagalistrikan" />
-                                                        <label className="form-check-label" htmlFor="teknikKetenagalistrikan">
-                                                            Teknik Ketenagalistrikan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikGeospasial} className="form-check-input" type="checkbox" value="" id="teknikGeospasial" />
-                                                        <label className="form-check-label" htmlFor="teknikGeospasial">
-                                                            Teknik Geospasial
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikGeologiPertambangan} className="form-check-input" type="checkbox" value="" id="teknikGeologiPertambangan" />
-                                                        <label className="form-check-label" htmlFor="teknikGeologiPertambangan">
-                                                            Teknik Geologi Pertambangan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonLayananKesehatan} className="form-check-input" type="checkbox" value="" id="layananKesehatan" />
-                                                        <label className="form-check-label" htmlFor="layananKesehatan">
-                                                            Layanan Kesehatan
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonAgriteknologiPengolahanHasilPertanian} className="form-check-input" type="checkbox" value="" id="agriteknologi" />
-                                                        <label className="form-check-label" htmlFor="agriteknologi">
-                                                            Agriteknologi Pengolahan Hasil Pertanian
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonManajementPerkantoranDanLayananBisnis} className="form-check-input" type="checkbox" value="" id="manajemenPerkantoran" />
-                                                        <label className="form-check-label" htmlFor="manajemenPerkantoran">
-                                                            Manajemen Perkantoran Dan Layanan Bisnis
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonUsahaLayananPariwisata} className="form-check-input" type="checkbox" value="" id="usahaLayananPariwisata" />
-                                                        <label className="form-check-label" htmlFor="usahaLayananPariwisata">
-                                                            Usaha Layanan Pariwisata
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonDesainKomunikasiVisual} className="form-check-input" type="checkbox" value="" id="desainKomunikasiVisual" />
-                                                        <label className="form-check-label" htmlFor="desainKomunikasiVisual">
-                                                            Desain Komunikasi Visual
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonTeknikFurniture} className="form-check-input" type="checkbox" value="" id="teknikFurniture" />
-                                                        <label className="form-check-label" htmlFor="teknikFurniture">
-                                                            Teknik Furniture
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKuliner} className="form-check-input" type="checkbox" value="" id="kuliner" />
-                                                        <label className="form-check-label" htmlFor="kuliner">
-                                                            Kuliner
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonBiologi} className="form-check-input" type="checkbox" value="" id="biologi" />
-                                                        <label className="form-check-label" htmlFor="biologi">
-                                                            Biologi
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonFisika} className="form-check-input" type="checkbox" value="" id="fisika" />
-                                                        <label className="form-check-label" htmlFor="fisika">
-                                                            Fisika
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-check">
-                                                        <input onChange={setLessonKimia} className="form-check-input" type="checkbox" value="" id="kimia" />
-                                                        <label className="form-check-label" htmlFor="kimia">
-                                                            Kimia
+                                                        <input onChange={setClass12} className="form-check-input" type="checkbox" value="" id="XII" />
+                                                        <label className="form-check-label" htmlFor="XII">
+                                                            XII
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </>
-                                    )
-                            }
-                        </div>
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                MATA PELAJARAN
+                                            </div>
+                                            <div className="card-body overflow-auto" style={{ height: '230px' }}>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIPA} className="form-check-input" type="checkbox" value="" id="IPA" />
+                                                    <label className="form-check-label" htmlFor="IPA">
+                                                        IPA
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIPS} className="form-check-input" type="checkbox" value="" id="IPS" />
+                                                    <label className="form-check-label" htmlFor="IPS">
+                                                        IPS
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBIndonesia} className="form-check-input" type="checkbox" value="" id="bahasaIndonesia" />
+                                                    <label className="form-check-label" htmlFor="bahasaIndonesia">
+                                                        Bahasa Indonesia
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBInggris} className="form-check-input" type="checkbox" value="" id="bahasaInggris" />
+                                                    <label className="form-check-label" htmlFor="bahasaInggris">
+                                                        Bahasa Inggris
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonMatematika} className="form-check-input" type="checkbox" value="" id="matematika" />
+                                                    <label className="form-check-label" htmlFor="matematika">
+                                                        Matematika
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="pkn" />
+                                                    <label className="form-check-label" htmlFor="pkn">
+                                                        Pendidikan Kewarganegaraan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonInformatika} className="form-check-input" type="checkbox" value="" id="informatika" />
+                                                    <label className="form-check-label" htmlFor="informatika">
+                                                        Informatika
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonPJOK} className="form-check-input" type="checkbox" value="" id="PJOK" />
+                                                    <label className="form-check-label" htmlFor="PJOK">
+                                                        PJOK
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIslam} className="form-check-input" type="checkbox" value="" id="islam" />
+                                                    <label className="form-check-label" htmlFor="islam">
+                                                        Pendidikan Agama Islam
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKristen} className="form-check-input" type="checkbox" value="" id="kristen" />
+                                                    <label className="form-check-label" htmlFor="kristen">
+                                                        Pendidikan Agama Kristen
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKatolik} className="form-check-input" type="checkbox" value="" id="katolik" />
+                                                    <label className="form-check-label" htmlFor="katolik">
+                                                        Pendidikan Agama Katolik
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonHindu} className="form-check-input" type="checkbox" value="" id="hindu" />
+                                                    <label className="form-check-label" htmlFor="hindu">
+                                                        Pendidikan Agama Hindu
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBuddha} className="form-check-input" type="checkbox" value="" id="buddha" />
+                                                    <label className="form-check-label" htmlFor="buddha">
+                                                        Pendidikan Agama Buddha
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKhonghucu} className="form-check-input" type="checkbox" value="" id="khonghucu" />
+                                                    <label className="form-check-label" htmlFor="khonghucu">
+                                                        Pendidikan Agama Khonghucu
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKepercayaan} className="form-check-input" type="checkbox" value="" id="kepercayaan" />
+                                                    <label className="form-check-label" htmlFor="kepercayaan">
+                                                        Kepercayaan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSeniTari} className="form-check-input" type="checkbox" value="" id="seniTari" />
+                                                    <label className="form-check-label" htmlFor="seniTari">
+                                                        Seni Tari
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSeniMusik} className="form-check-input" type="checkbox" value="" id="seniMusik" />
+                                                    <label className="form-check-label" htmlFor="seniMusik">
+                                                        Seni Musik
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSeniRupa} className="form-check-input" type="checkbox" value="" id="seniRupa" />
+                                                    <label className="form-check-label" htmlFor="seniRupa">
+                                                        Seni Rupa
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSeniTeater} className="form-check-input" type="checkbox" value="" id="seniTeater" />
+                                                    <label className="form-check-label" htmlFor="seniTeater">
+                                                        Seni Teater
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonPrakarya} className="form-check-input" type="checkbox" value="" id="prakarya" />
+                                                    <label className="form-check-label" htmlFor="prakarya">
+                                                        Prakarya
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSosiologi} className="form-check-input" type="checkbox" value="" id="sosiologi" />
+                                                    <label className="form-check-label" htmlFor="sosiologi">
+                                                        Sosiologi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonAntropologi} className="form-check-input" type="checkbox" value="" id="antropologi" />
+                                                    <label className="form-check-label" htmlFor="antropologi">
+                                                        Antropologi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonEkonomi} className="form-check-input" type="checkbox" value="" id="ekonomi" />
+                                                    <label className="form-check-label" htmlFor="ekonomi">
+                                                        Ekonomi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonGeografi} className="form-check-input" type="checkbox" value="" id="geografi" />
+                                                    <label className="form-check-label" htmlFor="geografi">
+                                                        Geografi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonSejarah} className="form-check-input" type="checkbox" value="" id="sejarah" />
+                                                    <label className="form-check-label" htmlFor="sejarah">
+                                                        Sejarah
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonIPAS} className="form-check-input" type="checkbox" value="" id="IPAS" />
+                                                    <label className="form-check-label" htmlFor="IPAS">
+                                                        IPAS
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikKonstruksiDanPerumahan} className="form-check-input" type="checkbox" value="" id="teknikKonstruksiDanPembangunan" />
+                                                    <label className="form-check-label" htmlFor="teknikKonstruksiDanPembangunan">
+                                                        Teknik Konstruksi Dan Pembangunan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikKonstruksiKapal} className="form-check-input" type="checkbox" value="" id="teknikKonstruksiKapal" />
+                                                    <label className="form-check-label" htmlFor="teknikKonstruksiKapal">
+                                                        Teknik Konstruksi Kapal
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikOtomotif} className="form-check-input" type="checkbox" value="" id="teknikOtomotif" />
+                                                    <label className="form-check-label" htmlFor="teknikOtomotif">
+                                                        Teknik Otomotif
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikElektronika} className="form-check-input" type="checkbox" value="" id="teknikElektronika" />
+                                                    <label className="form-check-label" htmlFor="teknikElektronika">
+                                                        Teknik Elektronika
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikPesawatUdara} className="form-check-input" type="checkbox" value="" id="teknikPesawatUdara" />
+                                                    <label className="form-check-label" htmlFor="teknikPesawatUdara">
+                                                        Teknik Pesawat Udara
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikKetenagalistrikan} className="form-check-input" type="checkbox" value="" id="teknikKetenagalistrikan" />
+                                                    <label className="form-check-label" htmlFor="teknikKetenagalistrikan">
+                                                        Teknik Ketenagalistrikan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikGeospasial} className="form-check-input" type="checkbox" value="" id="teknikGeospasial" />
+                                                    <label className="form-check-label" htmlFor="teknikGeospasial">
+                                                        Teknik Geospasial
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikGeologiPertambangan} className="form-check-input" type="checkbox" value="" id="teknikGeologiPertambangan" />
+                                                    <label className="form-check-label" htmlFor="teknikGeologiPertambangan">
+                                                        Teknik Geologi Pertambangan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonLayananKesehatan} className="form-check-input" type="checkbox" value="" id="layananKesehatan" />
+                                                    <label className="form-check-label" htmlFor="layananKesehatan">
+                                                        Layanan Kesehatan
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonAgriteknologiPengolahanHasilPertanian} className="form-check-input" type="checkbox" value="" id="agriteknologi" />
+                                                    <label className="form-check-label" htmlFor="agriteknologi">
+                                                        Agriteknologi Pengolahan Hasil Pertanian
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonManajementPerkantoranDanLayananBisnis} className="form-check-input" type="checkbox" value="" id="manajemenPerkantoran" />
+                                                    <label className="form-check-label" htmlFor="manajemenPerkantoran">
+                                                        Manajemen Perkantoran Dan Layanan Bisnis
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonUsahaLayananPariwisata} className="form-check-input" type="checkbox" value="" id="usahaLayananPariwisata" />
+                                                    <label className="form-check-label" htmlFor="usahaLayananPariwisata">
+                                                        Usaha Layanan Pariwisata
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonDesainKomunikasiVisual} className="form-check-input" type="checkbox" value="" id="desainKomunikasiVisual" />
+                                                    <label className="form-check-label" htmlFor="desainKomunikasiVisual">
+                                                        Desain Komunikasi Visual
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonTeknikFurniture} className="form-check-input" type="checkbox" value="" id="teknikFurniture" />
+                                                    <label className="form-check-label" htmlFor="teknikFurniture">
+                                                        Teknik Furniture
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKuliner} className="form-check-input" type="checkbox" value="" id="kuliner" />
+                                                    <label className="form-check-label" htmlFor="kuliner">
+                                                        Kuliner
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonBiologi} className="form-check-input" type="checkbox" value="" id="biologi" />
+                                                    <label className="form-check-label" htmlFor="biologi">
+                                                        Biologi
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonFisika} className="form-check-input" type="checkbox" value="" id="fisika" />
+                                                    <label className="form-check-label" htmlFor="fisika">
+                                                        Fisika
+                                                    </label>
+                                                </div>
+                                                <div className="form-check">
+                                                    <input onChange={setLessonKimia} className="form-check-input" type="checkbox" value="" id="kimia" />
+                                                    <label className="form-check-label" htmlFor="kimia">
+                                                        Kimia
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                        }
+                    </div>
 
-                    )    
-                }
+                    
                     <div className="col-lg-9">
                         <div className="text-muted text-end my-4">
                             Menampilkan {currentData?.length} buku ({currentData?.length} dari {books?.length} buku)
