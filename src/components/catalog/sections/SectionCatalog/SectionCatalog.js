@@ -351,7 +351,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                 <div className="form-check">
                                                     <input onChange={setLessonPkn} className="form-check-input" type="checkbox" value="" id="pkn" />
                                                     <label className="form-check-label" htmlFor="pkn">
-                                                        Pendidikan Kewarganegaraan
+                                                        Pendidikan Pancasila
                                                     </label>
                                                 </div>
                                                 <div className="form-check">
