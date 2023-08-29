@@ -5,6 +5,8 @@ import Hero from '../../components/catalog/hero'
 import SectionCatalog from '../../components/catalog/sections/SectionCatalog/SectionCatalog'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
+import Swal from "sweetalert2"
+import PdfViewer from '../../components/global/PdfViewer'
 
 const BukuTransisiPaudSD = () => {
 
@@ -59,7 +61,37 @@ const BukuTransisiPaudSD = () => {
             }
         };
         getBooks()
-    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, latestBook])
+    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, latestBook]);
+
+    // Handle popup book guide first
+    useEffect(() => {
+        Swal.fire({
+            title: 'Halo!',
+            text: 'Selamat datang di laman buku transisi PAUD ke SD. Silakan klik tombol berikut ini untuk membaca panduan.',
+            confirmButtonText: "Buka Panduan",
+            showCancelButton: true,
+            cancelButtonText: "Nanti Saja",
+        })
+        .then((result) => {
+            if(result.isConfirmed) {
+                Swal.fire({
+                    html: `
+                        <object
+                            type="application/pdf"
+                            data="https://ik.imagekit.io/z5w8c5jluyvp/Gabungan%20FINAL%20DIGITAL%20-%20Buku%20Bacaan%20Berkualitas%20Untuk%20Menguatkan%20Transisi%20PAUD%20ke%20SD%20yang%20Menyenangkan__8Lx2QfVq.pdf?updatedAt=1692603727572"
+                            width="100%"
+                            style="height: 90vh"
+                        >
+                            ${<PdfViewer url="https://ik.imagekit.io/z5w8c5jluyvp/Gabungan%20FINAL%20DIGITAL%20-%20Buku%20Bacaan%20Berkualitas%20Untuk%20Menguatkan%20Transisi%20PAUD%20ke%20SD%20yang%20Menyenangkan__8Lx2QfVq.pdf?updatedAt=1692603727572"></PdfViewer>}
+                        </object>`,
+                    width: 900,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                })
+            }
+            }
+        )
+    }, [])
 
     const filterSearchCatalogue = (data) => {
         setTitle(data.title)
