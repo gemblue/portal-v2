@@ -29,6 +29,12 @@ const BukuNonTeks = () => {
 
     useEffect(() => {
         let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${latestBook}`;
+
+        // If filter transisi PAUD SD book
+        if(level === 'level_transisi') {
+            ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?limit=2000&type_pdf&tag=transisi`
+        }
+
         // Filter route endpoints for popular book
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
 
