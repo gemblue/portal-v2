@@ -8,19 +8,48 @@ const SectionAudioPlayer = ({ audios }) => {
       index === audios.findIndex((obj) => audio.chapter === obj.chapter)
   );
 
+  // Set tab active chapter
   const [tabActive, setTabActive] = useState({
     chapter: chapters[0].chapter,
     button: 0,
   });
+
+  // Set played audio when move audio
   const audioEl = useRef([]);
   const [playedAudio, setPlayedAudio] = useState(null);
-  let number = 1;
 
   return (
     <section id="audioPlayer">
       <div className="container p-3">
         <h4>Pemutar Audio</h4>
-        <div className="d-flex gap-2 my-3 overflow-auto">
+        <div className="d-flex gap-3 align-items-center">
+          <div class="dropdown my-3">
+            <button
+              class="btn btn-outline-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Pilih Bab
+            </button>
+            <ul class="dropdown-menu">
+              {chapters.map((chapter, index) => {
+                return (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      setTabActive({ chapter: chapter.chapter, button: index });
+                    }}
+                  >
+                    <a class="dropdown-item">Bab {chapter.chapter}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div>Filter : Bab {tabActive.chapter}</div>
+        </div>
+        {/* <div className="d-flex gap-2 my-3 overflow-auto">
           {chapters.map((chapter, index) => {
             return (
               <button
@@ -37,8 +66,8 @@ const SectionAudioPlayer = ({ audios }) => {
               </button>
             );
           })}
-        </div>
-        <table className="table table-hover">
+        </div> */}
+        <table className="table">
           <thead className="bg-light">
             <tr>
               <th>NO</th>
@@ -52,8 +81,14 @@ const SectionAudioPlayer = ({ audios }) => {
               .map((item, index) => {
                 return (
                   <tr key={index}>
-                    <td width="8%">{number++}</td>
-                    <td width="40%" className="p-0 pt-1">
+                    <td
+                      width={1}
+                      align="center"
+                      style={{ verticalAlign: "middle" }}
+                    >
+                      {index + 1}
+                    </td>
+                    <td width="40%" className="p-2">
                       <ReactAudioPlayer
                         className="w-100 bg-transparent"
                         src={item.attachment}
@@ -72,7 +107,7 @@ const SectionAudioPlayer = ({ audios }) => {
                         }}
                       />
                     </td>
-                    <td>{item.title}</td>
+                    <td style={{ verticalAlign: "middle" }}>{item.title}</td>
                   </tr>
                 );
               })}

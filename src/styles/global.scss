@@ -67,6 +67,10 @@ body {
     box-shadow: none !important;
   }
 }
+.dropdown-toggle.show {
+  background-color: $blue !important;
+  color: #fff !important;
+}
 .btn-outline-white {
   color: #fff !important;
   background-color: rgba(0, 0, 0, 0);
