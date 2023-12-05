@@ -49,6 +49,24 @@ body {
 .btn-white {
   background-color: #fff !important;
 }
+.btn-primary {
+  background-color: $blue !important;
+  border-color: $blue !important;
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+.btn-outline-primary {
+  border-color: $blue !important;
+  color: $blue !important;
+  &:hover {
+    background-color: $blue !important;
+    color: white !important;
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
+}
 .btn-outline-white {
   color: #fff !important;
   background-color: rgba(0, 0, 0, 0);
