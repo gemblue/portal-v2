@@ -123,7 +123,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
 
                                     {/* Handle type book PDF */}
                                     {
-                                        bookType === 'pdf' && (
+                                        bookType === 'pdf' && attachment && (
                                             <>
                                                 {
                                                     !token ? (
@@ -154,7 +154,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
 
                                     {/* Handle book type audio */}
                                     {
-                                        bookType === 'audio' && (
+                                        bookType === 'audio' && attachment && (
                                             <>
                                                 <a onClick={() => pushLog('play')} href="#audioPlayer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faPlay} className="me-2" /> Putar Audio</a>
                                                 <a onClick={() => pushLog('download')} href={attachment} className="btn btn-sm btn-outline-primary py-2" target="_blank" rel="noreferrer" download="file.pdf">
@@ -167,7 +167,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
 
                                     {/* Handle book type interactive */}
                                     {
-                                        bookType === 'interactive' && (
+                                        bookType === 'interactive' && attachment && (
                                             <>
                                                 <a onClick={() => pushLog('read')} href={attachment} target="_blank" rel="noreferrer" className="btn btn-sm btn-orange py-2 me-3 my-2"><FontAwesomeIcon icon={faFile} className="me-2" />Baca Buku Interaktif</a>
                                                 <small className="my-3 text-muted d-block">Telah diunduh {totalDownload.toLocaleString()} kali <a data-bs-toggle="modal" data-bs-target="#reportModal" className="text-decoration-none text-blue ms-2 fw-bold" style={{ cursor: 'pointer' }}><FontAwesomeIcon icon={faCircleExclamation} /> Lapor disini</a> jika menemukan kesalahan pada naskah</small>
