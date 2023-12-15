@@ -44,7 +44,7 @@ const SectionAudioPlayer = ({ audios }) => {
                   >
                     {
                       chapter.chapter == '-' || chapter.chapter == '0' ? (
-                        <a class="dropdown-item">Identitas</a>
+                        <a class="dropdown-item">Identitas Buku</a>
                       ) : (
                         <a class="dropdown-item">Bab {chapter.chapter}</a>
                       )
@@ -55,7 +55,7 @@ const SectionAudioPlayer = ({ audios }) => {
             </ul>
           </div>
           <div>
-            Filter : {tabActive.chapter == '-' || tabActive.chapter == '0' ? 'Identitas' : `Bab ${tabActive.chapter}`}
+            Filter : {tabActive.chapter == '-' || tabActive.chapter == '0' ? 'Identitas Buku' : `Bab ${tabActive.chapter}`}
           </div>
         </div>
         {/* <div className="d-flex gap-2 my-3 overflow-auto">
