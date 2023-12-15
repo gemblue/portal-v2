@@ -37,17 +37,26 @@ const SectionAudioPlayer = ({ audios }) => {
                 return (
                   <li
                     key={index}
+                    role="button"
                     onClick={() => {
                       setTabActive({ chapter: chapter.chapter, button: index });
                     }}
                   >
-                    <a class="dropdown-item">Bab {chapter.chapter}</a>
+                    {
+                      chapter.chapter == '-' ? (
+                        <a class="dropdown-item">Identifikasi</a>
+                      ) : (
+                        <a class="dropdown-item">Bab {chapter.chapter}</a>
+                      )
+                    }
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div>Filter : Bab {tabActive.chapter}</div>
+          <div>
+            Filter : {tabActive.chapter == '-' ? 'Identifikasi' : `Bab ${tabActive.chapter}`}
+          </div>
         </div>
         {/* <div className="d-flex gap-2 my-3 overflow-auto">
           {chapters.map((chapter, index) => {

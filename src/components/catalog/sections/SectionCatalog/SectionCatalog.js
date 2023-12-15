@@ -63,7 +63,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
 
     // Set for pagination
     useEffect(() => {
-        setCurrentData(books?.slice(offset, offset + pageLimit));
+        setCurrentData(books?.reverse().slice(offset, offset + pageLimit));
     }, [offset, books]);
 
     const scrollTop = () => {
