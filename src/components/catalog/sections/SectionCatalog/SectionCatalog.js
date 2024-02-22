@@ -11,7 +11,7 @@ import axios from 'axios'
 import fuzzy from "fuzzy"
 import { Tooltip } from 'bootstrap'
 
-const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setLessonPrakarya, setLessonIPAS, setLessonTeknikKonstruksiDanPerumahan, setLessonTeknikOtomotif, setLessonTeknikElektronika, setLessonTeknikPesawatUdara, setLessonTeknikKonstruksiKapal, setLessonTeknikKetenagalistrikan, setLessonTeknikGeospasial, setLessonTeknikGeologiPertambangan, setLessonLayananKesehatan, setLessonAgriteknologiPengolahanHasilPertanian, setLessonManajementPerkantoranDanLayananBisnis, setLessonUsahaLayananPariwisata, setLessonDesainKomunikasiVisual, setLessonTeknikFurniture, setLessonKuliner, setLessonBiologi, setLessonFisika, setLessonKimia,setPopularBook }) => {
+const SectionCatalog = ({ level, setLevelNonText, tag, setTagNonText, setLatestBook, setClass1, setClass2, setClass3, setClass4, setClass5, setClass6, setClass7, setClass8, setClass9, setClass10, setClass11, setClass12, setSearchTypeCatalogue, searchTitle, checkActive, books, loading, skeletonCount, typeBook, typeCatalogue, setTypeBook, setLevel, setLessonSejarah, setLessonGeografi, setLessonEkonomi, setLessonAntropologi, setLessonSosiologi, setLessonIPA, setLessonIPS, setLessonBIndonesia, setLessonBInggris, setLessonMatematika, setLessonPkn, setLessonInformatika, setLessonPJOK, setLessonIslam, setLessonKristen, setLessonKatolik, setLessonHindu, setLessonBuddha, setLessonKhonghucu, setLessonKepercayaan, setLessonSeniTari, setLessonSeniMusik, setLessonSeniRupa, setLessonSeniTeater, setLessonPrakarya, setLessonIPAS, setLessonTeknikKonstruksiDanPerumahan, setLessonTeknikOtomotif, setLessonTeknikElektronika, setLessonTeknikPesawatUdara, setLessonTeknikKonstruksiKapal, setLessonTeknikKetenagalistrikan, setLessonTeknikGeospasial, setLessonTeknikGeologiPertambangan, setLessonLayananKesehatan, setLessonAgriteknologiPengolahanHasilPertanian, setLessonManajementPerkantoranDanLayananBisnis, setLessonUsahaLayananPariwisata, setLessonDesainKomunikasiVisual, setLessonTeknikFurniture, setLessonKuliner, setLessonBiologi, setLessonFisika, setLessonKimia,setPopularBook }) => {
     const navigate = useNavigate()
     const pageLimit = 12;
     const [offset, setOffset] = useState(0);
@@ -102,7 +102,7 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                     <>
                                         <div className="card mt-3">
                                             <div className="card-header">
-                                                TIPE BUKU
+                                                PILIH JENJANG
                                             </div>
                                             <div className="card-body">
                                                 <div className="form-check">
@@ -147,17 +147,22 @@ const SectionCatalog = ({ level, setLevelNonText, setLatestBook, setClass1, setC
                                                         Pembaca Mahir E
                                                     </label>
                                                 </div>
-                                                <div className="form-check">
-                                                    <input onClick={() => setLevelNonText('level_transisi')} checked={level === 'level_transisi' ? true : false} onChange={(e) => selectOnlyThis(e)} className="form-check-input" name="type_book" type="checkbox" id="typeTransisi" />
-                                                    <label className="form-check-label" htmlFor="typeTransisi">
-                                                        Transisi PAUD SD
-                                                    </label>
-                                                </div>
                                                 <div className="mt-3">
                                                     <span className="link text-blue" style={{ cursor: 'pointer' }} data-bs-toggle="modal" data-bs-target="#descriptionModal">
                                                         Penjelasan Jenjang Buku
                                                     </span>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div className="card mt-3">
+                                            <div className="card-header">
+                                                PILIH TAG
+                                            </div>
+                                            <div className="card-body">
+                                                <a href="#" onClick={() => setTagNonText('Buku Model')} className={`me-2 mb-2 tag ${tag == 'Buku Model' && 'tag-active'}`}>#Buku Model</a>
+                                                <a href="#" onClick={() => setTagNonText('Badan Bahasa')} className={`me-2 mb-2 tag ${tag == 'Badan Bahasa' && 'tag-active'}`}>#Badan Bahasa</a>
+                                                <a href="#" onClick={() => setTagNonText('transisi')} className={`me-2 mb-2 tag ${tag == 'transisi' && 'tag-active'}`}>#Transisi PAUD SD</a>
+                                                <a href="#" onClick={() => setTagNonText('Populer')} className={`me-2 mb-2 tag ${tag == 'Populer' && 'tag-active'}`}>#Populer</a>
                                             </div>
                                         </div>
                                     </>

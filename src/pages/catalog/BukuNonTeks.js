@@ -23,17 +23,13 @@ const BukuNonTeks = () => {
     const [popularBook, setPopularBook] = useState('')
     const [latestBook, setLatestBook] = useState('')
 
-    // State for filter level
+    // State for filter
     const [level, setLevel] = useState('')
+    const [tag, setTag] = useState('')
 
 
     useEffect(() => {
-        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${latestBook}`;
-
-        // If filter transisi PAUD SD book
-        if(level === 'level_transisi') {
-            ENDPOINTS_URL = `${BASE_URL}/api/catalogue/getNonTextBooks?limit=2000&type_pdf&tag=transisi`
-        }
+        let ENDPOINTS_URL = `${BASE_URL}/api/catalogue/${typeCatalogue}?limit=2000&${typeBook}&${level}&${latestBook}&tag=${tag}`;
 
         // Filter route endpoints for popular book
         popularBook && (ENDPOINTS_URL = `${BASE_URL}/api/statistic/${popularBook}?qty=20`)
@@ -66,7 +62,7 @@ const BukuNonTeks = () => {
             }
         };
         getBooks()
-    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, latestBook])
+    }, [title, typeSearchBook, popularBook, typeCatalogue, typeBook, level, latestBook, tag])
 
     const filterSearchCatalogue = (data) => {
         setTitle(data.title)
@@ -77,8 +73,13 @@ const BukuNonTeks = () => {
         data.typeCatalogue === 'getNonTextBooks' && setTypeSearchBook('Nonteks')
     }
 
-    const handleFilterLevel = (filter) => {
-        filter === level ? setLevel("") : setLevel(filter)
+    const handleFilter = (filter, type) => {
+        if(type == 'level') {
+            filter === level ? setLevel("") : setLevel(filter)
+        }
+        if(type == 'tag') {
+            filter === tag ? setTag("") : setTag(filter)
+        }
     }
 
     return (
@@ -100,7 +101,9 @@ const BukuNonTeks = () => {
                 typeCatalogue={typeCatalogue}
                 setSearchTypeCatalogue={(data) => filterSearchCatalogue(data)}
                 level={level}
-                setLevelNonText={(filter) => handleFilterLevel(filter)}
+                setLevelNonText={(filter) => handleFilter(filter, 'level')}
+                tag={tag}
+                setTagNonText={(filter) => handleFilter(filter, 'tag')}
             />
         </Layout>
     )
