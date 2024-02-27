@@ -55,7 +55,7 @@ const BukuNonTeks = () => {
             setLoading(true)
             try {
                 const response = await axios.get(ENDPOINTS_URL)
-                setBooks(response.data.results)
+                setBooks(response.data.results.reverse())
                 setLoading(false)
             } catch (err) {
                 return err.message;
