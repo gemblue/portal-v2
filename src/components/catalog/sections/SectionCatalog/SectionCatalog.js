@@ -160,7 +160,7 @@ const SectionCatalog = ({ level, setLevelNonText, tag, setTagNonText, setLatestB
                                             </div>
                                             <div className="card-body">
                                                 <a href="#" onClick={() => setTagNonText('Buku Model')} className={`me-2 mb-2 tag ${tag == 'Buku Model' && 'tag-active'}`}>#Buku Model</a>
-                                                <a href="#" onClick={() => setTagNonText('Badan Bahasa')} className={`me-2 mb-2 tag ${tag == 'Badan Bahasa' && 'tag-active'}`}>#Badan Bahasa</a>
+                                                <a href="#" onClick={() => setTagNonText('Buku KURASI')} className={`me-2 mb-2 tag ${tag == 'Buku KURASI' && 'tag-active'}`}>#Buku KURASI</a>
                                                 <a href="#" onClick={() => setTagNonText('transisi')} className={`me-2 mb-2 tag ${tag == 'transisi' && 'tag-active'}`}>#Transisi PAUD SD</a>
                                             </div>
                                         </div>
