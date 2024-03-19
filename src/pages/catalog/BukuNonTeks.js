@@ -25,7 +25,7 @@ const BukuNonTeks = () => {
 
     // State for filter
     const [level, setLevel] = useState('')
-    const [tag, setTag] = useState('')
+    const [tag, setTag] = useState('Buku Model')
 
 
     useEffect(() => {
