@@ -38,6 +38,7 @@ const Login = () => {
         const payload = googleLogin ? { id_token: data.tokenId } : data
 
         try {
+            if(!googleLogin) payload.token = captcha
             const response = await axios.post(`${BASE_URL}/api/user/${endpoint}`, JSON.stringify(payload))
             if (response.data.status == 'failed' || !response.data.token) {
                 setMessage(response.data.message)
