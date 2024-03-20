@@ -1,15 +1,17 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const ForgotPassword = () => {
     // Define login state
     const [loading, setLoading] = useState(false)
     const [messageSuccess, setMessageSuccess] = useState('')
     const [messageFailed, setMessageFailed] = useState('')
+    const [captcha, setCaptcha] = useState('')
     const { resetField, register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
@@ -17,6 +19,7 @@ const ForgotPassword = () => {
         let body = new FormData();
         body.append('email', data.email)
         body.append('source', 'portal')
+        body.append('token', captcha)
 
         axios({
             method: "POST",
@@ -25,13 +28,16 @@ const ForgotPassword = () => {
             headers: {
                 "Content-type": "multipart/form-data",
             },
-        }).then(res => {
-            resetField('email')
-            setMessageFailed('')
-            setMessageSuccess(res.data.message)
+        }).then(response => {
+            if (response.data.status == 'failed' || response.data.message == 'Recaptcha is not valid') {
+                setMessageFailed(response.data.message)
+            } else {
+                resetField('email')
+                setMessageFailed('')
+                setMessageSuccess(response.data.message)
+            }
         }).catch(err => {
-            setMessageSuccess('')
-            setMessageFailed('Email tidak ditemukan')
+            console.log(err)
         }).finally(() => setLoading(false))
     }
     return (
@@ -68,13 +74,17 @@ const ForgotPassword = () => {
                                     {errors.email && errors.email.type === 'required' && <small className="text-danger">Email harus diisi</small>}
                                     {errors.email && errors.email.type === 'pattern' && <small className="text-danger">Email harus valid</small>}
                                 </div>
-                                <div className="form-group d-grid gap-2">
+                                <ReCAPTCHA
+                                    sitekey="6LfRj50pAAAAALsIA_D8C30oGAJoU6ji3cPqJ_vH"
+                                    onChange={(value) => setCaptcha(value)}
+                                />
+                                <div className="form-group d-grid gap-2 mt-3">
                                     {loading && (
                                         <button type="submit" className="btn btn-orange py-2 disabled">
                                             <div className="spinner-border" role="status"></div>
                                         </button>
                                     )}
-                                    {!loading && <button type="submit" className="btn btn-orange py-2">Kirim</button>}
+                                    {!loading && <button type="submit" disabled={!captcha} className="btn btn-orange py-2">Kirim</button>}
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
