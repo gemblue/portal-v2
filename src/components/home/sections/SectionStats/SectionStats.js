@@ -50,7 +50,7 @@ const SectionStats = ({ data, guide }) => {
                     <div className="col-6 col-lg-2">
                         <div className="position-relative">
                             <div className={`${styles.count} position-relative`} style={{ zIndex: '100' }}>
-                                <CountUp end={3229766} duration={5} formattingFn={val => formatNumber(val)} />
+                                <CountUp end={5914532} duration={5} formattingFn={val => formatNumber(val)} />
                             </div>
                             <img src="/assets/image/home/line-stats.png" className="position-absolute mx-auto" style={{ zIndex: '1', bottom: '4%', left: '16%', width: '65%' }} alt="" />
                         </div>
