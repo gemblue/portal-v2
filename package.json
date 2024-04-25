@@ -28,6 +28,7 @@
     "react-hook-form": "^7.29.0",
     "react-hooks-paginator": "^0.5.0",
     "react-loading-skeleton": "^3.0.3",
+    "react-password-strength-bar": "^0.4.1",
     "react-rating-star": "^1.2.0",
     "react-rating-stars-component": "^2.2.0",
     "react-read-pdf": "^2.0.9",

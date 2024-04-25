@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom'
 import Layout from '../../components/global/Layout'
 import { BASE_URL } from '../../utils/config'
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -14,6 +15,9 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const { resetField, register, getValues, handleSubmit, formState: { errors } } = useForm();
+
+    const [password, setPassword] = useState('');
+    const [passwordScore, setPasswordScore] = useState(0);
 
     const onSubmit = async (data) => {
         setLoading(true)
@@ -29,11 +33,13 @@ const Register = () => {
                 navigate(`/login?register=success&email=${getValues('email')}`)
                 resetField('email')
             }
-            resetField('password')
-            resetField('confirm_password')
         } catch (error) {
             return error.message
         } finally {
+            resetField('password')
+            resetField('confirm_password')
+            setPassword('')
+            setPasswordScore(0)
             setLoading(false)
             setTimeout(() => {
                 window.scrollTo({ top: '0', behavior: 'smooth' })
@@ -91,11 +97,12 @@ const Register = () => {
                                         <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <input type={showPassword ? 'text' : 'password'} {...register('password', { required: true })} className="form-control" placeholder="Masukan kata sandi" />
+                                        <input type={showPassword ? 'text' : 'password'} {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Masukan kata sandi" />
                                         <span onClick={() => setShowPassword(!showPassword)} class="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
                                             {showPassword ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
                                         </span>
                                     </div>
+                                    <PasswordStrengthBar password={password} minLength={8} scoreWords={["Kata sandi sangat lemah", "Kata sandi lemah", "Kata sandi sedang", "Kata sandi bagus", "Kata sandi kuat"]} shortScoreWord="Kata sandi terlalu pendek"  onChangeScore={score => setPasswordScore(score)} />
                                     {errors.password && errors.password.type == "required" && <small className="text-danger">Kata sandi wajib diisi</small>}
                                 </div>
                                 <div className="form-group my-4">
@@ -116,7 +123,7 @@ const Register = () => {
                                             <div className="spinner-border" role="status"></div>
                                         </button>
                                     )}
-                                    {!loading && <button type="submit" className="btn btn-orange py-2">Daftar</button>}
+                                    {!loading && <button type="submit" className="btn btn-orange py-2" disabled={passwordScore < 2}>Daftar</button>}
                                 </div>
                             </form>
                             <div className="form-group text-center mt-4">
