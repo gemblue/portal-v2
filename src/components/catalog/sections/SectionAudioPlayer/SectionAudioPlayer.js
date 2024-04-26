@@ -76,52 +76,103 @@ const SectionAudioPlayer = ({ audios }) => {
             );
           })}
         </div> */}
-        <table className="table">
-          <thead className="bg-light">
-            <tr>
-              <th>NO</th>
-              <th>AUDIO</th>
-              <th>JUDUL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {audios
-              .filter((audio) => audio.chapter == tabActive.chapter)
-              .map((item, index) => {
-                return (
-                  <tr key={index}>
-                    <td
-                      width={1}
-                      align="center"
-                      style={{ verticalAlign: "middle" }}
-                    >
-                      {index + 1}
-                    </td>
-                    <td width="40%" className="p-2">
-                      <ReactAudioPlayer
-                        className="w-100 bg-transparent"
-                        src={item.attachment}
-                        controls
-                        key={index}
-                        ref={(element) => (audioEl.current[index] = element)}
-                        onPlay={() => {
-                          setPlayedAudio((prev) => {
-                            if (!isNaN(prev) && index !== prev) {
-                              const audioElm =
-                                audioEl?.current[prev]?.audioEl?.current;
-                              audioElm?.pause();
-                            }
-                            return index;
-                          });
-                        }}
-                      />
-                    </td>
-                    <td style={{ verticalAlign: "middle" }}>{item.title}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+
+        <div className="d-block d-md-none">
+          <table className="table text-center">
+            <thead className="bg-light">
+              <tr>
+                <th>NO</th>
+                <th>JUDUL & AUDIO</th>
+              </tr>
+            </thead>
+            <tbody>
+              {audios
+                .filter((audio) => audio.chapter == tabActive.chapter)
+                .map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td
+                        width={1}
+                        align="center"
+                        style={{ verticalAlign: "top" }}
+                      >
+                        {index + 1}
+                      </td>
+                      <td width="100%" className="p-2">
+                        <div className="mb-2 fw-bold">{item.title}</div>
+                        <ReactAudioPlayer
+                          className="w-100 bg-transparent"
+                          src={item.attachment}
+                          controls
+                          key={index}
+                          ref={(element) => (audioEl.current[index] = element)}
+                          onPlay={() => {
+                            setPlayedAudio((prev) => {
+                              if (!isNaN(prev) && index !== prev) {
+                                const audioElm =
+                                  audioEl?.current[prev]?.audioEl?.current;
+                                audioElm?.pause();
+                              }
+                              return index;
+                            });
+                          }}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="d-none d-md-block">
+          <table className="table">
+            <thead className="bg-light">
+              <tr>
+                <th>NO</th>
+                <th>AUDIO</th>
+                <th>JUDUL</th>
+              </tr>
+            </thead>
+            <tbody>
+              {audios
+                .filter((audio) => audio.chapter == tabActive.chapter)
+                .map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <td
+                        width={1}
+                        align="center"
+                        style={{ verticalAlign: "middle" }}
+                      >
+                        {index + 1}
+                      </td>
+                      <td width="40%" className="p-2">
+                        <ReactAudioPlayer
+                          className="w-100 bg-transparent"
+                          src={item.attachment}
+                          controls
+                          key={index}
+                          ref={(element) => (audioEl.current[index] = element)}
+                          onPlay={() => {
+                            setPlayedAudio((prev) => {
+                              if (!isNaN(prev) && index !== prev) {
+                                const audioElm =
+                                  audioEl?.current[prev]?.audioEl?.current;
+                                audioElm?.pause();
+                              }
+                              return index;
+                            });
+                          }}
+                        />
+                      </td>
+                      <td style={{ verticalAlign: "middle" }}>{item.title}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );
