@@ -234,7 +234,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                 
                 }
             </Modal>
-            <div className="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+            <div className="modal fade" id="reportModal" tabIndex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content bg-">
                         <div className="modal-header bg-warning">
@@ -270,7 +270,7 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+            <div className="modal fade" id="downloadModal" tabIndex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content bg-">
                         <div className="modal-header bg-light text-white">
@@ -312,14 +312,14 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="hetModal" tabindex="-1" aria-labelledby="hetModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-light">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="hetModalLabel">Daftar HET</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="hetModal" tabIndex="-1" aria-labelledby="hetModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content bg-light">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="hetModalLabel">Daftar HET</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <table className="table table-striped">
                                 <tbody>
                                     <tr>
@@ -353,15 +353,15 @@ const HeroDetail = ({ category, price_zone_1, price_zone_2, price_zone_3, price_
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="zonaModal" data-bs-backdrop="static">
-                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Keterangan Zona</h5>
-                            {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
+            <div className="modal fade" id="zonaModal" data-bs-backdrop="static">
+                <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Keterangan Zona</h5>
+                            {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
                             <button type="button" className="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#hetModal">Kembali</button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <table className="table table-striped">
                                 <tbody>
                                     <tr>

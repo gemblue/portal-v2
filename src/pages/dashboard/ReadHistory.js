@@ -36,7 +36,7 @@ const ReadHistory = () => {
                 loading
                     ? (
                         <div className="text-center">
-                            <div class="spinner-border" role="status"></div>
+                            <div className="spinner-border" role="status"></div>
                             <div>Sedang memuat data</div>
                         </div>
                     )

@@ -96,9 +96,9 @@ const Register = () => {
                                         <label className="form-label fw-bold float-start">KATA SANDI</label>
                                         <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
-                                    <div class="input-group mb-3">
+                                    <div className="input-group mb-3">
                                         <input type={showPassword ? 'text' : 'password'} {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Masukan kata sandi" />
-                                        <span onClick={() => setShowPassword(!showPassword)} class="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
+                                        <span onClick={() => setShowPassword(!showPassword)} className="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
                                             {showPassword ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
                                         </span>
                                     </div>
@@ -109,9 +109,9 @@ const Register = () => {
                                     <div>
                                         <label className="form-label fw-bold">ULANGI KATA SANDI</label>
                                     </div>
-                                    <div class="input-group mb-3">
+                                    <div className="input-group mb-3">
                                         <input type={showConfirmPassword ? 'text' : 'password'} {...register('confirm_password', { required: true })} className="form-control" placeholder="Masukan ulang kata sandi" />
-                                        <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} class="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
+                                        <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="input-group-text" style={{ cursor: 'pointer' }} id="basic-addon2">
                                             {showConfirmPassword ? (<FontAwesomeIcon icon={faEye} />) : (<FontAwesomeIcon icon={faEyeSlash} />)}
                                         </span>
                                     </div>

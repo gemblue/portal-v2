@@ -68,20 +68,20 @@ const Profile = () => {
 
             {
                 success && (
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div className="alert alert-success alert-dismissible fade show" role="alert">
                         <FontAwesomeIcon icon={faCheckCircle} />
                         <span className="ms-2">Data profil berhasil diupdate</span>
-                        <button onClick={() => setSuccess(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button onClick={() => setSuccess(false)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 )
             }
 
             {
                 error && (
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div className="alert alert-danger alert-dismissible fade show" role="alert">
                         <FontAwesomeIcon icon={faTimesCircle} />
                         <span className="ms-2">Data profil gagal diupdate</span>
-                        <button onClick={() => setError(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button onClick={() => setError(false)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 )
             }
@@ -132,7 +132,7 @@ const Profile = () => {
                 </div> */}
                 <div className="form-group text-end">
                     <button className="btn btn-orange">
-                        {loading ? (<div class="spinner-border spinner-border-sm" role="status"></div>) : 'Simpan'}
+                        {loading ? (<div className="spinner-border spinner-border-sm" role="status"></div>) : 'Simpan'}
                     </button>
                 </div>
             </form>
