@@ -1,3 +1,5 @@
+import { faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
@@ -18,21 +20,31 @@ const SectionAudioPlayer = ({ audios }) => {
   const audioEl = useRef([]);
   const [playedAudio, setPlayedAudio] = useState(null);
 
+  // Set current time played audio
+  const setCurrentTime = (index, type) => {
+   
+    let time = type == 'prev' ? -5 : 5;
+    const audioElm = audioEl?.current[index]?.audioEl?.current;
+    audioElm.currentTime += time
+    audioElm.play()
+  }
+
+  let windowSize = window.innerWidth
   return (
     <section id="audioPlayer">
       <div className="container p-3">
         <h4>Pemutar Audio</h4>
         <div className="d-flex gap-3 align-items-center">
-          <div class="dropdown my-3">
+          <div className="dropdown my-3">
             <button
-              class="btn btn-outline-primary dropdown-toggle"
+              className="btn btn-outline-primary dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Pilih Bab
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               {chapters.map((chapter, index) => {
                 return (
                   <li
@@ -44,9 +56,9 @@ const SectionAudioPlayer = ({ audios }) => {
                   >
                     {
                       chapter.chapter == '-' || chapter.chapter == '0' ? (
-                        <a class="dropdown-item">Identitas Buku</a>
+                        <a className="dropdown-item">Identitas Buku</a>
                       ) : (
-                        <a class="dropdown-item">Bab {chapter.chapter}</a>
+                        <a className="dropdown-item">Bab {chapter.chapter}</a>
                       )
                     }
                   </li>
@@ -77,7 +89,8 @@ const SectionAudioPlayer = ({ audios }) => {
           })}
         </div> */}
 
-        <div className="d-block d-md-none">
+        {
+          windowSize < 1024 ? (
           <table className="table text-center">
             <thead className="bg-light">
               <tr>
@@ -117,15 +130,18 @@ const SectionAudioPlayer = ({ audios }) => {
                             });
                           }}
                         />
+                        <div className="d-flex justify-content-center gap-2">
+                          <button onClick={() => setCurrentTime(index, 'prev')} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faBackward} /> 5 Detik</button>
+                          <button onClick={() => setCurrentTime(index, 'next')} className="btn btn-sm btn-outline-primary">5 Detik <FontAwesomeIcon icon={faForward} /></button>
+                        </div>
                       </td>
                     </tr>
                   );
                 })}
             </tbody>
           </table>
-        </div>
-
-        <div className="d-none d-md-block">
+            
+          ) : (
           <table className="table">
             <thead className="bg-light">
               <tr>
@@ -165,6 +181,10 @@ const SectionAudioPlayer = ({ audios }) => {
                             });
                           }}
                         />
+                        <div className="d-flex justify-content-center gap-2">
+                          <button onClick={() => setCurrentTime(index, 'prev')} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faBackward} /> 5 Detik</button>
+                          <button onClick={() => setCurrentTime(index, 'next')} className="btn btn-sm btn-outline-primary">5 Detik <FontAwesomeIcon icon={faForward} /></button>
+                        </div>
                       </td>
                       <td style={{ verticalAlign: "middle" }}>{item.title}</td>
                     </tr>
@@ -172,7 +192,9 @@ const SectionAudioPlayer = ({ audios }) => {
                 })}
             </tbody>
           </table>
-        </div>
+          )
+        }
+
       </div>
     </section>
   );
