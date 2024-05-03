@@ -94,7 +94,7 @@ const Register = () => {
                                 <div className="form-group my-4">
                                     <div>
                                         <label className="form-label fw-bold float-start">KATA SANDI</label>
-                                        <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
+                                        <label className="form-label float-end"><Link to="/lupa-sandi" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
                                     <div className="input-group mb-3">
                                         <input type={showPassword ? 'text' : 'password'} {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Masukan kata sandi" />

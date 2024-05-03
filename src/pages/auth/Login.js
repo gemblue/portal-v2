@@ -87,7 +87,7 @@ const Login = () => {
                                 <div className="form-group my-4">
                                     <div>
                                         <label className="form-label fw-bold float-start">KATA SANDI</label>
-                                        <label className="form-label float-end"><Link to="/forgot-password" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
+                                        <label className="form-label float-end"><Link to="/lupa-sandi" className="text-blue text-decoration-none">LUPA KATA SANDI?</Link></label>
                                     </div>
                                     <div className="input-group">
                                         <input {...register('password', { required: true })} type={showPassword ? 'text' : 'password'} className="form-control border-end-0" placeholder="Masukan kata sandi" />
