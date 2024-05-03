@@ -31,8 +31,7 @@ const Footer = ({ guide }) => {
                                 <div className="col-md-6">
                                     <a className="nav-link" target="_blank" rel="noreferrer" href="https://app.buku.kemdikbud.go.id/kebijakan">Kebijakan</a>
                                     <a className="nav-link" target="_blank" rel="noreferrer" href="https://app.buku.kemdikbud.go.id/pelaku/pembinaan">Pembinaan</a>
-                                    <a className="nav-link" target="_blank" rel="noreferrer" href="https://pusbuk.kemdikbud.go.id">Profil</a>
-
+                                    
                                 </div>
                             </div>
                         </ul>
